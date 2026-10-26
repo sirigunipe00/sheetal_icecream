@@ -1,0 +1,42 @@
+name: blinkit_clone
+description: "A 10-minute grocery delivery app."
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.0
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_bloc: ^9.1.1
+  equatable: ^3.0.0
+  firebase_core: ^4.15.0
+  flutter_launcher_icons: ^0.14.4
+  firebase_crashlytics: ^5.4.0
+  supabase_flutter: ^2.18.3
+  flutter_dotenv: ^6.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  fonts:
+    - family: DM Sans
+      fonts:
+        - asset: assets/fonts/DMSans.ttf
+
+  assets:
+    - .env
+    - assets/images/
+
+flutter_launcher_icons:
+    android: true
+    ios: true
+    image_path: "assets/images/logo.png"

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "449315124193",
+    "project_id": "sheetal-1430e",
+    "storage_bucket": "sheetal-1430e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449315124193:android:8824e9fa2429afde1618a0",
+        "android_client_info": {
+          "package_name": "in.easycloud.sheetal_ice_creams"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5_RRVQCO7fmZs09fZXXqybtAV3ITQmeg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

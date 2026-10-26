@@ -1,0 +1,26 @@
+id,name,price,category,unit,image_url,is_new
+100,Ring,30,Snacks,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Ring.png,false
+101,Sago Ball,20,Snacks,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sago-Ball.png,false
+102,Tomato Crunch,25,Snacks,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Tomato-Crunch.png,false
+103,Tomato Moon Chips,30,Snacks,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Tomato-Moon-Chips.png,false
+104,Tomato Wheels,20,Snacks,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Tomato-Wheels.png,false
+105,Aloo Paratha,80,Ready To Eat & Ready To Cook,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Aloo.png,false
+106,Cheese Chilli Naan,85,Ready To Eat & Ready To Cook,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cheese-Chilli-naan--845x1024.png,false
+107,Sandiwich,90,Ready To Eat & Ready To Cook,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sandiwich-Box-1-.png,false
+108,Butter Khari,60,Bakery,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Butter-Khari.png,false
+109,Jeera Khari,65,Bakery,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Jeera-Khari.png,false
+110,Masala Khari,70,Bakery,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Masala-Khari.png,false
+111,Methi Khari,60,Bakery,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Methi-Khari.png,false
+112,Palak Khari,65,Bakery,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Palak-Khari.png,false
+113,Cold Coco,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cold-Coco-337x1024.png,false
+114,Cold Coffee,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cold-Coffee-337x1024.png,false
+115,Elaichi,35,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Elaichi_New-1.png,false
+116,Kesar,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
+117,Kulfi,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kadai-Kulfi-new.png,false
+118,Rose,35,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Rose_New-337x1024.png,false
+119,Dark Compound,50,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Dark-Compound.png,false
+120,Fruit & Nut,55,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Fruit-Nut.png,false
+121,Milk Compound,60,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Milk-Compound-1.png,false
+122,Roasted Chocolate,50,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Roasted-Chocolate.png,false
+123,Gulab Jamun,120,Sweets,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Gulab-Jamun_Mockup.png,false
+124,Rasgulla,125,Sweets,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Rasgulla_Mockup.png,false
