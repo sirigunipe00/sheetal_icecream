@@ -13,6 +13,7 @@ class CatalogState extends Equatable {
     this.wishlist = const {},
     this.sortBy = 'rel',
     this.selectedSegment = 'Ice Cream',
+    this.openedCategory,
     this.loading = false,
     this.error,
   });
@@ -26,6 +27,9 @@ class CatalogState extends Equatable {
   final Set<int> wishlist;
   final String sortBy;
   final String selectedSegment;
+
+  /// Category listing opened from the Categories tab. Null stays on the grid.
+  final String? openedCategory;
   final bool loading;
   final String? error;
 
@@ -68,6 +72,8 @@ class CatalogState extends Equatable {
     Set<int>? wishlist,
     String? sortBy,
     String? selectedSegment,
+    String? openedCategory,
+    bool clearOpenedCategory = false,
     bool? loading,
     Object? error = _keepError,
   }) {
@@ -81,6 +87,8 @@ class CatalogState extends Equatable {
       wishlist: wishlist ?? this.wishlist,
       sortBy: sortBy ?? this.sortBy,
       selectedSegment: selectedSegment ?? this.selectedSegment,
+      openedCategory:
+          clearOpenedCategory ? null : (openedCategory ?? this.openedCategory),
       loading: loading ?? this.loading,
       error: identical(error, _keepError) ? this.error : error as String?,
     );
@@ -99,6 +107,7 @@ class CatalogState extends Equatable {
         wishlist,
         sortBy,
         selectedSegment,
+        openedCategory,
         loading,
         error,
       ];

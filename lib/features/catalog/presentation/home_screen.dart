@@ -8,6 +8,8 @@ import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
 import 'package:sheetal_icecream/features/catalog/presentation/widgets/product_card.dart';
 import 'package:sheetal_icecream/features/profile/presentation/profile_bottom_sheet.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,6 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _scroll.dispose();
     _search.dispose();
     super.dispose();
+  }
+
+  void _openCategoryPage(String category) {
+    context.read<CatalogCubit>().openCategory(category);
+    context.read<ShellCubit>().select(AppTab.categories);
   }
 
   void _selectCategory(String category) {
@@ -84,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // 4. Shop by Category Circular Rings (Only category view on home screen)
             SliverToBoxAdapter(
               child: _ShopByCategory(
-                onCategory: _selectCategory,
+                onCategory: _openCategoryPage,
                 selectedCategory: catalog.category,
                 categories: catalog.categories,
                 categoryImages: catalog.categoryImages,

@@ -4,8 +4,7 @@ import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/core/widgets/category_image.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
-import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
-import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/category_products_view.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -27,6 +26,11 @@ class CategoriesScreen extends StatelessWidget {
                     ),
             ),
           );
+        }
+
+        final opened = state.openedCategory;
+        if (opened != null) {
+          return CategoryProductsView(category: opened);
         }
 
         final currentSegment = segments.firstWhere(
@@ -130,8 +134,7 @@ class CategoriesScreen extends StatelessWidget {
 
                     return GestureDetector(
                       onTap: () {
-                        context.read<CatalogCubit>().selectCategory(cat);
-                        context.read<ShellCubit>().select(AppTab.home);
+                        context.read<CatalogCubit>().openCategory(cat);
                       },
                       child: Container(
                         decoration: BoxDecoration(

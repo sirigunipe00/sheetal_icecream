@@ -95,6 +95,14 @@ class CatalogCubit extends Cubit<CatalogState> {
     emit(state.copyWith(category: category));
   }
 
+  void openCategory(String category) {
+    emit(state.copyWith(openedCategory: category));
+  }
+
+  void closeCategory() {
+    emit(state.copyWith(clearOpenedCategory: true));
+  }
+
   void search(String query) {
     emit(state.copyWith(query: query.trim().toLowerCase()));
   }
