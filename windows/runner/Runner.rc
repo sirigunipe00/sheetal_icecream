@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "blinkit_clone" "\0"
+            VALUE "FileDescription", "sheetal_icecream" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "blinkit_clone" "\0"
+            VALUE "InternalName", "sheetal_icecream" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "blinkit_clone.exe" "\0"
-            VALUE "ProductName", "blinkit_clone" "\0"
+            VALUE "OriginalFilename", "sheetal_icecream.exe" "\0"
+            VALUE "ProductName", "sheetal_icecream" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

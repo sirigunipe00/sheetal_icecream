@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_theme.dart';
-import 'package:blinkit_clone/data/catalog/catalog_repository.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/cart/cubit/orders_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_cubit.dart';
-import 'package:blinkit_clone/features/shell/presentation/app_shell.dart';
-import 'package:blinkit_clone/features/splash/presentation/splash_screen.dart';
+import 'package:sheetal_icecream/core/theme/app_theme.dart';
+import 'package:sheetal_icecream/data/catalog/catalog_repository.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/cart/cubit/orders_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/presentation/app_shell.dart';
+import 'package:sheetal_icecream/features/splash/presentation/splash_screen.dart';
 
 class SheetalApp extends StatefulWidget {
   const SheetalApp({super.key, this.showSplash = true});

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/core/widgets/quantity_stepper.dart';
-import 'package:blinkit_clone/data/models/product.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_state.dart';
-import 'package:blinkit_clone/features/catalog/presentation/product_detail_sheet.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/widgets/product_image.dart';
+import 'package:sheetal_icecream/core/widgets/quantity_stepper.dart';
+import 'package:sheetal_icecream/data/models/product.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/product_detail_sheet.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
@@ -53,53 +54,11 @@ class ProductCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   clipBehavior: Clip.antiAlias,
-                  child: Center(
-                    child: product.image != null && product.image!.isNotEmpty
-                        ? Padding(
-                            padding: const EdgeInsets.all(6),
-                            child: product.image!.startsWith('http')
-                                ? Image.network(
-                                    product.image!,
-                                    fit: BoxFit.contain,
-                                    loadingBuilder: (context, child, progress) {
-                                      if (progress == null) return child;
-                                      return const Center(
-                                        child: SizedBox(
-                                          width: 22,
-                                          height: 22,
-                                          child: CircularProgressIndicator(
-                                            strokeWidth: 2,
-                                            color: AppColors.primary,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                    errorBuilder: (_, __, ___) => Text(
-                                      product.initial,
-                                      style: const TextStyle(
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.w800,
-                                        color: AppColors.primary,
-                                      ),
-                                    ),
-                                  )
-                                : Text(
-                                    product.initial,
-                                    style: const TextStyle(
-                                      fontSize: 32,
-                                      fontWeight: FontWeight.w800,
-                                      color: AppColors.primary,
-                                    ),
-                                  ),
-                          )
-                        : Text(
-                            product.initial,
-                            style: const TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w800,
-                              color: AppColors.primary,
-                            ),
-                          ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Center(
+                      child: ProductImage(product: product, showProgress: true),
+                    ),
                   ),
                 ),
 

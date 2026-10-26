@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/cart/cubit/orders_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/cart/cubit/orders_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});

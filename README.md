@@ -1,4 +1,4 @@
-# blinkit_clone
+# sheetal_icecream
 
 A new Flutter project.
 

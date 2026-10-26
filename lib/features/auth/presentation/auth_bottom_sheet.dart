@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
 
 class AuthBottomSheet extends StatefulWidget {
   const AuthBottomSheet({super.key, this.onSuccess});

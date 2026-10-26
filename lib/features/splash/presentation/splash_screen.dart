@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/features/shell/presentation/app_shell.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/features/shell/presentation/app_shell.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key, this.duration = const Duration(milliseconds: 2400)});

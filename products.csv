@@ -1,5 +1,5 @@
 id,name,price,category,unit,image_url,is_new
-0,Butterscotch Waffle Cone,55,Cones,110 ml,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Nutty-Butterscotch-658x1024.png,false
+0,Butterscotch Waffle Cone,55,Cones,110 ml,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cone-Nutty-Butterscotch.png,false
 1,Natural Cup Alphonso Mango,90,Natural Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Alphonso-Mango.png,false
 2,Natural Cup Custard Apple,95,Natural Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Custard-Apple.png,false
 3,Natural Cup Jamun,100,Natural Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Jamun.png,false
@@ -11,16 +11,16 @@ id,name,price,category,unit,image_url,is_new
 9,Jumbo Cup Vanilla,250,Jumbo Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Vanilla.png,false
 10,Big Cup American Dryfruits,120,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/American-Dryfruits1.png,false
 11,Big Cup Authentik Kulfi,125,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Authentik-Kulfi.png,false
-12,Big Cup Butterscotch,130,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Nutty-Butterscotch-658x1024.png,false
+12,Big Cup Butterscotch,130,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Big-Cup-Butterscotch.png,false
 13,Big Cup Cookies & Cream,120,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cookies-Cream.png,false
 14,Big Cup Creamy Bastani,125,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Creamy-Bastani.png,false
-15,Big Cup Kaju Draksh,130,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kaju-Draksh-658x1024.png,false
+15,Big Cup Kaju Draksh,130,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Big-Cup-Kaju-Draksh.png,false
 16,Big Cup Kesar Pista,120,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
 17,Big Cup Mawa Badam,125,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Mawa-Badam-.png,false
 18,Big Cup Rajbhog,240,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Rajbhog.png,false
 19,Big Cup Strawberry,120,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Strawberry.png,false
-20,Big Cup Sugar Free,125,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sugar-Free1-01.png,false
-21,Big Cup Sugar Free Kesar Pista,130,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
+20,Big Cup Sugar Free,125,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Big-Cup-Sugar-Free-Vanilla.png,false
+21,Big Cup Sugar Free Kesar Pista,130,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Big-Cup-Sugar-Free-Kesar-Pista.png,false
 22,Big Cup Tripal Chocolate,120,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Tripal-Chocolate.png,false
 23,Big Cup Vanilla,125,Big Cup,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Vanilla.png,false
 24,Ripple Special Chocolate Cyclone,160,Ripple Special,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Chocolate-Cyclone.png,false
@@ -28,7 +28,7 @@ id,name,price,category,unit,image_url,is_new
 26,Ripple Funday,170,Ripple Special,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Ripple-Funday.png,false
 27,Kulfi Anjeer Kulfi,50,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Anjeer-Kulfi.png,false
 28,Kulfi Bombay Chowpati,55,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Bombay-Chowpati.png,false
-29,Kulfi Jamun,60,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Jamun.png,false
+29,Kulfi Jamun,60,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kulfi-Jamun.png,false
 30,Kulfi Kadai Kulfi,50,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kadai-Kulfi-new.png,false
 31,Royal Malai Kulfi,55,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Malai-Kulfi.png,false
 32,Kulfi Punjab Di Kulfi,60,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Punjab-Di-Kulfi.png,false
@@ -38,7 +38,7 @@ id,name,price,category,unit,image_url,is_new
 36,Kulfi Sugar Free,50,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sugar-Free1-01.png,false
 37,Kulfi Traditional Kulfi,55,Kulfi,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Traditional-Kulfi.png,false
 38,Candy Almond Chocobar,40,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Almond-Chocobar-1024x488.png,false
-39,Candy Alphonso Mango,45,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Alphonso-Mango.png,false
+39,Candy Alphonso Mango,45,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Candy-Alphonso-Mango.png,false
 40,Candy Baklava Pistachio,50,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Baklava-Pistachio-1024x454.png,false
 41,Candy Choco Sparkle,40,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Choco-Sparkle-1024x410.png,false
 42,Candy Frostick,45,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Frostick-1024x476.png,false
@@ -48,7 +48,7 @@ id,name,price,category,unit,image_url,is_new
 46,Candy Kachi Keri,50,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kachi-Keri-1024x410.png,false
 47,Candy Mini Mega Bite,40,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Mini-Mega-Bite-1024x488.png,false
 48,Candy Premium Mawa Malai,45,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Premium-Mawa-Malai-1024x410.png,false
-49,Candy Rajbhog,50,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Rajbhog.png,false
+49,Candy Rajbhog,50,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Candy-Rajbhog.png,false
 50,Candy Tender Coconut Salted Caramel,40,Candy,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Tender-Coconut-Salted-Caramel-1024x452.png,false
 51,Cones 2 in One,65,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/2-in-One-658x1024.png,false
 52,Cones American Nuts,70,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/American-Nuts-Cone2-580x1024.png,false
@@ -60,16 +60,16 @@ id,name,price,category,unit,image_url,is_new
 58,Cones Dark Choco,70,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Dark-Choco-580x1024.png,true
 59,Cones Disc Cone,75,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Disc-Cone-658x1024.png,false
 60,Cones Kaju Draksh,65,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kaju-Draksh-658x1024.png,false
-61,Cones Kesar,70,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
-62,Cones Kesar Pista,75,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
-63,Cones Salted Caramel,70,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Tender-Coconut-Salted-Caramel-1024x452.png,false
-64,Cookies Sandwich,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sandiwich-Box-1-.png,true
+61,Cones Kesar,70,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cone-Kesar.png,false
+62,Cones Kesar Pista,75,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cone-Kesar-Pista.png,false
+63,Cones Salted Caramel,70,Cones,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cone-Salted-Caramel.png,false
+64,Cookies Sandwich,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cookies-Sandwich.png,true
 65,Double Sundae,90,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Double-Sundae.png,false
 66,Matka Kulfi,95,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Matka-Kulfi.png,true
-67,Nutty Roll Cut,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/logo.png,false
+67,Nutty Roll Cut,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Nutty-Roll-Cut.png,false
 68,Pista Malai Matka,90,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Pista-Malai-Matka.png,false
 69,Ras Malai Matka,95,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Ras-Malai-Matka.png,false
-70,Sandwich Ice Cream,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sandiwich-Box-1-.png,false
+70,Sandwich Ice Cream,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Sandwich-Ice-Cream.png,false
 71,Single Sundae,90,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Single-Sundae.png,false
 72,Slice Cassata,95,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Slice-Cassata.png,false
 73,Traditional Cassata,85,Novelties,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Traditional-Cassata.png,false
@@ -115,8 +115,8 @@ id,name,price,category,unit,image_url,is_new
 113,Cold Coco,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cold-Coco-337x1024.png,false
 114,Cold Coffee,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cold-Coffee-337x1024.png,false
 115,Elaichi,35,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Elaichi_New-1.png,false
-116,Kesar,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
-117,Kulfi,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kadai-Kulfi-new.png,false
+116,Kesar,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar_New-337x1024.png,false
+117,Kulfi,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kulfi-_-New--337x1024.png,false
 118,Rose,35,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Rose_New-337x1024.png,false
 119,Dark Compound,50,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Dark-Compound.png,false
 120,Fruit & Nut,55,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Fruit-Nut.png,false

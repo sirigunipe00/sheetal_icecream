@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:blinkit_clone/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
 
 class QuantityStepper extends StatelessWidget {
   const QuantityStepper({

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_state.dart';
-import 'package:blinkit_clone/features/catalog/presentation/widgets/product_card.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/widgets/product_card.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
 class WishlistScreen extends StatelessWidget {
   const WishlistScreen({super.key});

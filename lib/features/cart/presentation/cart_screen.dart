@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/core/widgets/dashed_line.dart';
-import 'package:blinkit_clone/core/widgets/product_thumb.dart';
-import 'package:blinkit_clone/core/widgets/quantity_stepper.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_state.dart';
-import 'package:blinkit_clone/features/cart/presentation/checkout_screen.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/widgets/dashed_line.dart';
+import 'package:sheetal_icecream/core/widgets/product_thumb.dart';
+import 'package:sheetal_icecream/core/widgets/quantity_stepper.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
+import 'package:sheetal_icecream/features/cart/presentation/checkout_screen.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

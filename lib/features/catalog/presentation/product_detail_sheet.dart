@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/data/models/product.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_state.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/widgets/product_image.dart';
+import 'package:sheetal_icecream/data/models/product.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
 
 class ProductDetailSheet extends StatefulWidget {
   const ProductDetailSheet({super.key, required this.product});
@@ -105,40 +106,11 @@ class _ProductDetailSheetState extends State<ProductDetailSheet> {
                       border: Border.all(color: AppColors.borderPink),
                     ),
                     padding: const EdgeInsets.all(16),
-                    child: product.image != null && product.image!.startsWith('http')
-                        ? Image.network(
-                            product.image!,
-                            fit: BoxFit.contain,
-                            loadingBuilder: (context, child, progress) {
-                              if (progress == null) return child;
-                              return const Center(
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2.5,
-                                  color: AppColors.primary,
-                                ),
-                              );
-                            },
-                            errorBuilder: (_, __, ___) => Center(
-                              child: Text(
-                                product.initial,
-                                style: const TextStyle(
-                                  fontSize: 48,
-                                  fontWeight: FontWeight.w800,
-                                  color: AppColors.primary,
-                                ),
-                              ),
-                            ),
-                          )
-                        : Center(
-                            child: Text(
-                              product.initial,
-                              style: const TextStyle(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w800,
-                                color: AppColors.primary,
-                              ),
-                            ),
-                          ),
+                    child: ProductImage(
+                      product: product,
+                      fontSize: 48,
+                      showProgress: true,
+                    ),
                   ),
 
                   const SizedBox(height: 16),

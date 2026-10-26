@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/features/auth/presentation/auth_bottom_sheet.dart';
-import 'package:blinkit_clone/services/supabase_service.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/features/auth/presentation/auth_bottom_sheet.dart';
+import 'package:sheetal_icecream/services/supabase_service.dart';
 
 class ProfileBottomSheet extends StatefulWidget {
   const ProfileBottomSheet({super.key});

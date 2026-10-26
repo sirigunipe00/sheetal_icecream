@@ -37,7 +37,7 @@ on conflict (id) do nothing;
 insert into public.products
   (id, legacy_key, category_id, name, description, image_path, is_new, best_seller_rank)
 overriding system value values
-  (0, '6|Butterscotch Waffle Cone', 'cones', 'Butterscotch Waffle Cone', null, 'products/Nutty-Butterscotch-658x1024.png', false, null),
+  (0, '6|Butterscotch Waffle Cone', 'cones', 'Butterscotch Waffle Cone', null, 'products/Cone-Nutty-Butterscotch.png', false, null),
   (1, '0|Alphonso Mango', 'natural-cup', 'Natural Cup Alphonso Mango', null, 'products/Alphonso-Mango.png', false, 4),
   (2, '0|Custard Apple', 'natural-cup', 'Natural Cup Custard Apple', null, 'products/Custard-Apple.png', false, null),
   (3, '0|Jamun', 'natural-cup', 'Natural Cup Jamun', null, 'products/Jamun.png', false, null),
@@ -49,16 +49,16 @@ overriding system value values
   (9, '1|Vanilla', 'jumbo-cup', 'Jumbo Cup Vanilla', null, 'products/Vanilla.png', false, null),
   (10, '2|American Dryfruits', 'big-cup', 'Big Cup American Dryfruits', null, 'products/American-Dryfruits1.png', false, null),
   (11, '2|Authentik Kulfi', 'big-cup', 'Big Cup Authentik Kulfi', null, 'products/Authentik-Kulfi.png', false, null),
-  (12, '2|Butterscotch', 'big-cup', 'Big Cup Butterscotch', null, 'products/Nutty-Butterscotch-658x1024.png', false, 7),
+  (12, '2|Butterscotch', 'big-cup', 'Big Cup Butterscotch', null, 'products/Big-Cup-Butterscotch.png', false, 7),
   (13, '2|Cookies & Cream', 'big-cup', 'Big Cup Cookies & Cream', null, 'products/Cookies-Cream.png', false, null),
   (14, '2|Creamy Bastani', 'big-cup', 'Big Cup Creamy Bastani', null, 'products/Creamy-Bastani.png', false, null),
-  (15, '2|Kaju Draksh', 'big-cup', 'Big Cup Kaju Draksh', null, 'products/Kaju-Draksh-658x1024.png', false, null),
+  (15, '2|Kaju Draksh', 'big-cup', 'Big Cup Kaju Draksh', null, 'products/Big-Cup-Kaju-Draksh.png', false, null),
   (16, '2|Kesar Pista', 'big-cup', 'Big Cup Kesar Pista', null, 'products/Kesar-Pista.png', false, 2),
   (17, '2|Mawa Badam', 'big-cup', 'Big Cup Mawa Badam', null, 'products/Mawa-Badam-.png', false, null),
   (18, '2|Rajbhog', 'big-cup', 'Big Cup Rajbhog', null, 'products/Rajbhog.png', false, 1),
   (19, '2|Strawberry', 'big-cup', 'Big Cup Strawberry', null, 'products/Strawberry.png', false, null),
-  (20, '2|Sugar Free', 'big-cup', 'Big Cup Sugar Free', null, 'products/Sugar-Free1-01.png', false, null),
-  (21, '2|Sugar Free Kesar Pista', 'big-cup', 'Big Cup Sugar Free Kesar Pista', null, 'products/Kesar-Pista.png', false, null),
+  (20, '2|Sugar Free', 'big-cup', 'Big Cup Sugar Free', null, 'products/Big-Cup-Sugar-Free-Vanilla.png', false, null),
+  (21, '2|Sugar Free Kesar Pista', 'big-cup', 'Big Cup Sugar Free Kesar Pista', null, 'products/Big-Cup-Sugar-Free-Kesar-Pista.png', false, null),
   (22, '2|Tripal Chocolate', 'big-cup', 'Big Cup Tripal Chocolate', null, 'products/Tripal-Chocolate.png', false, null),
   (23, '2|Vanilla', 'big-cup', 'Big Cup Vanilla', null, 'products/Vanilla.png', false, null),
   (24, '3|Chocolate Cyclone', 'ripple-special', 'Ripple Special Chocolate Cyclone', null, 'products/Chocolate-Cyclone.png', false, null),
@@ -66,7 +66,7 @@ overriding system value values
   (26, '3|Ripple Funday', 'ripple-special', 'Ripple Funday', null, 'products/Ripple-Funday.png', false, null),
   (27, '4|Anjeer Kulfi', 'kulfi', 'Kulfi Anjeer Kulfi', null, 'products/Anjeer-Kulfi.png', false, null),
   (28, '4|Bombay Chowpati', 'kulfi', 'Kulfi Bombay Chowpati', null, 'products/Bombay-Chowpati.png', false, null),
-  (29, '4|Jamun', 'kulfi', 'Kulfi Jamun', null, 'products/Jamun.png', false, null),
+  (29, '4|Jamun', 'kulfi', 'Kulfi Jamun', null, 'products/Kulfi-Jamun.png', false, null),
   (30, '4|Kadai Kulfi', 'kulfi', 'Kulfi Kadai Kulfi', null, 'products/Kadai-Kulfi-new.png', false, null),
   (31, '4|Malai Kulfi', 'kulfi', 'Royal Malai Kulfi', null, 'products/Malai-Kulfi.png', false, null),
   (32, '4|Punjab Di Kulfi', 'kulfi', 'Kulfi Punjab Di Kulfi', null, 'products/Punjab-Di-Kulfi.png', false, 3),
@@ -76,7 +76,7 @@ overriding system value values
   (36, '4|Sugar Free', 'kulfi', 'Kulfi Sugar Free', null, 'products/Sugar-Free1-01.png', false, null),
   (37, '4|Traditional Kulfi', 'kulfi', 'Kulfi Traditional Kulfi', null, 'products/Traditional-Kulfi.png', false, null),
   (38, '5|Almond Chocobar', 'candy', 'Candy Almond Chocobar', null, 'products/Almond-Chocobar-1024x488.png', false, null),
-  (39, '5|Alphonso Mango', 'candy', 'Candy Alphonso Mango', null, 'products/Alphonso-Mango.png', false, null),
+  (39, '5|Alphonso Mango', 'candy', 'Candy Alphonso Mango', null, 'products/Candy-Alphonso-Mango.png', false, null),
   (40, '5|Baklava Pistachio', 'candy', 'Candy Baklava Pistachio', null, 'products/Baklava-Pistachio-1024x454.png', false, null),
   (41, '5|Choco Sparkle', 'candy', 'Candy Choco Sparkle', null, 'products/Choco-Sparkle-1024x410.png', false, null),
   (42, '5|Frostick', 'candy', 'Candy Frostick', null, 'products/Frostick-1024x476.png', false, null),
@@ -86,7 +86,7 @@ overriding system value values
   (46, '5|Kachi Keri', 'candy', 'Candy Kachi Keri', null, 'products/Kachi-Keri-1024x410.png', false, null),
   (47, '5|Mini Mega Bite', 'candy', 'Candy Mini Mega Bite', null, 'products/Mini-Mega-Bite-1024x488.png', false, null),
   (48, '5|Premium Mawa Malai', 'candy', 'Candy Premium Mawa Malai', null, 'products/Premium-Mawa-Malai-1024x410.png', false, null),
-  (49, '5|Rajbhog', 'candy', 'Candy Rajbhog', null, 'products/Rajbhog.png', false, null),
+  (49, '5|Rajbhog', 'candy', 'Candy Rajbhog', null, 'products/Candy-Rajbhog.png', false, null),
   (50, '5|Tender Coconut Salted Caramel', 'candy', 'Candy Tender Coconut Salted Caramel', null, 'products/Tender-Coconut-Salted-Caramel-1024x452.png', false, null),
   (51, '6|2 in One', 'cones', 'Cones 2 in One', null, 'products/2-in-One-658x1024.png', false, null),
   (52, '6|American Nuts', 'cones', 'Cones American Nuts', null, 'products/American-Nuts-Cone2-580x1024.png', false, null),
@@ -98,16 +98,16 @@ overriding system value values
   (58, '6|Dark Choco', 'cones', 'Cones Dark Choco', null, 'products/Dark-Choco-580x1024.png', true, null),
   (59, '6|Disc Cone', 'cones', 'Cones Disc Cone', null, 'products/Disc-Cone-658x1024.png', false, null),
   (60, '6|Kaju Draksh', 'cones', 'Cones Kaju Draksh', null, 'products/Kaju-Draksh-658x1024.png', false, null),
-  (61, '6|Kesar', 'cones', 'Cones Kesar', null, 'products/Kesar-Pista.png', false, null),
-  (62, '6|Kesar Pista', 'cones', 'Cones Kesar Pista', null, 'products/Kesar-Pista.png', false, null),
-  (63, '6|Salted Caramel', 'cones', 'Cones Salted Caramel', null, 'products/Tender-Coconut-Salted-Caramel-1024x452.png', false, null),
-  (64, '7|Cookies Sandwich', 'novelties', 'Cookies Sandwich', null, 'products/Sandiwich-Box-1-.png', true, null),
+  (61, '6|Kesar', 'cones', 'Cones Kesar', null, 'products/Cone-Kesar.png', false, null),
+  (62, '6|Kesar Pista', 'cones', 'Cones Kesar Pista', null, 'products/Cone-Kesar-Pista.png', false, null),
+  (63, '6|Salted Caramel', 'cones', 'Cones Salted Caramel', null, 'products/Cone-Salted-Caramel.png', false, null),
+  (64, '7|Cookies Sandwich', 'novelties', 'Cookies Sandwich', null, 'products/Cookies-Sandwich.png', true, null),
   (65, '7|Double Sundae', 'novelties', 'Double Sundae', null, 'products/Double-Sundae.png', false, null),
   (66, '7|Matka Kulfi', 'novelties', 'Matka Kulfi', null, 'products/Matka-Kulfi.png', true, null),
-  (67, '7|Nutty Roll Cut', 'novelties', 'Nutty Roll Cut', null, 'products/logo.png', false, null),
+  (67, '7|Nutty Roll Cut', 'novelties', 'Nutty Roll Cut', null, 'products/Nutty-Roll-Cut.png', false, null),
   (68, '7|Pista Malai Matka', 'novelties', 'Pista Malai Matka', null, 'products/Pista-Malai-Matka.png', false, null),
   (69, '7|Ras Malai Matka', 'novelties', 'Ras Malai Matka', null, 'products/Ras-Malai-Matka.png', false, null),
-  (70, '7|Sandwich Ice Cream', 'novelties', 'Sandwich Ice Cream', null, 'products/Sandiwich-Box-1-.png', false, null),
+  (70, '7|Sandwich Ice Cream', 'novelties', 'Sandwich Ice Cream', null, 'products/Sandwich-Ice-Cream.png', false, null),
   (71, '7|Single Sundae', 'novelties', 'Single Sundae', null, 'products/Single-Sundae.png', false, null),
   (72, '7|Slice Cassata', 'novelties', 'Slice Cassata', null, 'products/Slice-Cassata.png', false, null),
   (73, '7|Traditional Cassata', 'novelties', 'Traditional Cassata', null, 'products/Traditional-Cassata.png', false, null),
@@ -153,8 +153,8 @@ overriding system value values
   (113, '13|Cold Coco', 'flavoured-milk', 'Cold Coco', null, 'products/Cold-Coco-337x1024.png', false, null),
   (114, '13|Cold Coffee', 'flavoured-milk', 'Cold Coffee', null, 'products/Cold-Coffee-337x1024.png', false, null),
   (115, '13|Elaichi', 'flavoured-milk', 'Elaichi', null, 'products/Elaichi_New-1.png', false, null),
-  (116, '13|Kesar', 'flavoured-milk', 'Kesar', null, 'products/Kesar-Pista.png', false, null),
-  (117, '13|Kulfi', 'flavoured-milk', 'Kulfi', null, 'products/Kadai-Kulfi-new.png', false, null),
+  (116, '13|Kesar', 'flavoured-milk', 'Kesar', null, 'products/Kesar_New-337x1024.png', false, null),
+  (117, '13|Kulfi', 'flavoured-milk', 'Kulfi', null, 'products/Kulfi-_-New--337x1024.png', false, null),
   (118, '13|Rose', 'flavoured-milk', 'Rose', null, 'products/Rose_New-337x1024.png', false, null),
   (119, '14|Dark Compound', 'chocolate', 'Dark Compound', null, 'products/Dark-Compound.png', false, null),
   (120, '14|Fruit & Nut', 'chocolate', 'Fruit & Nut', null, 'products/Fruit-Nut.png', false, null),
@@ -169,8 +169,89 @@ select setval(
   (select max(id) from public.products)
 );
 
+-- Correct pictures for products that were first given the wrong file.
+update public.products
+set image_path = 'products/Kesar_New-337x1024.png'
+where legacy_key = '13|Kesar'
+  and image_path is distinct from 'products/Kesar_New-337x1024.png';
+
+update public.products
+set image_path = 'products/Kulfi-_-New--337x1024.png'
+where legacy_key = '13|Kulfi'
+  and image_path is distinct from 'products/Kulfi-_-New--337x1024.png';
+
+update public.products
+set image_path = 'products/Nutty-Roll-Cut.png'
+where legacy_key = '7|Nutty Roll Cut'
+  and image_path is distinct from 'products/Nutty-Roll-Cut.png';
+
+update public.products
+set image_path = 'products/Cone-Kesar.png'
+where legacy_key = '6|Kesar'
+  and image_path is distinct from 'products/Cone-Kesar.png';
+
+update public.products
+set image_path = 'products/Cone-Kesar-Pista.png'
+where legacy_key = '6|Kesar Pista'
+  and image_path is distinct from 'products/Cone-Kesar-Pista.png';
+
+update public.products
+set image_path = 'products/Cone-Nutty-Butterscotch.png'
+where legacy_key = '6|Butterscotch Waffle Cone'
+  and image_path is distinct from 'products/Cone-Nutty-Butterscotch.png';
+
+update public.products
+set image_path = 'products/Cone-Salted-Caramel.png'
+where legacy_key = '6|Salted Caramel'
+  and image_path is distinct from 'products/Cone-Salted-Caramel.png';
+
+update public.products
+set image_path = 'products/Big-Cup-Butterscotch.png'
+where legacy_key = '2|Butterscotch'
+  and image_path is distinct from 'products/Big-Cup-Butterscotch.png';
+
+update public.products
+set image_path = 'products/Big-Cup-Kaju-Draksh.png'
+where legacy_key = '2|Kaju Draksh'
+  and image_path is distinct from 'products/Big-Cup-Kaju-Draksh.png';
+
+update public.products
+set image_path = 'products/Big-Cup-Sugar-Free-Vanilla.png'
+where legacy_key = '2|Sugar Free'
+  and image_path is distinct from 'products/Big-Cup-Sugar-Free-Vanilla.png';
+
+update public.products
+set image_path = 'products/Big-Cup-Sugar-Free-Kesar-Pista.png'
+where legacy_key = '2|Sugar Free Kesar Pista'
+  and image_path is distinct from 'products/Big-Cup-Sugar-Free-Kesar-Pista.png';
+
+update public.products
+set image_path = 'products/Kulfi-Jamun.png'
+where legacy_key = '4|Jamun'
+  and image_path is distinct from 'products/Kulfi-Jamun.png';
+
+update public.products
+set image_path = 'products/Candy-Alphonso-Mango.png'
+where legacy_key = '5|Alphonso Mango'
+  and image_path is distinct from 'products/Candy-Alphonso-Mango.png';
+
+update public.products
+set image_path = 'products/Candy-Rajbhog.png'
+where legacy_key = '5|Rajbhog'
+  and image_path is distinct from 'products/Candy-Rajbhog.png';
+
+update public.products
+set image_path = 'products/Cookies-Sandwich.png'
+where legacy_key = '7|Cookies Sandwich'
+  and image_path is distinct from 'products/Cookies-Sandwich.png';
+
+update public.products
+set image_path = 'products/Sandwich-Ice-Cream.png'
+where legacy_key = '7|Sandwich Ice Cream'
+  and image_path is distinct from 'products/Sandwich-Ice-Cream.png';
+
 insert into public.product_images (product_id, storage_path, sort_order) values
-  (0, 'products/Nutty-Butterscotch-658x1024.png', 0),
+  (0, 'products/Cone-Nutty-Butterscotch.png', 0),
   (1, 'products/Alphonso-Mango.png', 0),
   (2, 'products/Custard-Apple.png', 0),
   (3, 'products/Jamun.png', 0),
@@ -182,16 +263,16 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (9, 'products/Vanilla.png', 0),
   (10, 'products/American-Dryfruits1.png', 0),
   (11, 'products/Authentik-Kulfi.png', 0),
-  (12, 'products/Nutty-Butterscotch-658x1024.png', 0),
+  (12, 'products/Big-Cup-Butterscotch.png', 0),
   (13, 'products/Cookies-Cream.png', 0),
   (14, 'products/Creamy-Bastani.png', 0),
-  (15, 'products/Kaju-Draksh-658x1024.png', 0),
+  (15, 'products/Big-Cup-Kaju-Draksh.png', 0),
   (16, 'products/Kesar-Pista.png', 0),
   (17, 'products/Mawa-Badam-.png', 0),
   (18, 'products/Rajbhog.png', 0),
   (19, 'products/Strawberry.png', 0),
-  (20, 'products/Sugar-Free1-01.png', 0),
-  (21, 'products/Kesar-Pista.png', 0),
+  (20, 'products/Big-Cup-Sugar-Free-Vanilla.png', 0),
+  (21, 'products/Big-Cup-Sugar-Free-Kesar-Pista.png', 0),
   (22, 'products/Tripal-Chocolate.png', 0),
   (23, 'products/Vanilla.png', 0),
   (24, 'products/Chocolate-Cyclone.png', 0),
@@ -199,7 +280,7 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (26, 'products/Ripple-Funday.png', 0),
   (27, 'products/Anjeer-Kulfi.png', 0),
   (28, 'products/Bombay-Chowpati.png', 0),
-  (29, 'products/Jamun.png', 0),
+  (29, 'products/Kulfi-Jamun.png', 0),
   (30, 'products/Kadai-Kulfi-new.png', 0),
   (31, 'products/Malai-Kulfi.png', 0),
   (32, 'products/Punjab-Di-Kulfi.png', 0),
@@ -209,7 +290,7 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (36, 'products/Sugar-Free1-01.png', 0),
   (37, 'products/Traditional-Kulfi.png', 0),
   (38, 'products/Almond-Chocobar-1024x488.png', 0),
-  (39, 'products/Alphonso-Mango.png', 0),
+  (39, 'products/Candy-Alphonso-Mango.png', 0),
   (40, 'products/Baklava-Pistachio-1024x454.png', 0),
   (41, 'products/Choco-Sparkle-1024x410.png', 0),
   (42, 'products/Frostick-1024x476.png', 0),
@@ -219,7 +300,7 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (46, 'products/Kachi-Keri-1024x410.png', 0),
   (47, 'products/Mini-Mega-Bite-1024x488.png', 0),
   (48, 'products/Premium-Mawa-Malai-1024x410.png', 0),
-  (49, 'products/Rajbhog.png', 0),
+  (49, 'products/Candy-Rajbhog.png', 0),
   (50, 'products/Tender-Coconut-Salted-Caramel-1024x452.png', 0),
   (51, 'products/2-in-One-658x1024.png', 0),
   (52, 'products/American-Nuts-Cone2-580x1024.png', 0),
@@ -231,16 +312,16 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (58, 'products/Dark-Choco-580x1024.png', 0),
   (59, 'products/Disc-Cone-658x1024.png', 0),
   (60, 'products/Kaju-Draksh-658x1024.png', 0),
-  (61, 'products/Kesar-Pista.png', 0),
-  (62, 'products/Kesar-Pista.png', 0),
-  (63, 'products/Tender-Coconut-Salted-Caramel-1024x452.png', 0),
-  (64, 'products/Sandiwich-Box-1-.png', 0),
+  (61, 'products/Cone-Kesar.png', 0),
+  (62, 'products/Cone-Kesar-Pista.png', 0),
+  (63, 'products/Cone-Salted-Caramel.png', 0),
+  (64, 'products/Cookies-Sandwich.png', 0),
   (65, 'products/Double-Sundae.png', 0),
   (66, 'products/Matka-Kulfi.png', 0),
-  (67, 'products/logo.png', 0),
+  (67, 'products/Nutty-Roll-Cut.png', 0),
   (68, 'products/Pista-Malai-Matka.png', 0),
   (69, 'products/Ras-Malai-Matka.png', 0),
-  (70, 'products/Sandiwich-Box-1-.png', 0),
+  (70, 'products/Sandwich-Ice-Cream.png', 0),
   (71, 'products/Single-Sundae.png', 0),
   (72, 'products/Slice-Cassata.png', 0),
   (73, 'products/Traditional-Cassata.png', 0),
@@ -286,8 +367,8 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (113, 'products/Cold-Coco-337x1024.png', 0),
   (114, 'products/Cold-Coffee-337x1024.png', 0),
   (115, 'products/Elaichi_New-1.png', 0),
-  (116, 'products/Kesar-Pista.png', 0),
-  (117, 'products/Kadai-Kulfi-new.png', 0),
+  (116, 'products/Kesar_New-337x1024.png', 0),
+  (117, 'products/Kulfi-_-New--337x1024.png', 0),
   (118, 'products/Rose_New-337x1024.png', 0),
   (119, 'products/Dark-Compound.png', 0),
   (120, 'products/Fruit-Nut.png', 0),
@@ -296,6 +377,70 @@ insert into public.product_images (product_id, storage_path, sort_order) values
   (123, 'products/Gulab-Jamun_Mockup.png', 0),
   (124, 'products/Rasgulla_Mockup.png', 0)
 on conflict (product_id, storage_path) do nothing;
+
+delete from public.product_images
+where product_id = 116
+  and storage_path = 'products/Kesar-Pista.png';
+
+delete from public.product_images
+where product_id = 117
+  and storage_path = 'products/Kadai-Kulfi-new.png';
+
+delete from public.product_images
+where product_id = 67
+  and storage_path = 'products/logo.png';
+
+delete from public.product_images
+where product_id = 61
+  and storage_path = 'products/Kesar-Pista.png';
+
+delete from public.product_images
+where product_id = 62
+  and storage_path = 'products/Kesar-Pista.png';
+
+delete from public.product_images
+where product_id = 0
+  and storage_path = 'products/Nutty-Butterscotch-658x1024.png';
+
+delete from public.product_images
+where product_id = 63
+  and storage_path = 'products/Tender-Coconut-Salted-Caramel-1024x452.png';
+
+delete from public.product_images
+where product_id = 12
+  and storage_path = 'products/Nutty-Butterscotch-658x1024.png';
+
+delete from public.product_images
+where product_id = 15
+  and storage_path = 'products/Kaju-Draksh-658x1024.png';
+
+delete from public.product_images
+where product_id = 20
+  and storage_path = 'products/Sugar-Free1-01.png';
+
+delete from public.product_images
+where product_id = 21
+  and storage_path = 'products/Kesar-Pista.png';
+
+delete from public.product_images
+where product_id = 29
+  and storage_path = 'products/Jamun.png';
+
+delete from public.product_images
+where product_id = 39
+  and storage_path = 'products/Alphonso-Mango.png';
+
+delete from public.product_images
+where product_id = 49
+  and storage_path = 'products/Rajbhog.png';
+
+delete from public.product_images
+where product_id = 64
+  and storage_path = 'products/Sandiwich-Box-1-.png';
+
+delete from public.product_images
+where product_id = 70
+  and storage_path = 'products/Sandiwich-Box-1-.png';
 
 insert into public.product_variants
   (product_id, sku, label, units_per_pack, price, mrp, sort_order) values

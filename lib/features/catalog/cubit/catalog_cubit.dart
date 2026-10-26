@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/data/catalog/catalog_repository.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_state.dart';
+import 'package:sheetal_icecream/data/catalog/catalog_repository.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import 'package:blinkit_clone/services/supabase_service.dart';
+import 'package:sheetal_icecream/services/supabase_service.dart';
 
 class CatalogCubit extends Cubit<CatalogState> {
   CatalogCubit(this._repository)

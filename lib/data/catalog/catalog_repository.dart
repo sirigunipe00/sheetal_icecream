@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:blinkit_clone/data/models/product.dart';
-import 'package:blinkit_clone/services/supabase_service.dart';
+import 'package:sheetal_icecream/data/models/product.dart';
+import 'package:sheetal_icecream/services/supabase_service.dart';
 
 class CategorySegment {
   const CategorySegment({
@@ -175,14 +175,22 @@ class SupabaseCatalogRepository extends CatalogRepository {
     for (final row in rows) {
       final category = _categoryName(row['category'] ?? row['category_id']);
       if (category != 'All' && !names.contains(category)) names.add(category);
-      final image = _flatImage(client, row);
+      final name = (row['name'] as String?) ?? '';
+      final image = _productImage(
+        client,
+        path: _storedImagePath(row),
+        directUrl: _directImageUrl(row),
+        name: name,
+        category: category,
+        legacyKey: row['legacy_key'] as String?,
+      );
       if (image != null && category != 'All') {
         images.putIfAbsent(category, () => image);
       }
       products.add(
         Product(
           id: _money(row['id']),
-          name: (row['name'] as String?) ?? '',
+          name: name,
           unit: (row['unit'] as String?) ?? 'Regular pack',
           price: _money(row['price']),
           category: category,
@@ -217,11 +225,112 @@ class SupabaseCatalogRepository extends CatalogRepository {
     return 'All';
   }
 
-  String? _flatImage(SupabaseClient client, Map<String, dynamic> row) {
+  String? _storedImagePath(Map<String, dynamic> row) {
+    final path = row['image_path'] ?? row['image_url'] ?? row['image'];
+    if (path is! String || path.startsWith('http')) return null;
+    return path;
+  }
+
+  String? _directImageUrl(Map<String, dynamic> row) {
     final direct = row['image_url'] ?? row['image'];
     if (direct is String && direct.startsWith('http')) return direct;
-    final path = row['image_path'] ?? direct;
-    return _publicImage(client, path is String ? path : null);
+    final path = row['image_path'];
+    if (path is String && path.startsWith('http')) return path;
+    return null;
+  }
+
+  /// Pictures bundled in the app when the stored file is the wrong product.
+  String? _bundledProductImage({
+    required String name,
+    required String category,
+    String? legacyKey,
+  }) {
+    const byKey = {
+      '13|Kesar': 'assets/images/Kesar_New-337x1024.png',
+      '13|Kulfi': 'assets/images/Kulfi-_-New--337x1024.png',
+      '7|Nutty Roll Cut': 'assets/images/Nutty-Roll-Cut.png',
+      '7|Cookies Sandwich': 'assets/images/Cookies-Sandwich.png',
+      '7|Sandwich Ice Cream': 'assets/images/Sandwich-Ice-Cream.png',
+      '6|Kesar': 'assets/images/Cone-Kesar.png',
+      '6|Kesar Pista': 'assets/images/Cone-Kesar-Pista.png',
+      '6|Butterscotch Waffle Cone': 'assets/images/Cone-Nutty-Butterscotch.png',
+      '6|Salted Caramel': 'assets/images/Cone-Salted-Caramel.png',
+      '2|Butterscotch': 'assets/images/Big-Cup-Butterscotch.png',
+      '2|Kaju Draksh': 'assets/images/Big-Cup-Kaju-Draksh.png',
+      '2|Sugar Free': 'assets/images/Big-Cup-Sugar-Free-Vanilla.png',
+      '2|Sugar Free Kesar Pista': 'assets/images/Big-Cup-Sugar-Free-Kesar-Pista.png',
+      '4|Jamun': 'assets/images/Kulfi-Jamun.png',
+      '5|Alphonso Mango': 'assets/images/Candy-Alphonso-Mango.png',
+      '5|Rajbhog': 'assets/images/Candy-Rajbhog.png',
+    };
+    final keyed = byKey[legacyKey];
+    if (keyed != null) return keyed;
+
+    final normalized = category.trim().toLowerCase();
+    final productName = name.trim();
+    if (normalized == 'flavoured milk' || normalized == 'flavoured-milk') {
+      return switch (productName) {
+        'Kesar' => 'assets/images/Kesar_New-337x1024.png',
+        'Kulfi' => 'assets/images/Kulfi-_-New--337x1024.png',
+        _ => null,
+      };
+    }
+    if (normalized == 'novelties' || normalized == 'novelty') {
+      return switch (productName) {
+        'Nutty Roll Cut' => 'assets/images/Nutty-Roll-Cut.png',
+        'Cookies Sandwich' => 'assets/images/Cookies-Sandwich.png',
+        'Sandwich Ice Cream' => 'assets/images/Sandwich-Ice-Cream.png',
+        _ => null,
+      };
+    }
+    if (normalized == 'cones' || normalized == 'cone') {
+      return switch (productName) {
+        'Cones Kesar' => 'assets/images/Cone-Kesar.png',
+        'Cones Kesar Pista' => 'assets/images/Cone-Kesar-Pista.png',
+        'Butterscotch Waffle Cone' => 'assets/images/Cone-Nutty-Butterscotch.png',
+        'Cones Salted Caramel' => 'assets/images/Cone-Salted-Caramel.png',
+        _ => null,
+      };
+    }
+    if (normalized == 'big cup' || normalized == 'big-cup') {
+      return switch (productName) {
+        'Big Cup Butterscotch' => 'assets/images/Big-Cup-Butterscotch.png',
+        'Big Cup Kaju Draksh' => 'assets/images/Big-Cup-Kaju-Draksh.png',
+        'Big Cup Sugar Free' => 'assets/images/Big-Cup-Sugar-Free-Vanilla.png',
+        'Big Cup Sugar Free Kesar Pista' =>
+          'assets/images/Big-Cup-Sugar-Free-Kesar-Pista.png',
+        _ => null,
+      };
+    }
+    if (normalized == 'kulfi' && productName == 'Kulfi Jamun') {
+      return 'assets/images/Kulfi-Jamun.png';
+    }
+    if (normalized == 'candy') {
+      return switch (productName) {
+        'Candy Alphonso Mango' => 'assets/images/Candy-Alphonso-Mango.png',
+        'Candy Rajbhog' => 'assets/images/Candy-Rajbhog.png',
+        _ => null,
+      };
+    }
+    return null;
+  }
+
+  String? _productImage(
+    SupabaseClient client, {
+    required String? path,
+    required String? directUrl,
+    required String name,
+    required String category,
+    String? legacyKey,
+  }) {
+    final bundled = _bundledProductImage(
+      name: name,
+      category: category,
+      legacyKey: legacyKey,
+    );
+    if (bundled != null) return bundled;
+    if (directUrl != null) return directUrl;
+    return _publicImage(client, path);
   }
 
   Product? _productFromRow(SupabaseClient client, Map<String, dynamic> row) {
@@ -258,14 +367,22 @@ class SupabaseCatalogRepository extends CatalogRepository {
     final categoryName = category is Map && category['name'] is String
         ? category['name'] as String
         : 'All';
+    final name = (row['name'] as String?) ?? '';
 
     return Product(
       id: _money(row['id']),
-      name: (row['name'] as String?) ?? '',
+      name: name,
       unit: primary.label,
       price: primary.price,
       category: categoryName,
-      image: _publicImage(client, row['image_path'] as String?),
+      image: _productImage(
+        client,
+        path: row['image_path'] as String?,
+        directUrl: null,
+        name: name,
+        category: categoryName,
+        legacyKey: row['legacy_key'] as String?,
+      ),
       description: row['description'] as String?,
       isNew: row['is_new'] == true,
       key: row['legacy_key'] as String?,

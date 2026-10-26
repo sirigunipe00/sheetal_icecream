@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_cubit.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_state.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/widgets/category_image.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
@@ -125,6 +126,7 @@ class CategoriesScreen extends StatelessWidget {
                     final cat = catNames[index];
                     final count = state.products.where((p) => p.category == cat).length;
                     final imgPath = state.categoryImages[cat];
+                    final fallback = categoryImageFallback(state.products, cat, imgPath);
 
                     return GestureDetector(
                       onTap: () {
@@ -162,31 +164,12 @@ class CategoriesScreen extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                                 padding: const EdgeInsets.all(10),
-                                child: imgPath != null
-                                    ? Image.network(
-                                        imgPath,
-                                        fit: BoxFit.contain,
-                                        errorBuilder: (_, __, ___) => Center(
-                                          child: Text(
-                                            cat[0],
-                                            style: const TextStyle(
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.bold,
-                                              color: AppColors.primary,
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    : Center(
-                                        child: Text(
-                                          cat[0],
-                                          style: const TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColors.primary,
-                                          ),
-                                        ),
-                                      ),
+                                child: CategoryImage(
+                                  imageUrl: imgPath,
+                                  fallbackUrl: fallback,
+                                  label: cat,
+                                  fontSize: 24,
+                                ),
                               ),
                             ),
                             const SizedBox(height: 10),

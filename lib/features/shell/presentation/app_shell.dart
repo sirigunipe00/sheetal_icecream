@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_state.dart';
-import 'package:blinkit_clone/features/cart/presentation/cart_screen.dart';
-import 'package:blinkit_clone/features/catalog/presentation/categories_screen.dart';
-import 'package:blinkit_clone/features/catalog/presentation/home_screen.dart';
-import 'package:blinkit_clone/features/catalog/presentation/wishlist_screen.dart';
-import 'package:blinkit_clone/features/profile/presentation/profile_screen.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_cubit.dart';
-import 'package:blinkit_clone/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
+import 'package:sheetal_icecream/features/cart/presentation/cart_screen.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/categories_screen.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/home_screen.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/wishlist_screen.dart';
+import 'package:sheetal_icecream/features/profile/presentation/profile_screen.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
+import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
 class AppShell extends StatelessWidget {
   const AppShell({super.key});

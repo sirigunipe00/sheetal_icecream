@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:blinkit_clone/data/models/product.dart';
+import 'package:sheetal_icecream/data/models/product.dart';
 
 class CartLine extends Equatable {
   const CartLine({required this.product, required this.quantity});

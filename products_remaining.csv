@@ -15,8 +15,8 @@ id,name,price,category,unit,image_url,is_new
 113,Cold Coco,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cold-Coco-337x1024.png,false
 114,Cold Coffee,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Cold-Coffee-337x1024.png,false
 115,Elaichi,35,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Elaichi_New-1.png,false
-116,Kesar,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar-Pista.png,false
-117,Kulfi,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kadai-Kulfi-new.png,false
+116,Kesar,25,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kesar_New-337x1024.png,false
+117,Kulfi,30,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Kulfi-_-New--337x1024.png,false
 118,Rose,35,Flavoured Milk,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Rose_New-337x1024.png,false
 119,Dark Compound,50,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Dark-Compound.png,false
 120,Fruit & Nut,55,Chocolate,Regular pack,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/Fruit-Nut.png,false

@@ -1,4 +1,4 @@
-import 'package:blinkit_clone/app.dart';
+import 'package:sheetal_icecream/app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

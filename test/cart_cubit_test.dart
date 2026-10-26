@@ -1,6 +1,6 @@
-import 'package:blinkit_clone/data/catalog/catalog_repository.dart';
-import 'package:blinkit_clone/data/models/product.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/data/catalog/catalog_repository.dart';
+import 'package:sheetal_icecream/data/models/product.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class _FixtureCatalog extends CatalogRepository {

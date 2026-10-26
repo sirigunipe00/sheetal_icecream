@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:blinkit_clone/core/theme/app_colors.dart';
-import 'package:blinkit_clone/data/models/product.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_cubit.dart';
-import 'package:blinkit_clone/features/cart/cubit/cart_state.dart';
-import 'package:blinkit_clone/features/catalog/cubit/catalog_cubit.dart';
-import 'package:blinkit_clone/features/catalog/presentation/widgets/product_card.dart';
-import 'package:blinkit_clone/features/profile/presentation/profile_bottom_sheet.dart';
+import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/widgets/category_image.dart';
+import 'package:sheetal_icecream/data/models/product.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
+import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
+import 'package:sheetal_icecream/features/catalog/presentation/widgets/product_card.dart';
+import 'package:sheetal_icecream/features/profile/presentation/profile_bottom_sheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -87,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 selectedCategory: catalog.category,
                 categories: catalog.categories,
                 categoryImages: catalog.categoryImages,
+                products: catalog.products,
               ),
             ),
 
@@ -589,12 +591,14 @@ class _ShopByCategory extends StatelessWidget {
     required this.selectedCategory,
     required this.categories,
     required this.categoryImages,
+    required this.products,
   });
 
   final ValueChanged<String> onCategory;
   final String selectedCategory;
   final List<String> categories;
   final Map<String, String> categoryImages;
+  final List<Product> products;
 
   @override
   Widget build(BuildContext context) {
@@ -625,6 +629,7 @@ class _ShopByCategory extends StatelessWidget {
             itemBuilder: (context, index) {
               final cat = cats[index];
               final img = categoryImages[cat];
+              final fallback = categoryImageFallback(products, cat, img);
               final isSelected = cat == selectedCategory;
 
               return GestureDetector(
@@ -649,31 +654,11 @@ class _ShopByCategory extends StatelessWidget {
                             color: Colors.white,
                           ),
                           padding: const EdgeInsets.all(8),
-                          child: img != null
-                              ? Image.network(
-                                  img,
-                                  fit: BoxFit.contain,
-                                  errorBuilder: (_, __, ___) => Center(
-                                    child: Text(
-                                      cat[0],
-                                      style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w800,
-                                        color: AppColors.primary,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : Center(
-                                  child: Text(
-                                    cat[0],
-                                    style: const TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w800,
-                                      color: AppColors.primary,
-                                    ),
-                                  ),
-                                ),
+                          child: CategoryImage(
+                            imageUrl: img,
+                            fallbackUrl: fallback,
+                            label: cat,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 6),
