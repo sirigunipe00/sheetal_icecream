@@ -24,6 +24,10 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Sheetal uses your location to show the delivery area on the home screen.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Sheetal needs photo access so admins can add product images from the gallery.</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

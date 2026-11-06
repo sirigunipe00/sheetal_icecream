@@ -12,7 +12,7 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     await tester.pumpWidget(const SheetalApp(showSplash: true));
-    expect(find.text('100% PURE MILK ICE CREAM'), findsOneWidget);
+    expect(find.text('Happiness in Every Scoop'), findsOneWidget);
 
     await tester.tap(find.byType(GestureDetector).first);
     await tester.pump();

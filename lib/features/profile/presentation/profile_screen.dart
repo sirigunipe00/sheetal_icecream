@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/features/auth/presentation/auth_bottom_sheet.dart';
+import 'package:sheetal_icecream/features/address/presentation/saved_addresses_sheet.dart';
 import 'package:sheetal_icecream/features/cart/cubit/orders_cubit.dart';
 import 'package:sheetal_icecream/services/supabase_service.dart';
 
@@ -14,11 +16,26 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool _notifications = true;
+  StreamSubscription<AuthState>? _authSub;
 
   User? get _currentUser {
     if (!SupabaseGate.ready) return null;
     return Supabase.instance.client.auth.currentUser;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (!SupabaseGate.ready) return;
+    _authSub = Supabase.instance.client.auth.onAuthStateChange.listen((_) {
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _authSub?.cancel();
+    super.dispose();
   }
 
   @override
@@ -30,22 +47,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
         'Guest';
     final email = user?.email ?? 'Not signed in';
 
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      appBar: AppBar(
+    return DecoratedBox(
+      decoration: const BoxDecoration(gradient: AppColors.pageGradient),
+      child: Scaffold(
         backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w800,
-            color: AppColors.royalPurple,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: AppColors.royalPurple),
+          title: const Text(
+            'Profile',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w800,
+              color: AppColors.royalPurple,
+            ),
           ),
+          centerTitle: false,
         ),
-        centerTitle: false,
-      ),
-      body: SingleChildScrollView(
+        body: SingleChildScrollView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 120),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -198,17 +218,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
             _MenuTile(
               icon: Icons.location_on_outlined,
               title: 'Saved addresses',
-              subtitle: 'Delivery locations',
+              subtitle: 'Manage delivery locations',
               onTap: () {
                 if (!isLoggedIn) {
                   AuthBottomSheet.show(context, onSuccess: () => setState(() {}));
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('No saved addresses yet.'),
-                      behavior: SnackBarBehavior.floating,
-                    ),
-                  );
+                  SavedAddressesSheet.show(context);
                 }
               },
             ),
@@ -237,38 +252,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
               subtitle: '32+ years of pure dairy heritage',
               onTap: () => _showAboutSheetal(context),
             ),
-
-            // Order Notifications switch
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Material(
-                color: Colors.white,
-                clipBehavior: Clip.antiAlias,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(14),
-                  side: BorderSide(color: AppColors.borderPink.withValues(alpha: 0.6)),
-                ),
-                child: SwitchListTile(
-                value: _notifications,
-                onChanged: (val) => setState(() => _notifications = val),
-                title: const Text(
-                  'Order Notifications',
-                  style: TextStyle(
-                    fontSize: 13.5,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.deepInk,
-                  ),
-                ),
-                subtitle: const Text(
-                  'Updates when scoop is dispatched',
-                  style: TextStyle(fontSize: 11, color: AppColors.softMuted),
-                ),
-                activeColor: AppColors.primary,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 16),
 
             // Log Out Button (Only visible if logged in)
             if (isLoggedIn)
@@ -300,8 +283,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   void _showOrders(BuildContext context) {
     final orders = context.read<OrdersCubit>().state;

@@ -110,9 +110,9 @@ class WishlistScreen extends StatelessWidget {
                     return ProductCard(
                       key: ValueKey('wishlist-${product.id}'),
                       product: product,
-                      quantity: cart.quantityOf(product.id),
-                      onIncrement: () => context.read<CartCubit>().increment(product.id),
-                      onDecrement: () => context.read<CartCubit>().decrement(product.id),
+                      quantity: cart.quantityOfProduct(product.id),
+                      onIncrement: () => context.read<CartCubit>().incrementProduct(product),
+                      onDecrement: () => context.read<CartCubit>().decrementProduct(product.id),
                     );
                   },
                 ),

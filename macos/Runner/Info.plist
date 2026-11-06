@@ -28,5 +28,9 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Sheetal uses your location to show the delivery area on the home screen.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Sheetal uses your location to show the delivery area on the home screen.</string>
 </dict>
 </plist>

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
@@ -21,9 +23,23 @@ class ProfileBottomSheet extends StatefulWidget {
 }
 
 class _ProfileBottomSheetState extends State<ProfileBottomSheet> {
+   StreamSubscription<AuthState>? _authSub;
   User? get _currentUser {
     if (!SupabaseGate.ready) return null;
     return Supabase.instance.client.auth.currentUser;
+  }
+    @override
+  void initState() {
+    super.initState();
+    if (!SupabaseGate.ready) return;
+    _authSub = Supabase.instance.client.auth.onAuthStateChange.listen((_) {
+      if (mounted) setState(() {});
+    });
+  }
+  @override
+  void dispose() {
+    _authSub?.cancel();
+    super.dispose();
   }
 
   @override

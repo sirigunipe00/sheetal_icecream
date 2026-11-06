@@ -44,6 +44,34 @@ class Product extends Equatable {
   final int? bestSellerRank;
   final List<ProductVariant> variants;
 
+  bool get hasVariants => variants.length > 1;
+
+  /// Lowest pack price (used as "From ₹X" on cards).
+  int get fromPrice {
+    if (variants.isEmpty) return price;
+    return variants.map((v) => v.price).reduce((a, b) => a < b ? a : b);
+  }
+
+  ProductVariant get defaultVariant {
+    if (variants.isEmpty) {
+      return ProductVariant(
+        id: 0,
+        label: unit,
+        price: price,
+        unitsPerPack: 1,
+      );
+    }
+    return variants.first;
+  }
+
+  ProductVariant? variantById(int? id) {
+    if (id == null || id == 0) return variants.isEmpty ? null : defaultVariant;
+    for (final variant in variants) {
+      if (variant.id == id) return variant;
+    }
+    return null;
+  }
+
   int get packOf4Price {
     for (final variant in variants) {
       if (variant.unitsPerPack == 4) return variant.price;

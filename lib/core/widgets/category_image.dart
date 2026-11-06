@@ -79,7 +79,7 @@ class _CategoryImageState extends State<CategoryImage> {
     return Image.network(
       url,
       fit: BoxFit.contain,
-      errorBuilder: (_, __, ___) {
+      errorBuilder: (_, _, _) {
         final fallback = widget.fallbackUrl;
         if (!_usedFallback &&
             fallback != null &&
@@ -100,7 +100,7 @@ class _CategoryImageState extends State<CategoryImage> {
     return Image.asset(
       asset,
       fit: BoxFit.contain,
-      errorBuilder: (_, __, ___) => _letter(),
+      errorBuilder: (_, _, _) => _letter(),
     );
   }
 

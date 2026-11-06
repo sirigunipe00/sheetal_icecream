@@ -1,0 +1,312 @@
+id,name,category,size,price,price_raw,image_path,image_url
+0,Tender Coconut,Natural Cup,80 ml,50.0,50,products/natural-cup-tender-coconut.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/natural-cup-tender-coconut.png
+1,Alphonso Mango,Natural Cup,80 ml,30.0,30,products/natural-cup-alphonso-mango.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/natural-cup-alphonso-mango.png
+2,Mixed Fruits,Natural Cup,80 ml,30.0,30,products/natural-cup-mixed-fruits.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/natural-cup-mixed-fruits.png
+3,Guava,Natural Cup,80 ml,30.0,30,products/natural-cup-guava.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/natural-cup-guava.png
+4,Jamun,Natural Cup,80 ml,30.0,30,products/natural-cup-jamun.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/natural-cup-jamun.png
+5,Custard Apple,Natural Cup,80 ml,30.0,30,products/natural-cup-custard-apple.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/natural-cup-custard-apple.png
+6,Almond Carnival,Jumbo Cup,120 ml,50.0,50,products/jumbo-cup-almond-carnival.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/jumbo-cup-almond-carnival.png
+7,Chocolate Chips,Jumbo Cup,120 ml,40.0,40,products/jumbo-cup-chocolate-chips.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/jumbo-cup-chocolate-chips.png
+8,American Nuts,Jumbo Cup,120 ml,35.0,35,,
+9,Vanilla,Jumbo Cup,110 ml,20.0,20,products/jumbo-cup-vanilla.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/jumbo-cup-vanilla.png
+10,Authentic Kulfi,Big Cup,100 ml,50.0,50,products/big-cup-authentic-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-authentic-kulfi.png
+11,Triple Chocolate,Big Cup,100 ml,50.0,50,products/big-cup-triple-chocolate.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-triple-chocolate.png
+12,Creamy Bastani,Big Cup,100 ml,40.0,40,products/big-cup-creamy-bastani.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-creamy-bastani.png
+13,Sugar Free Kesar Pista,Big Cup,100 ml,50.0,50,products/big-cup-sugar-free-kesar-pista.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-sugar-free-kesar-pista.png
+14,Kaju Draksh,Big Cup,80 ml,20.0,20,,
+15,Butterscotch,Big Cup,80 ml,20.0,20,products/big-cup-butterscotch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-butterscotch.png
+16,American Dry Fruits,Big Cup,80 ml,20.0,20,products/big-cup-american-dry-fruits.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-american-dry-fruits.png
+17,Sugar Free Vanilla,Big Cup,100 ml,30.0,30,products/big-cup-sugar-free-vanilla.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-sugar-free-vanilla.png
+18,Kesar Pista,Big Cup,100 ml,50.0,50,products/big-cup-kesar-pista.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-kesar-pista.png
+19,Rajbhog,Big Cup,80 ml,40.0,40,,
+20,Mawa Badam,Big Cup,80 ml,20.0,20,products/big-cup-mawa-badam.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-mawa-badam.png
+21,Cookies 'N' Cream,Big Cup,80 ml,20.0,20,products/big-cup-cookies-n-cream.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-cookies-n-cream.png
+22,Vanilla,Big Cup,50 ml,10.0,10,products/big-cup-vanilla.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-vanilla.png
+23,Strawberry,Big Cup,50 ml,10.0,10,products/big-cup-strawberry.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/big-cup-strawberry.png
+24,Ripple Funday,Ripple Special,65 ml,10.0,10,products/ripple-special-ripple-funday.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ripple-special-ripple-funday.png
+25,Chocolate Cyclone Funday,Ripple Special,100 ml,20.0,20,products/ripple-special-chocolate-cyclone-funday.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ripple-special-chocolate-cyclone-funday.png
+26,Fruit Rocking Funday,Ripple Special,100 ml,20.0,20,products/ripple-special-fruit-rocking-funday.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ripple-special-fruit-rocking-funday.png
+27,Sadi Lassi,Jamel Lassi,120 ml,20.0,20,products/jamel-lassi-sadi-lassi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/jamel-lassi-sadi-lassi.png
+28,Mango Lassi,Jamel Lassi,120 ml,20.0,20,products/jamel-lassi-mango-lassi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/jamel-lassi-mango-lassi.png
+29,Dry Fruit Lassi,Jamel Lassi,120 ml,30.0,30,products/jamel-lassi-dry-fruit-lassi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/jamel-lassi-dry-fruit-lassi.png
+30,Shahi Kulfi,Kulfi,70 ml,50.0,50,products/kulfi-shahi-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-shahi-kulfi.png
+31,Anjeer Kulfi,Kulfi,60 ml,40.0,40,products/kulfi-anjeer-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-anjeer-kulfi.png
+32,Traditional Kulfi,Kulfi,60 ml,30.0,30,products/kulfi-traditional-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-traditional-kulfi.png
+33,Sugar Free Kulfi,Kulfi,60 ml,30.0,30,products/kulfi-sugar-free-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-sugar-free-kulfi.png
+34,Kadai Kulfi,Kulfi,50 ml,30.0,30,products/kulfi-kadai-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-kadai-kulfi.png
+35,Punjab Di Kulfi,Kulfi,50 ml,20.0,20,,
+36,Jamun Kulfi,Kulfi,60 ml,30.0,30,products/kulfi-jamun-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-jamun-kulfi.png
+37,Royal Rabdi Kulfi,Kulfi,60 ml,30.0,30,products/kulfi-royal-rabdi-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-royal-rabdi-kulfi.png
+38,Malai Kulfi,Kulfi,45 ml,20.0,20,products/kulfi-malai-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-malai-kulfi.png
+39,Shahi Pista Kulfi,Kulfi,45 ml,20.0,20,products/kulfi-shahi-pista-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-shahi-pista-kulfi.png
+40,Bombay Chowpaty Kulfi,Kulfi,60 ml,30.0,30,products/kulfi-bombay-chowpaty-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-bombay-chowpaty-kulfi.png
+41,Masti Chowpati,Kulfi,60 ml,10.0,10,products/kulfi-masti-chowpati.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/kulfi-masti-chowpati.png
+42,Gloria Almond,Candy,70 ml,70.0,70,products/candy-gloria-almond.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-gloria-almond.png
+43,Hazelnut Filter Coffee,Candy,60 ml,70.0,70,products/candy-hazelnut-filter-coffee.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-hazelnut-filter-coffee.png
+44,Baklava Pistachio,Candy,60 ml,60.0,60,products/candy-baklava-pistachio.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-baklava-pistachio.png
+45,Hazelnut Chocolate Swirl,Candy,60 ml,60.0,60,products/candy-hazelnut-chocolate-swirl.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-hazelnut-chocolate-swirl.png
+46,Tender Coconut Salted Caramel,Candy,60 ml,50.0,50,products/candy-tender-coconut-salted-caramel.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-tender-coconut-salted-caramel.png
+47,Frostick,Candy,70 ml,50.0,50,products/candy-frostick.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-frostick.png
+48,Rajbhog Candy,Candy,60 ml,40.0,40,products/candy-rajbhog-candy.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-rajbhog-candy.png
+49,Almond Chocobar,Candy,60 ml,30.0,30,products/candy-almond-chocobar.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-almond-chocobar.png
+50,Alphonso Mango,Candy,50 ml,20.0,20,products/candy-alphonso-mango.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-alphonso-mango.png
+51,Mini Mega Bite,Candy,40 ml,20.0,20,products/candy-mini-mega-bite.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-mini-mega-bite.png
+52,Choco Sparkle,Candy,55 ml,20.0,20,products/candy-choco-sparkle.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-choco-sparkle.png
+53,Premium Mawa Malai,Candy,60 ml,20.0,20,products/candy-premium-mawa-malai.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-premium-mawa-malai.png
+54,Junior Chocobar,Candy,35 ml,10.0,10,products/candy-junior-chocobar.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-junior-chocobar.png
+55,Mango Dolly,Candy,50 ml,10.0,10,products/candy-mango-dolly.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-mango-dolly.png
+56,Kachi Keri,Candy,50 ml,10.0,10,products/candy-kachi-keri.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-kachi-keri.png
+57,Classic Chocobar,Candy,60 ml,15.0,₹15 / ₹20,products/candy-classic-chocobar.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/candy-classic-chocobar.png
+58,Mawa Malai,Candy,45 ml,10.0,10,,
+59,Chiku Candy,Candy,50 ml,10.0,10,,
+60,Lemon Chew,Candy,50 ml,10.0,10,,
+61,Kala Khatta,Candy,50 ml,10.0,10,,
+62,Crunchy Chocobar,Candy,35 ml,10.0,10,,
+63,Orange Bar,Candy,40 ml,5.0,5,,
+64,Chatpati Imli,Candy,50 ml,10.0,10,,
+65,Pinky Bar,Candy,35 ml,10.0,10,,
+66,Black Forest,Cone,135 ml,80.0,80,products/cone-black-forest.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cone-black-forest.png
+67,Bolltop,Cone,135 ml,80.0,80,products/cone-bolltop.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cone-bolltop.png
+68,American Nuts,Cone,135 ml,80.0,80,products/cone-american-nuts.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cone-american-nuts.png
+69,Dark Choco Fantasy,Cone,135 ml,80.0,80,products/cone-dark-choco-fantasy.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cone-dark-choco-fantasy.png
+70,Disc Cone,Freezo Cone,110 ml,50.0,50,products/freezo-cone-disc-cone.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-disc-cone.png
+71,Biscotti,Freezo Cone,100 ml,20.0,20,products/freezo-cone-biscotti.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-biscotti.png
+72,Chocolate Delight,Freezo Cone,110 ml,30.0,30,,
+73,Kaju Draksh,Freezo Cone,110 ml,30.0,30,products/freezo-cone-kaju-draksh.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-kaju-draksh.png
+74,2 in One,Freezo Cone,100 ml,20.0,20,products/freezo-cone-2-in-one.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-2-in-one.png
+75,Cappuccino,Freezo Cone,100 ml,30.0,30,products/freezo-cone-cappuccino.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-cappuccino.png
+76,Kesar,Freezo Cone,100 ml,20.0,20,products/freezo-cone-kesar.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-kesar.png
+77,Nutty Butter Scotch,Freezo Cone,110 ml,30.0,30,,
+78,Kesar Pista,Freezo Cone,110 ml,50.0,50,products/freezo-cone-kesar-pista.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-kesar-pista.png
+79,Salted Caramel,Freezo Cone,100 ml,40.0,40,products/freezo-cone-salted-caramel.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-salted-caramel.png
+80,Choco Daddy Cone,Freezo Cone,100 ml,20.0,20,products/freezo-cone-choco-daddy-cone.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/freezo-cone-choco-daddy-cone.png
+81,Gully Gola (Box),Gully Gola,,50.0,50,,
+82,Tripple Sundae,Novelties,120 ml,60.0,60,products/novelties-tripple-sundae.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-tripple-sundae.png
+83,Single Sundae,Novelties,100 ml,50.0,50,products/novelties-single-sundae.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-single-sundae.png
+84,Double Sundae,Novelties,80 ml,70.0,70,products/novelties-double-sundae.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-double-sundae.png
+85,Matka Kulfi,Novelties,80 ml,50.0,50,products/novelties-matka-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-matka-kulfi.png
+86,Ras Malai Matka,Novelties,100 ml,60.0,60,products/novelties-ras-malai-matka.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-ras-malai-matka.png
+87,Pista Malai Matka,Novelties,100 ml,70.0,70,products/novelties-pista-malai-matka.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-pista-malai-matka.png
+88,Slice Cassata,Novelties,100 ml,40.0,40,products/novelties-slice-cassata.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-slice-cassata.png
+89,Classic Cassata,Novelties,120 ml,60.0,60,products/novelties-classic-cassata.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-classic-cassata.png
+90,Traditional Cassata,Novelties,120 ml,80.0,80,products/novelties-traditional-cassata.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-traditional-cassata.png
+91,Nutty Roll Cut,Novelties,80 ml,50.0,50,products/novelties-nutty-roll-cut.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-nutty-roll-cut.png
+92,Cookies Sandwich,Novelties,125 ml,50.0,50,products/novelties-cookies-sandwich.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-cookies-sandwich.png
+93,Sandwich Ice Cream,Novelties,100 ml,30.0,30,products/novelties-sandwich-ice-cream.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/novelties-sandwich-ice-cream.png
+94,Golden Fantasy Cake,Cake & Pastry,1 Ltr,600.0,600,products/cake-pastry-golden-fantasy-cake.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-golden-fantasy-cake.png
+95,Black Forest Cake,Cake & Pastry,1 Ltr,550.0,550,products/cake-pastry-black-forest-cake.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-black-forest-cake.png
+96,Chocolate Cake,Cake & Pastry,400 g,280.0,280,products/cake-pastry-chocolate-cake.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-chocolate-cake.png
+97,Red Velvet Cake,Cake & Pastry,500 g,300.0,300,products/cake-pastry-red-velvet-cake.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-red-velvet-cake.png
+98,Cookie Chocolate Cake,Cake & Pastry,500 g,300.0,300,products/cake-pastry-cookie-chocolate-cake.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-cookie-chocolate-cake.png
+99,Golden Fantasy Pastry,Cake & Pastry,100 ml,60.0,60,products/cake-pastry-golden-fantasy-pastry.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-golden-fantasy-pastry.png
+100,Black Forest Pastry,Cake & Pastry,100 ml,50.0,50,products/cake-pastry-black-forest-pastry.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cake-pastry-black-forest-pastry.png
+101,Tender Coconut,Home Pack Tub,1 Ltr,400.0,400,products/home-pack-tub-tender-coconut.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/home-pack-tub-tender-coconut.png
+102,Classical Kulfi,Home Pack Tub,1 Ltr,400.0,400,products/home-pack-tub-classical-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/home-pack-tub-classical-kulfi.png
+103,Rajbhog,Home Pack Tub,1 Ltr,360.0,360,products/home-pack-tub-rajbhog.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/home-pack-tub-rajbhog.png
+104,Kesar Kaju Katli,Home Pack Tub,1 Ltr,360.0,360,products/home-pack-tub-kesar-kaju-katli.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/home-pack-tub-kesar-kaju-katli.png
+105,Almond Carnival,Home Pack Tub,1 Ltr,360.0,360,products/home-pack-tub-almond-carnival.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/home-pack-tub-almond-carnival.png
+106,Alphonso Mango,Home Pack Tub,1 Ltr,300.0,300,,
+107,Malai Kulfi,Home Pack Tub,1 Ltr,300.0,300,products/home-pack-tub-malai-kulfi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/home-pack-tub-malai-kulfi.png
+108,Sitafal,Home Pack Tub,1 Ltr,300.0,300,,
+109,Kesar Pista,750ml Tub,750 ml,230.0,230,products/750ml-tub-kesar-pista.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/750ml-tub-kesar-pista.png
+110,Badam Rabdi,750ml Tub,750 ml,220.0,220,products/750ml-tub-badam-rabdi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/750ml-tub-badam-rabdi.png
+111,Butterscotch,750ml Tub,750 ml,200.0,200,products/750ml-tub-butterscotch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/750ml-tub-butterscotch.png
+112,Rajbhog,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),380.0,380,products/family-pack-rajbhog.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-rajbhog.png
+113,Kesar Pista,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),350.0,350,products/family-pack-kesar-pista.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-kesar-pista.png
+114,Mawa Badam,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),330.0,330,products/family-pack-mawa-badam.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-mawa-badam.png
+115,Almond Carnival,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),320.0,320,products/family-pack-almond-carnival.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-almond-carnival.png
+116,American Bits,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),320.0,320,products/family-pack-american-bits.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-american-bits.png
+117,Black Current,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),280.0,280,products/family-pack-black-current.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-black-current.png
+118,Kaju Draksh,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),280.0,280,products/family-pack-kaju-draksh.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-kaju-draksh.png
+119,Chocolate Chips,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),280.0,280,products/family-pack-chocolate-chips.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-chocolate-chips.png
+120,Cookies 'N' Cream,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),280.0,280,products/family-pack-cookies-n-cream.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-cookies-n-cream.png
+121,Butter Scotch,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),280.0,280,,
+122,Alphonso Mango,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),280.0,280,products/family-pack-alphonso-mango.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-alphonso-mango.png
+123,Strawberry,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),220.0,220,products/family-pack-strawberry.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/family-pack-strawberry.png
+124,Vanilla,Family Pack,700 ml + 700 ml (Buy 1 Get 1 Free),220.0,220,,
+125,Gold Milk,Milk,500 ml - 6 Ltr,,,products/milk-gold-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-gold-milk.png
+126,Taza Milk,Milk,160 ml - 200 ml - 330 ml - 400 ml,,,products/milk-taza-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-taza-milk.png
+127,Cow Milk,Milk,500 ml,,,products/milk-cow-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-cow-milk.png
+128,Silver Milk,Milk,180 ml - 6 Ltr,,,products/milk-silver-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-silver-milk.png
+129,Tea Special Milk,Milk,1 Ltr,,,products/milk-tea-special-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-tea-special-milk.png
+130,Anytime Tea Milk,Milk,1 Ltr - 6 Ltr,,,products/milk-anytime-tea-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-anytime-tea-milk.png
+131,Slim N Trim Milk,Milk,170 ml,,,products/milk-slim-n-trim-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/milk-slim-n-trim-milk.png
+132,Khati Chhash (Sour Buttermilk),Buttermilk,200 ml - 400 ml - 600 ml,,,products/buttermilk-khati-chhash-sour-buttermilk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/buttermilk-khati-chhash-sour-buttermilk.png
+133,Chhash (Buttermilk),Buttermilk,300 ml - 400 ml - 600 ml - 6 Ltr,,,products/buttermilk-chhash-buttermilk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/buttermilk-chhash-buttermilk.png
+134,Kathiyawadi Chhash,Buttermilk,500 ml,10.0,10,products/buttermilk-kathiyawadi-chhash.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/buttermilk-kathiyawadi-chhash.png
+135,Silver Dahi (Pouch),Dahi,150 gm - 800 gm,,,products/dahi-silver-dahi-pouch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/dahi-silver-dahi-pouch.png
+136,Shital Dahi,Dahi,80 gm - 180 gm - 5 Kg,,,products/dahi-shital-dahi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/dahi-shital-dahi.png
+137,Silver Dahi,Dahi,5 Kg,,,products/dahi-silver-dahi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/dahi-silver-dahi.png
+138,Probiotic Dahi,Dahi,1 Kg,,,products/dahi-probiotic-dahi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/dahi-probiotic-dahi.png
+139,Ghee,Ghee,500 ml - 1 Ltr - 15 Kg,,,products/ghee-ghee.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ghee-ghee.png
+140,Cow Ghee (Gaay nu Ghee),Ghee,200 ml - 500 ml - 1 Ltr - 15 Kg,,,products/ghee-cow-ghee-gaay-nu-ghee.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ghee-cow-ghee-gaay-nu-ghee.png
+141,Cow Ghee (Tin),Ghee,1 Ltr,,,products/ghee-cow-ghee-tin.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ghee-cow-ghee-tin.png
+142,Malai Paneer,Paneer & Butter,100 g,,,products/paneer-butter-malai-paneer.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paneer-butter-malai-paneer.png
+143,Malai Paneer,Paneer & Butter,200 g,,,products/paneer-butter-malai-paneer-2.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paneer-butter-malai-paneer-2.png
+144,Malai Paneer,Paneer & Butter,500 g,,,products/paneer-butter-malai-paneer-3.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paneer-butter-malai-paneer-3.png
+145,Malai Paneer,Paneer & Butter,1 Kg,,,products/paneer-butter-malai-paneer-4.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paneer-butter-malai-paneer-4.png
+146,Butter,Paneer & Butter,100 gm,,,products/paneer-butter-butter.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paneer-butter-butter.png
+147,Badam Pista Cookies,Cookies,,,,products/cookies-badam-pista-cookies.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cookies-badam-pista-cookies.png
+148,Chocolate Chips Cookies,Cookies,,,,products/cookies-chocolate-chips-cookies.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cookies-chocolate-chips-cookies.png
+149,Brownie Walnut Cookies,Cookies,,,,products/cookies-brownie-walnut-cookies.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cookies-brownie-walnut-cookies.png
+150,Honey Oats Cookies,Cookies,,,,products/cookies-honey-oats-cookies.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cookies-honey-oats-cookies.png
+151,Kulfi Flavoured Milk,Flavoured Milk,200 ml,,,products/flavoured-milk-kulfi-flavoured-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-kulfi-flavoured-milk.png
+152,Elaichi Flavoured Milk,Flavoured Milk,200 ml,,,products/flavoured-milk-elaichi-flavoured-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-elaichi-flavoured-milk.png
+153,Kesar Flavoured Milk,Flavoured Milk,200 ml,,,products/flavoured-milk-kesar-flavoured-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-kesar-flavoured-milk.png
+154,Rose Flavoured Milk,Flavoured Milk,200 ml,,,products/flavoured-milk-rose-flavoured-milk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-rose-flavoured-milk.png
+155,Cold Coffee,Flavoured Milk,200 ml,,,products/flavoured-milk-cold-coffee.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-cold-coffee.png
+156,Cold Coco,Flavoured Milk,200 ml,,,products/flavoured-milk-cold-coco.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-cold-coco.png
+157,Rose Lassi,Flavoured Milk,200 ml,,,products/flavoured-milk-rose-lassi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-rose-lassi.png
+158,Masala Chhash,Flavoured Milk,,,,products/flavoured-milk-masala-chhash.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/flavoured-milk-masala-chhash.png
+159,Gulab Jamun,Sweets,1 Kg,,,products/sweets-gulab-jamun.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/sweets-gulab-jamun.png
+160,Rasgulla,Sweets,1 Kg,,,products/sweets-rasgulla.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/sweets-rasgulla.png
+161,Elaichi Shrikhand,Shrikhand,200 gm - 500 gm - 1 Kg,,,products/shrikhand-elaichi-shrikhand.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/shrikhand-elaichi-shrikhand.png
+162,Rajbhog Shrikhand,Shrikhand,200 gm - 500 gm - 1 Kg,,,products/shrikhand-rajbhog-shrikhand.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/shrikhand-rajbhog-shrikhand.png
+163,Mixed Fruit Shrikhand,Shrikhand,200 gm - 500 gm - 1 Kg,,,products/shrikhand-mixed-fruit-shrikhand.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/shrikhand-mixed-fruit-shrikhand.png
+164,Mango Shrikhand,Shrikhand,200 gm - 500 gm - 1 Kg,,,products/shrikhand-mango-shrikhand.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/shrikhand-mango-shrikhand.png
+165,Shrikhand (Bulk Tub),Shrikhand,6 Kg - 20 Kg,,,products/shrikhand-shrikhand-bulk-tub.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/shrikhand-shrikhand-bulk-tub.png
+166,Fruit & Nut,Chocolate,,,,products/chocolate-fruit-nut.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/chocolate-fruit-nut.png
+167,Roasted Almond,Chocolate,,,,products/chocolate-roasted-almond.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/chocolate-roasted-almond.png
+168,Milk Chocolate,Chocolate,,,,products/chocolate-milk-chocolate.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/chocolate-milk-chocolate.png
+169,Dark Compound,Chocolate,,,,products/chocolate-dark-compound.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/chocolate-dark-compound.png
+170,Milk Compound,Chocolate,,,,products/chocolate-milk-compound.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/chocolate-milk-compound.png
+171,Butter Khari,Khari,,,,products/khari-butter-khari.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/khari-butter-khari.png
+172,Jeera Khari,Khari,,,,products/khari-jeera-khari.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/khari-jeera-khari.png
+173,Masala Khari,Khari,,,,products/khari-masala-khari.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/khari-masala-khari.png
+174,Palak Khari,Khari,,,,products/khari-palak-khari.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/khari-palak-khari.png
+175,Methi Khari,Khari,,,,products/khari-methi-khari.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/khari-methi-khari.png
+176,Milk Rusk,Rusk,,,,products/rusk-milk-rusk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/rusk-milk-rusk.png
+177,Kaju Rusk,Rusk,,,,products/rusk-kaju-rusk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/rusk-kaju-rusk.png
+178,Jeera Rusk,Rusk,,,,products/rusk-jeera-rusk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/rusk-jeera-rusk.png
+179,Fruta Rusk,Rusk,,,,products/rusk-fruta-rusk.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/rusk-fruta-rusk.png
+180,Chocolate Cream Roll,Cream Roll,,,,products/cream-roll-chocolate-cream-roll.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cream-roll-chocolate-cream-roll.png
+181,Vanilla Cream Roll,Cream Roll,,,,products/cream-roll-vanilla-cream-roll.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cream-roll-vanilla-cream-roll.png
+182,Strawberry Cream Roll,Cream Roll,,,,products/cream-roll-strawberry-cream-roll.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/cream-roll-strawberry-cream-roll.png
+183,Pav,Bread,,,,products/bread-pav.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/bread-pav.png
+184,Premium Bread (Big),Bread,,,,products/bread-premium-bread-big.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/bread-premium-bread-big.png
+185,Premium Bread (Small),Bread,,,,products/bread-premium-bread-small.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/bread-premium-bread-small.png
+186,Tikha Mitha Mix,Namkeen,,5.0,₹5 / ₹10 / ₹25 / ₹70,products/namkeen-tikha-mitha-mix.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-tikha-mitha-mix.png
+187,Khatta Meetha,Namkeen,,5.0,₹5 / ₹10 / ₹25 / ₹70,products/namkeen-khatta-meetha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-khatta-meetha.png
+188,Farali Chevdo (Sweet),Namkeen,,5.0,₹5 / ₹10 / ₹25 / ₹70,products/namkeen-farali-chevdo-sweet.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-farali-chevdo-sweet.png
+189,Bhavnagari Gathiya,Namkeen,,5.0,₹5 / ₹10 / ₹25 / ₹70,products/namkeen-bhavnagari-gathiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-bhavnagari-gathiya.png
+190,Sev Mamra,Namkeen,,5.0,₹5 / ₹10 / ₹25,products/namkeen-sev-mamra.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-sev-mamra.png
+191,Chana Jor Garam,Namkeen,,5.0,₹5 / ₹10 / ₹25,products/namkeen-chana-jor-garam.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-chana-jor-garam.png
+192,Ratlami Sev,Namkeen,,5.0,₹5 / ₹10 / ₹25,products/namkeen-ratlami-sev.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-ratlami-sev.png
+193,Shing Bhujiya,Namkeen,,5.0,₹5 / ₹10 / ₹25,products/namkeen-shing-bhujiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-shing-bhujiya.png
+194,Farali Chevdo (Spicy),Namkeen,,5.0,₹5 / ₹10 / ₹25,products/namkeen-farali-chevdo-spicy.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-farali-chevdo-spicy.png
+195,Chana Dal,Namkeen,,5.0,₹5 / ₹10,products/namkeen-chana-dal.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-chana-dal.png
+196,Moong Dal,Namkeen,,5.0,₹5 / ₹10,products/namkeen-moong-dal.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-moong-dal.png
+197,Aloo Sev,Namkeen,,5.0,₹5 / ₹10,products/namkeen-aloo-sev.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-aloo-sev.png
+198,Garlic Sev Mamra,Namkeen,,5.0,₹5 / ₹10,products/namkeen-garlic-sev-mamra.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-garlic-sev-mamra.png
+199,Shing Chana,Namkeen,,5.0,₹5 / ₹10,products/namkeen-shing-chana.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-shing-chana.png
+200,Papdi Gathiya,Namkeen,,5.0,5,products/namkeen-papdi-gathiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-papdi-gathiya.png
+201,Tikha Gathiya,Namkeen,,5.0,5,products/namkeen-tikha-gathiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-tikha-gathiya.png
+202,Nylon Gathiya,Namkeen,,5.0,5,products/namkeen-nylon-gathiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-nylon-gathiya.png
+203,Dal Muth,Namkeen,,5.0,5,products/namkeen-dal-muth.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-dal-muth.png
+204,Masala Shing,Namkeen,,10.0,₹10 / ₹25,products/namkeen-masala-shing.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-masala-shing.png
+205,Bombay Bhel,Namkeen,,10.0,10,products/namkeen-bombay-bhel.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-bombay-bhel.png
+206,Bikaneri Sev,Namkeen,,10.0,10,products/namkeen-bikaneri-sev.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-bikaneri-sev.png
+207,Tam Tam,Namkeen,,10.0,10,products/namkeen-tam-tam.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-tam-tam.png
+208,Papad Chavana,Namkeen,,5.0,₹5 / ₹25,products/namkeen-papad-chavana.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-papad-chavana.png
+209,Sev Bundi,Namkeen,,5.0,₹5 / ₹25,products/namkeen-sev-bundi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-sev-bundi.png
+210,Subji Sev,Namkeen,,5.0,₹5 / ₹10 / ₹75,products/namkeen-subji-sev.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/namkeen-subji-sev.png
+211,Salted Potato Wafers,Wafers,,5.0,₹5 / ₹10 / ₹40,products/wafers-salted-potato-wafers.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/wafers-salted-potato-wafers.png
+212,Masala Potato Wafers,Wafers,,5.0,₹5 / ₹10 / ₹40,products/wafers-masala-potato-wafers.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/wafers-masala-potato-wafers.png
+213,Crazy Crunch,Wafers,,10.0,10,products/wafers-crazy-crunch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/wafers-crazy-crunch.png
+214,Tomato Wafers,Wafers,,5.0,₹5 / ₹10,products/wafers-tomato-wafers.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/wafers-tomato-wafers.png
+215,Chaat Chaska Wafers,Wafers,,5.0,5,products/wafers-chaat-chaska-wafers.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/wafers-chaat-chaska-wafers.png
+216,Banana Wafers,Banana Wafers,,10.0,10,products/banana-wafers-banana-wafers.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/banana-wafers-banana-wafers.png
+217,Masala Banana Wafers,Banana Wafers,,10.0,10,products/banana-wafers-masala-banana-wafers.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/banana-wafers-masala-banana-wafers.png
+218,French Fries (Crispy & Salty),Banana Wafers,,,,products/banana-wafers-french-fries-crispy-salty.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/banana-wafers-french-fries-crispy-salty.png
+219,Noodles,Fryums,,5.0,₹5 / ₹10,products/fryums-noodles.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-noodles.png
+220,ABCD,Fryums,,5.0,5,products/fryums-abcd.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-abcd.png
+221,Pasta,Fryums,,5.0,5,products/fryums-pasta.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-pasta.png
+222,Moon Chips,Fryums,,5.0,5,products/fryums-moon-chips.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-moon-chips.png
+223,Khichu Papad,Fryums,,5.0,5,products/fryums-khichu-papad.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-khichu-papad.png
+224,Aero Plane,Fryums,,5.0,5,products/fryums-aero-plane.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-aero-plane.png
+225,F.F. Papad,Fryums,,5.0,5,products/fryums-f-f-papad.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-f-f-papad.png
+226,Tomato Moon Chips,Fryums,,5.0,5,products/fryums-tomato-moon-chips.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-tomato-moon-chips.png
+227,Ring,Fryums,,5.0,5,products/fryums-ring.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-ring.png
+228,Chinese Noodles,Fryums,,5.0,5,products/fryums-chinese-noodles.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-chinese-noodles.png
+229,Sago Ball,Fryums,,5.0,5,products/fryums-sago-ball.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-sago-ball.png
+230,Tomato Crunch,Fryums,,5.0,5,products/fryums-tomato-crunch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-tomato-crunch.png
+231,Tomato Wheels,Fryums,,5.0,5,products/fryums-tomato-wheels.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-tomato-wheels.png
+232,Mix Fryums,Fryums,,5.0,5,products/fryums-mix-fryums.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-mix-fryums.png
+233,Masala Crunch,Fryums,,5.0,5,products/fryums-masala-crunch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/fryums-masala-crunch.png
+234,Soya Stick,Tea Time Snacks,,5.0,5,products/tea-time-snacks-soya-stick.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-soya-stick.png
+235,Chai Puri,Tea Time Snacks,,5.0,5,products/tea-time-snacks-chai-puri.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-chai-puri.png
+236,Magic Puri,Tea Time Snacks,,5.0,5,products/tea-time-snacks-magic-puri.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-magic-puri.png
+237,Desi Samosa,Tea Time Snacks,,5.0,5,products/tea-time-snacks-desi-samosa.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-desi-samosa.png
+238,Choco Center Fills,Tea Time Snacks,,5.0,5,products/tea-time-snacks-choco-center-fills.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-choco-center-fills.png
+239,Bhakharvadi,Tea Time Snacks,,5.0,5,products/tea-time-snacks-bhakharvadi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-bhakharvadi.png
+240,Sakkarpara,Tea Time Snacks,,5.0,5,products/tea-time-snacks-sakkarpara.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-sakkarpara.png
+241,Chorafali,Tea Time Snacks,,10.0,10,products/tea-time-snacks-chorafali.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tea-time-snacks-chorafali.png
+242,Masala Popcorn (Cup),Popcorn,,15.0,15,products/popcorn-masala-popcorn-cup.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/popcorn-masala-popcorn-cup.png
+243,Manchurian Popcorn (Cup),Popcorn,,15.0,15,products/popcorn-manchurian-popcorn-cup.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/popcorn-manchurian-popcorn-cup.png
+244,Cheese Popcorn (Cup),Popcorn,,15.0,15,products/popcorn-cheese-popcorn-cup.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/popcorn-cheese-popcorn-cup.png
+245,Popcorn (Pouch),Popcorn,,5.0,5,products/popcorn-popcorn-pouch.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/popcorn-popcorn-pouch.png
+246,"Popcorn (Pouch, bada)",Popcorn,,10.0,10,products/popcorn-popcorn-pouch-bada.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/popcorn-popcorn-pouch-bada.png
+247,Choco Stix,Premium Cream Stix,,5.0,5,products/premium-cream-stix-choco-stix.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-cream-stix-choco-stix.png
+248,Strawberry Stix,Premium Cream Stix,,5.0,5,products/premium-cream-stix-strawberry-stix.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-cream-stix-strawberry-stix.png
+249,Aloo Bhujiya,Premium Snacks,400 g,,,products/premium-snacks-aloo-bhujiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-aloo-bhujiya.png
+250,Bhavnagari Gathiya,Premium Snacks,400 g,,,products/premium-snacks-bhavnagari-gathiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-bhavnagari-gathiya.png
+251,Chana Dal,Premium Snacks,400 g,,,products/premium-snacks-chana-dal.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-chana-dal.png
+252,Chana Jor Garam,Premium Snacks,400 g,,,products/premium-snacks-chana-jor-garam.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-chana-jor-garam.png
+253,Farali Chiwda (Sweet),Premium Snacks,400 g,,,products/premium-snacks-farali-chiwda-sweet.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-farali-chiwda-sweet.png
+254,Khatta Meetha,Premium Snacks,400 g,,,products/premium-snacks-khatta-meetha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-khatta-meetha.png
+255,Ratlami Sev,Premium Snacks,400 g,,,products/premium-snacks-ratlami-sev.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-ratlami-sev.png
+256,Dry Samosa,Premium Snacks,250 g,,,products/premium-snacks-dry-samosa.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-dry-samosa.png
+257,Chakri,Premium Snacks,250 g,,,products/premium-snacks-chakri.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-chakri.png
+258,Big Bhakharwadi,Premium Snacks,250 g,,,products/premium-snacks-big-bhakharwadi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-big-bhakharwadi.png
+259,Dry Kachori,Premium Snacks,250 g,,,products/premium-snacks-dry-kachori.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-dry-kachori.png
+260,Fafda Gathiya,Premium Snacks,,,,products/premium-snacks-fafda-gathiya.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/premium-snacks-fafda-gathiya.png
+261,Pani Puri Kit,Ready to Eat Kits,,,,products/ready-to-eat-kits-pani-puri-kit.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ready-to-eat-kits-pani-puri-kit.png
+262,Bombay Bhel (Kit),Ready to Eat Kits,,,,products/ready-to-eat-kits-bombay-bhel-kit.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ready-to-eat-kits-bombay-bhel-kit.png
+263,Laccha Paratha,Paratha,400 g,,,products/paratha-laccha-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-laccha-paratha.png
+264,Mix Veg Paratha,Paratha,400 g,,,products/paratha-mix-veg-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-mix-veg-paratha.png
+265,Aloo Paratha,Paratha,400 g,,,products/paratha-aloo-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-aloo-paratha.png
+266,Malabar Paratha,Paratha,400 g,,,products/paratha-malabar-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-malabar-paratha.png
+267,Onion Paratha,Paratha,400 g,,,products/paratha-onion-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-onion-paratha.png
+268,Methi Paratha,Paratha,400 g,,,products/paratha-methi-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-methi-paratha.png
+269,Palak Paneer Paratha,Paratha,400 g,,,products/paratha-palak-paneer-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-palak-paneer-paratha.png
+270,Cheese Chilli Paratha,Paratha,400 g,,,products/paratha-cheese-chilli-paratha.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-cheese-chilli-paratha.png
+271,Chapati,Paratha,,,,products/paratha-chapati.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/paratha-chapati.png
+272,Garlic Naan,Naan,400 g,,,products/naan-garlic-naan.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/naan-garlic-naan.png
+273,Tandoori Naan,Naan,400 g,,,products/naan-tandoori-naan.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/naan-tandoori-naan.png
+274,French Fries,French Fries,200 g - 2.5 Kg,,,products/french-fries-french-fries.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/french-fries-french-fries.png
+275,Handmade Punjabi Samosa,Samosa,,,,products/samosa-handmade-punjabi-samosa.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/samosa-handmade-punjabi-samosa.png
+276,Handmade Mix Veg Samosa,Samosa,,,,products/samosa-handmade-mix-veg-samosa.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/samosa-handmade-mix-veg-samosa.png
+277,Margherita Pizza,Pizza,,,,products/pizza-margherita-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-margherita-pizza.png
+278,Veg. Pizza,Pizza,,,,products/pizza-veg-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-veg-pizza.png
+279,Chilli Garlic Pizza,Pizza,,,,products/pizza-chilli-garlic-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-chilli-garlic-pizza.png
+280,Italian Pizza,Pizza,,,,products/pizza-italian-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-italian-pizza.png
+281,Jain Pizza,Pizza,,,,products/pizza-jain-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-jain-pizza.png
+282,All In One Pizza,Pizza,,,,products/pizza-all-in-one-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-all-in-one-pizza.png
+283,Tandoori Paneer Pizza,Pizza,,,,products/pizza-tandoori-paneer-pizza.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/pizza-tandoori-paneer-pizza.png
+284,Vegetable Sandwich,Sandwich,,,,products/sandwich-vegetable-sandwich.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/sandwich-vegetable-sandwich.png
+285,Mexican Sandwich,Sandwich,,,,products/sandwich-mexican-sandwich.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/sandwich-mexican-sandwich.png
+286,Cheese Brust Sandwich,Sandwich,,,,products/sandwich-cheese-brust-sandwich.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/sandwich-cheese-brust-sandwich.png
+287,Pav Bhaji,Ready to Eat Snacks,,,,products/ready-to-eat-snacks-pav-bhaji.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ready-to-eat-snacks-pav-bhaji.png
+288,Veg Biriyani,Ready to Eat Snacks,,,,products/ready-to-eat-snacks-veg-biriyani.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ready-to-eat-snacks-veg-biriyani.png
+289,Veg Pulav,Ready to Eat Snacks,,,,products/ready-to-eat-snacks-veg-pulav.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/ready-to-eat-snacks-veg-pulav.png
+290,Vadapav Tikki,Tikki,360 g,,,products/tikki-vadapav-tikki.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tikki-vadapav-tikki.png
+291,Burger Patty,Tikki,360 g,,,products/tikki-burger-patty.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/tikki-burger-patty.png
+292,Kesar Dryfruit Basundi,Frozen Sweets,1 Kg - 5 Kg,,,products/frozen-sweets-kesar-dryfruit-basundi.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-kesar-dryfruit-basundi.png
+293,Mango Milk Shake (Aam Ras),Frozen Sweets,500 gm - 1 Kg - 5 Kg,,,products/frozen-sweets-mango-milk-shake-aam-ras.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-mango-milk-shake-aam-ras.png
+294,Rasmalai,Frozen Sweets,,,,products/frozen-sweets-rasmalai.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-rasmalai.png
+295,Kesar Rasmalai,Frozen Sweets,,,,products/frozen-sweets-kesar-rasmalai.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-kesar-rasmalai.png
+296,Motichoor Ladoo,Frozen Sweets,400 g,,,products/frozen-sweets-motichoor-ladoo.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-motichoor-ladoo.png
+297,Besan Ladoo,Frozen Sweets,400 g,,,products/frozen-sweets-besan-ladoo.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-besan-ladoo.png
+298,Kaju Katli,Frozen Sweets,400 g,,,products/frozen-sweets-kaju-katli.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/frozen-sweets-kaju-katli.png
+299,Drum Sticks,Vegetables,,,,products/vegetables-drum-sticks.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-drum-sticks.png
+300,Coconut,Vegetables,,,,products/vegetables-coconut.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-coconut.png
+301,Amla,Vegetables,,,,products/vegetables-amla.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-amla.png
+302,Red Onion,Vegetables,,,,products/vegetables-red-onion.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-red-onion.png
+303,Green Mango,Vegetables,,,,products/vegetables-green-mango.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-green-mango.png
+304,Red Chilli,Vegetables,,,,products/vegetables-red-chilli.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-red-chilli.png
+305,Okra Whole (Cut),Vegetables,,,,products/vegetables-okra-whole-cut.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-okra-whole-cut.png
+306,Suran,Vegetables,,,,products/vegetables-suran.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-suran.png
+307,Lotus Root,Vegetables,,,,products/vegetables-lotus-root.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-lotus-root.png
+308,Garlic Cloves,Vegetables,,,,products/vegetables-garlic-cloves.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-garlic-cloves.png
+309,Green Peas,Vegetables,,,,products/vegetables-green-peas.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-green-peas.png
+310,Sweet Corn,Vegetables,,,,products/vegetables-sweet-corn.png,https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images/products/vegetables-sweet-corn.png

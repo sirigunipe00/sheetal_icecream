@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:sheetal_icecream/data/catalog/catalogue_menus.dart';
 import 'package:sheetal_icecream/data/models/product.dart';
 import 'package:sheetal_icecream/services/supabase_service.dart';
 
@@ -38,8 +39,6 @@ abstract class CatalogRepository {
   Future<void> refresh();
 }
 
-/// Catalog loaded from Supabase tables, with pictures from the
-/// public `product-images` storage bucket.
 class SupabaseCatalogRepository extends CatalogRepository {
   List<Product> _products = const [];
   List<String> _categories = const ['All'];
@@ -99,7 +98,9 @@ class SupabaseCatalogRepository extends CatalogRepository {
   bool _isMissingSchema(PostgrestException error) {
     return error.code == 'PGRST205' ||
         error.code == 'PGRST200' ||
-        error.message.contains('schema cache');
+        error.code == '42703' ||
+        error.message.contains('schema cache') ||
+        error.message.contains('does not exist');
   }
 
   Future<void> _loadRelational(SupabaseClient client) async {
@@ -167,12 +168,47 @@ class SupabaseCatalogRepository extends CatalogRepository {
   }
 
   Future<void> _loadFlat(SupabaseClient client) async {
-    final rows = await client.from('products').select().order('id', ascending: true);
+    // Flat Sheetal schema: id, name, price, image_url, category, unit,
+    // description, is_new, is_active + product_variants embed.
+    // Do not request legacy_key / best_seller_rank (those are relational-only).
+    final selectAttempts = <String>[
+      'id, name, price, image_url, category, unit, description, is_new, is_active, '
+          'product_variants(id, label, price, sort_order, is_active)',
+      'id, name, price, image_url, category, unit, description, is_new, '
+          'product_variants(id, label, price, sort_order, is_active)',
+      '*',
+    ];
+
+    List<dynamic>? rows;
+    Object? lastError;
+    for (final select in selectAttempts) {
+      try {
+        rows = await client
+            .from('products')
+            .select(select)
+            .order('id', ascending: true);
+        break;
+      } on PostgrestException catch (error) {
+        lastError = error;
+        if (!_isMissingSchema(error)) rethrow;
+        debugPrint('[Catalog] Flat select failed ($select): $error');
+      }
+    }
+    if (rows == null) {
+      throw lastError ??
+          const CatalogUnavailable('Could not load products from Supabase.');
+    }
+
+    final variantsByProduct = await _loadVariantsByProduct(client, rows);
+
     final products = <Product>[];
     final names = <String>[];
     final images = <String, String>{};
 
-    for (final row in rows) {
+    for (final raw in rows) {
+      final row = Map<String, dynamic>.from(raw as Map);
+      if (row['is_active'] == false) continue;
+
       final category = _categoryName(row['category'] ?? row['category_id']);
       if (category != 'All' && !names.contains(category)) names.add(category);
       final name = (row['name'] as String?) ?? '';
@@ -187,12 +223,20 @@ class SupabaseCatalogRepository extends CatalogRepository {
       if (image != null && category != 'All') {
         images.putIfAbsent(category, () => image);
       }
+
+      final productId = _money(row['id']);
+      final embedded = _variantsFromFlatRow(row);
+      final variants = embedded.isNotEmpty
+          ? embedded
+          : (variantsByProduct[productId] ?? const <ProductVariant>[]);
+      final primary = variants.isNotEmpty ? variants.first : null;
+
       products.add(
         Product(
           id: _money(row['id']),
           name: name,
-          unit: (row['unit'] as String?) ?? 'Regular pack',
-          price: _money(row['price']),
+          unit: primary?.label ?? (row['unit'] as String?) ?? 'Regular pack',
+          price: primary?.price ?? _money(row['price']),
           category: category,
           image: image,
           description: row['description'] as String?,
@@ -201,15 +245,18 @@ class SupabaseCatalogRepository extends CatalogRepository {
           bestSellerRank: row['best_seller_rank'] == null
               ? null
               : _money(row['best_seller_rank']),
+          variants: variants,
         ),
       );
     }
 
     _categories = ['All', ...names];
     _categoryImages = images;
-    _segments = names.isEmpty
-        ? const []
-        : [CategorySegment(name: 'Shop', categoryNames: names)];
+    final menus = CatalogueMenus.menusWithProducts(names);
+    _segments = [
+      for (final menu in menus)
+        CategorySegment(name: menu.menu, categoryNames: menu.categories),
+    ];
     _products = products;
     if (products.isEmpty) {
       throw const CatalogUnavailable(
@@ -217,7 +264,74 @@ class SupabaseCatalogRepository extends CatalogRepository {
         'and upload the pictures to the product-images storage bucket.',
       );
     }
-    debugPrint('[Catalog] Loaded ${products.length} products from the products table');
+    debugPrint(
+      '[Catalog] Loaded ${products.length} active products '
+      '(${products.where((p) => p.hasVariants).length} with size variants)',
+    );
+  }
+
+  List<ProductVariant> _variantsFromFlatRow(Map<String, dynamic> row) {
+    final raw = row['product_variants'];
+    if (raw is! List || raw.isEmpty) return const [];
+    return _parseVariantList(raw);
+  }
+
+  Future<Map<int, List<ProductVariant>>> _loadVariantsByProduct(
+    SupabaseClient client,
+    List<dynamic> productRows,
+  ) async {
+    final alreadyEmbedded = productRows.any(
+      (row) => row is Map && row['product_variants'] is List,
+    );
+    if (alreadyEmbedded) return const {};
+
+    try {
+      final data = await client
+          .from('product_variants')
+          .select('id, product_id, label, price, sort_order, is_active')
+          .eq('is_active', true)
+          .order('sort_order', ascending: true);
+
+      final map = <int, List<ProductVariant>>{};
+      for (final item in data as List) {
+        if (item is! Map) continue;
+        if (item['is_active'] == false) continue;
+        final productId = _money(item['product_id']);
+        map.putIfAbsent(productId, () => []).add(
+              ProductVariant(
+                id: _money(item['id']),
+                label: (item['label'] as String?) ?? 'Regular pack',
+                price: _money(item['price']),
+                unitsPerPack: 1,
+              ),
+            );
+      }
+      return map;
+    } on PostgrestException catch (error) {
+      debugPrint('[Catalog] product_variants load skipped: $error');
+      return const {};
+    }
+  }
+
+  List<ProductVariant> _parseVariantList(List<dynamic> raw) {
+    final ranked = <_RankedVariant>[];
+    for (final item in raw) {
+      if (item is! Map) continue;
+      if (item['is_active'] == false) continue;
+      ranked.add(
+        _RankedVariant(
+          variant: ProductVariant(
+            id: _money(item['id']),
+            label: (item['label'] as String?) ?? 'Regular pack',
+            price: _money(item['price']),
+            unitsPerPack: 1,
+          ),
+          sortOrder: _money(item['sort_order']),
+        ),
+      );
+    }
+    ranked.sort((a, b) => a.sortOrder.compareTo(b.sortOrder));
+    return [for (final item in ranked) item.variant];
   }
 
   String _categoryName(Object? value) {
@@ -239,7 +353,6 @@ class SupabaseCatalogRepository extends CatalogRepository {
     return null;
   }
 
-  /// Pictures bundled in the app when the stored file is the wrong product.
   String? _bundledProductImage({
     required String name,
     required String category,
@@ -315,6 +428,27 @@ class SupabaseCatalogRepository extends CatalogRepository {
     return null;
   }
 
+  String? _catalogueAsset({required String name, required String category}) {
+    final plain = name.trim().replaceFirst(RegExp(r'\s*\([^)]*\)\s*$'), '').trim();
+    final cat = category.trim();
+    if (plain.isEmpty || cat.isEmpty || cat == 'All') return null;
+    final slug = '$cat-$plain'
+        .toLowerCase()
+        .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+        .replaceAll(RegExp(r'^-+|-+$'), '');
+    if (slug.isEmpty) return null;
+    return 'assets/images/$slug.png';
+  }
+
+  String? _normalizedStorageUrl(String? url) {
+    if (url == null || url.isEmpty) return null;
+    // Files live in product-images/products/<file>, not products/products/.
+    return url.replaceAll(
+      '/storage/v1/object/public/product-images/products/products/',
+      '/storage/v1/object/public/product-images/products/',
+    );
+  }
+
   String? _productImage(
     SupabaseClient client, {
     required String? path,
@@ -323,14 +457,21 @@ class SupabaseCatalogRepository extends CatalogRepository {
     required String category,
     String? legacyKey,
   }) {
+    final storageUrl = _normalizedStorageUrl(directUrl);
+    if (storageUrl != null) return storageUrl;
+
     final bundled = _bundledProductImage(
       name: name,
       category: category,
       legacyKey: legacyKey,
     );
     if (bundled != null) return bundled;
-    if (directUrl != null) return directUrl;
-    return _publicImage(client, path);
+
+    final catalogue = _catalogueAsset(name: name, category: category);
+    if (catalogue != null) return catalogue;
+
+    final fromPath = _publicImage(client, path);
+    return _normalizedStorageUrl(fromPath) ?? fromPath;
   }
 
   Product? _productFromRow(SupabaseClient client, Map<String, dynamic> row) {

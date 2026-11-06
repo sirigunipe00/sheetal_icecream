@@ -4,6 +4,7 @@ import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/core/widgets/product_image.dart';
 import 'package:sheetal_icecream/core/widgets/quantity_stepper.dart';
 import 'package:sheetal_icecream/data/models/product.dart';
+import 'package:sheetal_icecream/features/auth/presentation/auth_bottom_sheet.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_state.dart';
 import 'package:sheetal_icecream/features/catalog/presentation/product_detail_sheet.dart';
@@ -94,7 +95,12 @@ class ProductCard extends StatelessWidget {
                       final isWishlisted = state.isWishlisted(product.id);
                       return GestureDetector(
                         onTap: () {
-                          context.read<CatalogCubit>().toggleWishlist(product.id);
+                          AuthBottomSheet.requireAuth(
+                            context,
+                            onAuthenticated: () {
+                              context.read<CatalogCubit>().toggleWishlist(product.id);
+                            },
+                          );
                         },
                         child: Container(
                           width: 34,
@@ -143,9 +149,11 @@ class ProductCard extends StatelessWidget {
               ),
             ),
 
-            // Unit
+            // Unit / pack hint
             Text(
-              product.unit,
+              product.hasVariants
+                  ? 'From ${product.defaultVariant.label}'
+                  : product.unit,
               style: const TextStyle(
                 fontSize: 11,
                 color: AppColors.softMuted,
@@ -159,7 +167,9 @@ class ProductCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '₹${product.price}',
+                  product.hasVariants
+                      ? 'From ₹${product.fromPrice}'
+                      : '₹${product.price}',
                   style: const TextStyle(
                     fontSize: 14.5,
                     fontWeight: FontWeight.w800,
@@ -169,7 +179,19 @@ class ProductCard extends StatelessWidget {
                 QuantityStepper(
                   quantity: quantity,
                   compact: true,
-                  onIncrement: onIncrement,
+                  onIncrement: () {
+                    AuthBottomSheet.requireAuth(
+                      context,
+                      onAuthenticated: () {
+                        // Multi-size: open detail so user picks pack size.
+                        if (product.hasVariants) {
+                          ProductDetailSheet.show(context, product);
+                          return;
+                        }
+                        onIncrement();
+                      },
+                    );
+                  },
                   onDecrement: onDecrement,
                 ),
               ],

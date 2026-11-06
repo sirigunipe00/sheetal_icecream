@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:sheetal_icecream/data/models/user_address.dart';
 
 /// True only after [Supabase.initialize] has finished.
 class SupabaseGate {
@@ -28,7 +29,14 @@ class SupabaseService {
     return _guestId!;
   }
 
-  bool get isSignedIn => _client.auth.currentUser != null;
+  bool get isSignedIn {
+    if (!SupabaseGate.ready) return false;
+    try {
+      return _client.auth.currentUser != null;
+    } catch (_) {
+      return false;
+    }
+  }
 
   // ---------------------------------------------------------------------
   // Realtime Streams
@@ -83,70 +91,95 @@ class SupabaseService {
   // Cart Operations
   // ---------------------------------------------------------------------
 
-  /// Fetches cart items from Supabase for the current user
-  Future<Map<int, int>> fetchCart() async {
+  /// Fetches cart items. Key is (productId, variantId).
+  Future<Map<(int, int), int>> fetchCart() async {
     if (!SupabaseGate.ready) return {};
     try {
       return await _retry(() async {
         final data = await _client
             .from('cart_items')
-            .select('product_id, quantity')
+            .select('product_id, quantity, variant_id')
             .eq('user_id', currentUserId);
 
-        final Map<int, int> quantities = {};
+        final Map<(int, int), int> quantities = {};
         for (final row in (data as List)) {
           final pid = (row['product_id'] as num).toInt();
           final qty = (row['quantity'] as num).toInt();
-          quantities[pid] = qty;
+          final vid = (row['variant_id'] as num?)?.toInt() ?? 0;
+          quantities[(pid, vid)] = qty;
         }
         return quantities;
       });
     } catch (e) {
-      debugPrint('Error fetching cart from Supabase: $e');
-      return {};
+      // Fallback if variant_id column is not migrated yet.
+      debugPrint('Error fetching cart (trying legacy): $e');
+      try {
+        final data = await _client
+            .from('cart_items')
+            .select('product_id, quantity')
+            .eq('user_id', currentUserId);
+        final Map<(int, int), int> quantities = {};
+        for (final row in (data as List)) {
+          final pid = (row['product_id'] as num).toInt();
+          final qty = (row['quantity'] as num).toInt();
+          quantities[(pid, 0)] = qty;
+        }
+        return quantities;
+      } catch (e2) {
+        debugPrint('Error fetching cart from Supabase: $e2');
+        return {};
+      }
     }
   }
 
-  /// Updates or removes an item in the Supabase cart
-  Future<void> setCartQuantity(int productId, int quantity) async {
+  /// Updates or removes an item in the Supabase cart immediately.
+  /// [variantId] 0 = single-size product / legacy rows.
+  Future<void> setCartQuantity(
+    int productId,
+    int quantity, {
+    int variantId = 0,
+  }) async {
     if (!SupabaseGate.ready) return;
     try {
-      await _retry(() async {
-        if (quantity <= 0) {
-          await _client
-              .from('cart_items')
-              .delete()
-              .eq('user_id', currentUserId)
-              .eq('product_id', productId);
-          debugPrint('[Cart] Removed product $productId from Supabase cart');
-        } else {
-          // Check if row already exists for this user and product
-          final existing = await _client
-              .from('cart_items')
-              .select('id')
-              .eq('user_id', currentUserId)
-              .eq('product_id', productId)
-              .maybeSingle();
-
-          if (existing != null) {
-            await _client
-                .from('cart_items')
-                .update({
-                  'quantity': quantity,
-                  'updated_at': DateTime.now().toIso8601String(),
-                })
-                .eq('id', existing['id']);
-            debugPrint('[Cart] Updated product $productId quantity to $quantity in Supabase');
-          } else {
-            await _client.from('cart_items').insert({
+      if (quantity <= 0) {
+        var query = _client
+            .from('cart_items')
+            .delete()
+            .eq('user_id', currentUserId)
+            .eq('product_id', productId);
+        query = query.eq('variant_id', variantId);
+        await query;
+        debugPrint(
+          '[Cart] Removed product $productId variant $variantId immediately',
+        );
+      } else {
+        try {
+          await _client.from('cart_items').upsert(
+            {
+              'user_id': currentUserId,
+              'product_id': productId,
+              'variant_id': variantId,
+              'quantity': quantity,
+              'updated_at': DateTime.now().toIso8601String(),
+            },
+            onConflict: 'user_id,product_id,variant_id',
+          );
+        } catch (_) {
+          // Legacy cart without variant_id column / unique constraint.
+          await _client.from('cart_items').upsert(
+            {
               'user_id': currentUserId,
               'product_id': productId,
               'quantity': quantity,
-            });
-            debugPrint('[Cart] Inserted product $productId quantity $quantity into Supabase');
-          }
+              'updated_at': DateTime.now().toIso8601String(),
+            },
+            onConflict: 'user_id,product_id',
+          );
         }
-      });
+        debugPrint(
+          '[Cart] Upserted product $productId variant $variantId qty $quantity',
+        );
+      }
     } catch (e, stack) {
       debugPrint('[Cart Error] Could not update cart in Supabase: $e\n$stack');
     }
@@ -222,6 +255,100 @@ class SupabaseService {
       });
     } catch (e) {
       debugPrint('[Wishlist Error] Could not toggle wishlist in Supabase: $e');
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // Address Operations
+  // ---------------------------------------------------------------------
+
+  /// Fetches saved addresses for current user from Supabase
+  Future<List<UserAddress>> fetchAddresses() async {
+    if (!SupabaseGate.ready || !isSignedIn) return [];
+    try {
+      return await _retry(() async {
+        final data = await _client
+            .from('addresses')
+            .select()
+            .eq('user_id', currentUserId)
+            .order('is_default', ascending: false)
+            .order('created_at', ascending: false);
+
+        final list = (data as List)
+            .map((row) => UserAddress.fromMap(row as Map<String, dynamic>))
+            .toList();
+        return list;
+      });
+    } catch (e) {
+      debugPrint('[Address Error] Could not fetch addresses: $e');
+      return [];
+    }
+  }
+
+  /// Inserts or updates an address for the current user
+  Future<UserAddress?> saveAddress(UserAddress address) async {
+    if (!SupabaseGate.ready || !isSignedIn) return null;
+    try {
+      return await _retry(() async {
+        final payload = address.toMap();
+        payload['user_id'] = currentUserId;
+        if (address.id.isEmpty) {
+          payload.remove('id');
+        }
+
+        final res = await _client
+            .from('addresses')
+            .upsert(payload)
+            .select()
+            .single();
+
+        return UserAddress.fromMap(res);
+      });
+    } catch (e) {
+      debugPrint('[Address Error] Could not save address: $e');
+      rethrow;
+    }
+  }
+
+  /// Sets an address as default and unsets others
+  Future<void> setDefaultAddress(String addressId) async {
+    if (!SupabaseGate.ready || !isSignedIn) return;
+    try {
+      await _retry(() async {
+        // Unset previous defaults
+        await _client
+            .from('addresses')
+            .update({'is_default': false})
+            .eq('user_id', currentUserId)
+            .eq('is_default', true);
+
+        // Set target address as default
+        await _client
+            .from('addresses')
+            .update({'is_default': true})
+            .eq('user_id', currentUserId)
+            .eq('id', addressId);
+      });
+    } catch (e) {
+      debugPrint('[Address Error] Could not set default address: $e');
+      rethrow;
+    }
+  }
+
+  /// Deletes an address
+  Future<void> deleteAddress(String addressId) async {
+    if (!SupabaseGate.ready || !isSignedIn) return;
+    try {
+      await _retry(() async {
+        await _client
+            .from('addresses')
+            .delete()
+            .eq('user_id', currentUserId)
+            .eq('id', addressId);
+      });
+    } catch (e) {
+      debugPrint('[Address Error] Could not delete address: $e');
+      rethrow;
     }
   }
 }

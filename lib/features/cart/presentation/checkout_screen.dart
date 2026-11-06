@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/data/models/user_address.dart';
+import 'package:sheetal_icecream/features/address/presentation/address_form_sheet.dart';
+import 'package:sheetal_icecream/features/address/presentation/saved_addresses_sheet.dart';
+import 'package:sheetal_icecream/features/auth/presentation/auth_bottom_sheet.dart';
 import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
 import 'package:sheetal_icecream/features/cart/cubit/orders_cubit.dart';
 import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
 import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/services/supabase_service.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -19,41 +24,125 @@ class CheckoutScreen extends StatefulWidget {
 class _CheckoutScreenState extends State<CheckoutScreen> {
   final _name = TextEditingController();
   final _phone = TextEditingController();
-  final _address = TextEditingController(text: 'HSR Layout, Bengaluru');
+  UserAddress? _selectedAddress;
+  List<UserAddress> _savedAddresses = [];
+  bool _loadingAddresses = true;
   String _payment = 'cod';
   String? _nameError;
   String? _phoneError;
   String? _addressError;
 
   @override
+  void initState() {
+    super.initState();
+    _loadAddresses();
+  }
+
+  @override
   void dispose() {
     _name.dispose();
     _phone.dispose();
-    _address.dispose();
     super.dispose();
   }
 
-  void _placeOrder() {
+  Future<void> _loadAddresses() async {
+    setState(() => _loadingAddresses = true);
+    final list = await SupabaseService.instance.fetchAddresses();
+    if (mounted) {
+      setState(() {
+        _savedAddresses = list;
+        _loadingAddresses = false;
+        if (list.isNotEmpty) {
+          // Pre-select default address if available, otherwise first address
+          final defaultAddr = list.firstWhere(
+            (a) => a.isDefault,
+            orElse: () => list.first,
+          );
+          _selectedAddress = defaultAddr;
+          if (_name.text.isEmpty) _name.text = defaultAddr.recipientName;
+          if (_phone.text.isEmpty) _phone.text = defaultAddr.phone;
+          _addressError = null;
+        } else {
+          _selectedAddress = null;
+        }
+      });
+    }
+  }
+
+  Future<void> _changeAddress() async {
+    final picked = await SavedAddressesSheet.show(
+      context,
+      selectedAddressId: _selectedAddress?.id,
+      isPicker: true,
+    );
+    if (picked != null && mounted) {
+      setState(() {
+        _selectedAddress = picked;
+        _name.text = picked.recipientName;
+        _phone.text = picked.phone;
+        _addressError = null;
+      });
+      // Refresh address list in background
+      final list = await SupabaseService.instance.fetchAddresses();
+      if (mounted) setState(() => _savedAddresses = list);
+    }
+  }
+
+  Future<void> _addAddress() async {
+    final added = await AddressFormSheet.show(
+      context,
+      forceDefault: _savedAddresses.isEmpty,
+    );
+    if (added != null && mounted) {
+      await _loadAddresses();
+      setState(() {
+        _selectedAddress = added;
+        _name.text = added.recipientName;
+        _phone.text = added.phone;
+        _addressError = null;
+      });
+    }
+  }
+
+  Future<void> _placeOrder() async {
+    if (!SupabaseService.instance.isSignedIn) {
+      final signedIn = await AuthBottomSheet.requireAuth(
+        context,
+        title: 'Sign In to Order',
+        subtitle: 'Please sign in to place your order and save delivery address',
+        onAuthenticated: () {},
+      );
+      if (!signedIn) return;
+      await _loadAddresses();
+    }
+
+    if (_selectedAddress == null) {
+      setState(() => _addressError = 'Please select or add a delivery address.');
+      await _addAddress();
+      if (_selectedAddress == null) return;
+    }
+
     final name = _name.text.trim();
     final phone = _phone.text.trim();
-    final address = _address.text.trim();
     final nameError = name.isEmpty ? 'Please enter your name.' : null;
     final phoneError = RegExp(r'^[6-9]\d{9}$').hasMatch(phone)
         ? null
         : 'Enter a valid 10-digit mobile number.';
-    final addressError =
-        address.isEmpty ? 'Please add a delivery address.' : null;
+
     setState(() {
       _nameError = nameError;
       _phoneError = phoneError;
-      _addressError = addressError;
+      _addressError = null;
     });
-    if (nameError != null || phoneError != null || addressError != null) {
+    if (nameError != null || phoneError != null) {
       return;
     }
 
+    if (!mounted) return;
     final cart = context.read<CartCubit>().state;
     if (cart.isEmpty) return;
+
+    final formattedAddress = _selectedAddress!.formattedAddress;
 
     final order = StoreOrder(
       number: 'SHT${100000 + Random().nextInt(900000)}',
@@ -63,7 +152,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           '${line.quantity} × ${line.product.name} (${line.product.unit})',
       ],
       total: cart.total,
-      address: address,
+      address: '$name, $phone\n$formattedAddress',
       payment: _payment == 'cod' ? 'Cash on Delivery' : 'Online (demo)',
     );
     context.read<OrdersCubit>().add(order);
@@ -114,15 +203,10 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
           ),
           const SizedBox(height: 8),
-          TextField(
-            controller: _address,
-            minLines: 2,
-            maxLines: 3,
-            decoration: _field('Flat, street, area', _addressError),
-          ),
+          _deliveryAddressCard(),
           const SizedBox(height: 14),
           const Text(
-            'Full name',
+            'Recipient name',
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
           ),
           const SizedBox(height: 8),
@@ -133,7 +217,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           ),
           const SizedBox(height: 14),
           const Text(
-            'Phone number',
+            'Contact phone number',
             style: TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
           ),
           const SizedBox(height: 8),
@@ -210,6 +294,200 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _deliveryAddressCard() {
+    if (_loadingAddresses) {
+      return Container(
+        height: 76,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: AppColors.linePink),
+        ),
+        child: const Center(
+          child: SizedBox(
+            width: 22,
+            height: 22,
+            child: CircularProgressIndicator(strokeWidth: 2),
+          ),
+        ),
+      );
+    }
+
+    if (_selectedAddress == null) {
+      return InkWell(
+        onTap: _addAddress,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: _addressError != null ? const Color(0xFFD32F2F) : AppColors.linePink,
+              width: _addressError != null ? 1.5 : 1,
+            ),
+          ),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const Icon(Icons.add_location_alt_outlined, color: AppColors.primary),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Add Delivery Address',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 14,
+                        color: AppColors.royalPurple,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      _addressError ?? 'Tap to enter your delivery location',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: _addressError != null ? const Color(0xFFD32F2F) : AppColors.softMuted,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right_rounded, color: AppColors.softMuted),
+            ],
+          ),
+        ),
+      );
+    }
+
+    final a = _selectedAddress!;
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.35), width: 1.2),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.primary.withValues(alpha: 0.04),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                a.label.toLowerCase() == 'work'
+                    ? Icons.business_rounded
+                    : a.label.toLowerCase() == 'home'
+                        ? Icons.home_rounded
+                        : Icons.location_on_rounded,
+                color: AppColors.primary,
+                size: 18,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                a.label,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w800,
+                  fontSize: 14,
+                  color: AppColors.royalPurple,
+                ),
+              ),
+              const SizedBox(width: 8),
+              if (a.isDefault)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: AppColors.primary.withValues(alpha: 0.12),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: const Text(
+                    'DEFAULT',
+                    style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w800,
+                      color: AppColors.primary,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ),
+              const Spacer(),
+              TextButton(
+                onPressed: _changeAddress,
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  visualDensity: VisualDensity.compact,
+                ),
+                child: const Text(
+                  'Change',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    color: AppColors.primary,
+                    fontSize: 13,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Text(
+            '${a.recipientName} • ${a.phone}',
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 13,
+              color: AppColors.deepInk,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            a.formattedAddress,
+            style: const TextStyle(fontSize: 12, color: AppColors.softMuted, height: 1.3),
+          ),
+          if (_savedAddresses.length > 1 && !a.isDefault) ...[
+            const SizedBox(height: 8),
+            InkWell(
+              onTap: () async {
+                await SupabaseService.instance.setDefaultAddress(a.id);
+                await _loadAddresses();
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${a.label} is now your default delivery address'),
+                      backgroundColor: AppColors.accent,
+                      behavior: SnackBarBehavior.floating,
+                    ),
+                  );
+                }
+              },
+              child: const Text(
+                '★ Set as my default address',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.primary,
+                ),
+              ),
+            ),
+          ],
         ],
       ),
     );

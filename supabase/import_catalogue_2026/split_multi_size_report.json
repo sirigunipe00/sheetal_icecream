@@ -1,0 +1,370 @@
+{
+  "products": [
+    {
+      "id": 125,
+      "display": "Gold Milk",
+      "sizes": [
+        {
+          "unit": "500 ml",
+          "price": 36
+        },
+        {
+          "unit": "6 Ltr",
+          "price": 420
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 126,
+      "display": "Taza Milk",
+      "sizes": [
+        {
+          "unit": "330 ml",
+          "price": 20
+        },
+        {
+          "unit": "400 ml",
+          "price": 25
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 130,
+      "display": "Anytime Tea Milk",
+      "sizes": [
+        {
+          "unit": "1 Ltr",
+          "price": 57
+        },
+        {
+          "unit": "6 Ltr",
+          "price": 340
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 133,
+      "display": "Chhash (Buttermilk)",
+      "sizes": [
+        {
+          "unit": "600 ml",
+          "price": 20
+        },
+        {
+          "unit": "6 Ltr",
+          "price": 175
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 136,
+      "display": "Shital Dahi",
+      "sizes": [
+        {
+          "unit": "180 g",
+          "price": 20
+        },
+        {
+          "unit": "5 kg",
+          "price": 450
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 139,
+      "display": "Ghee",
+      "sizes": [
+        {
+          "unit": "500 ml",
+          "price": 360
+        },
+        {
+          "unit": "1 Ltr",
+          "price": 700
+        },
+        {
+          "unit": "15 kg",
+          "price": 11500
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 140,
+      "display": "Cow Ghee (Gaay nu Ghee)",
+      "sizes": [
+        {
+          "unit": "200 ml",
+          "price": 160
+        },
+        {
+          "unit": "500 ml",
+          "price": 370
+        },
+        {
+          "unit": "1 Ltr",
+          "price": 720
+        },
+        {
+          "unit": "15 kg",
+          "price": 11900
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 161,
+      "display": "Elaichi Shrikhand",
+      "sizes": [
+        {
+          "unit": "200 g",
+          "price": 50
+        },
+        {
+          "unit": "500 g",
+          "price": 110
+        },
+        {
+          "unit": "1 kg",
+          "price": 210
+        },
+        {
+          "unit": "6 kg",
+          "price": 1250
+        },
+        {
+          "unit": "20 kg",
+          "price": 4100
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 162,
+      "display": "Rajbhog Shrikhand",
+      "sizes": [
+        {
+          "unit": "200 g",
+          "price": 75
+        },
+        {
+          "unit": "500 g",
+          "price": 150
+        },
+        {
+          "unit": "1 kg",
+          "price": 290
+        },
+        {
+          "unit": "6 kg",
+          "price": 1740
+        },
+        {
+          "unit": "20 kg",
+          "price": 5700
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 163,
+      "display": "Mixed Fruit Shrikhand",
+      "sizes": [
+        {
+          "unit": "200 g",
+          "price": 60
+        },
+        {
+          "unit": "500 g",
+          "price": 120
+        },
+        {
+          "unit": "1 kg",
+          "price": 230
+        },
+        {
+          "unit": "6 kg",
+          "price": 1380
+        },
+        {
+          "unit": "20 kg",
+          "price": 4500
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 164,
+      "display": "Mango Shrikhand",
+      "sizes": [
+        {
+          "unit": "200 g",
+          "price": 60
+        },
+        {
+          "unit": "500 g",
+          "price": 120
+        },
+        {
+          "unit": "1 kg",
+          "price": 230
+        },
+        {
+          "unit": "6 kg",
+          "price": 1380
+        },
+        {
+          "unit": "20 kg",
+          "price": 4500
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 186,
+      "display": "Tikha Mitha Mix",
+      "sizes": [
+        {
+          "unit": "150 g",
+          "price": 30
+        },
+        {
+          "unit": "500 g",
+          "price": 70
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 187,
+      "display": "Khatta Meetha",
+      "sizes": [
+        {
+          "unit": "150 g",
+          "price": 25
+        },
+        {
+          "unit": "500 g",
+          "price": 70
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 189,
+      "display": "Bhavnagari Gathiya",
+      "sizes": [
+        {
+          "unit": "150 g",
+          "price": 25
+        },
+        {
+          "unit": "500 g",
+          "price": 75
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 274,
+      "display": "French Fries",
+      "sizes": [
+        {
+          "unit": "200 g",
+          "price": 45
+        },
+        {
+          "unit": "2.5 Kg",
+          "price": 400
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 275,
+      "display": "Handmade Punjabi Samosa",
+      "sizes": [
+        {
+          "unit": "50 g",
+          "price": 100
+        },
+        {
+          "unit": "80 g",
+          "price": 160
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 276,
+      "display": "Handmade Mix Veg Samosa",
+      "sizes": [
+        {
+          "unit": "50 g",
+          "price": 100
+        },
+        {
+          "unit": "80 g",
+          "price": 180
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 292,
+      "display": "Kesar Dryfruit Basundi",
+      "sizes": [
+        {
+          "unit": "1 kg",
+          "price": 400
+        },
+        {
+          "unit": "5 kg",
+          "price": 1890
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 293,
+      "display": "Mango Milk Shake (Aam Ras)",
+      "sizes": [
+        {
+          "unit": "500 g",
+          "price": 145
+        },
+        {
+          "unit": "1 kg",
+          "price": 280
+        },
+        {
+          "unit": "5 kg",
+          "price": 1350
+        }
+      ],
+      "image_url_unchanged": true
+    },
+    {
+      "id": 309,
+      "display": "Green Peas",
+      "sizes": [
+        {
+          "unit": "200 g",
+          "price": 40
+        },
+        {
+          "unit": "1 kg",
+          "price": 120
+        }
+      ],
+      "image_url_unchanged": true
+    }
+  ],
+  "count": 20,
+  "extra_rows": 36
+}

@@ -12,7 +12,7 @@ class CatalogState extends Equatable {
     this.query = '',
     this.wishlist = const {},
     this.sortBy = 'rel',
-    this.selectedSegment = 'Ice Cream',
+    this.selectedSegment = 'Ice Cream Menu',
     this.openedCategory,
     this.loading = false,
     this.error,

@@ -1,15 +1,18 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/core/widgets/category_image.dart';
+import 'package:sheetal_icecream/core/widgets/product_image.dart';
+import 'package:sheetal_icecream/data/catalog/catalogue_menus.dart';
 import 'package:sheetal_icecream/data/models/product.dart';
 import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
 import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
 import 'package:sheetal_icecream/features/catalog/presentation/widgets/product_card.dart';
-import 'package:sheetal_icecream/features/profile/presentation/profile_bottom_sheet.dart';
 import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
 import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
+import 'package:sheetal_icecream/services/device_location.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,6 +24,24 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final _scroll = ScrollController();
   final _search = TextEditingController();
+  String _deliveryLabel = 'Finding your location…';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadDeliveryLocation();
+  }
+
+  Future<void> _loadDeliveryLocation() async {
+    try {
+      final label = await DeviceLocation.currentLabel();
+      if (!mounted) return;
+      setState(() => _deliveryLabel = label);
+    } catch (_) {
+      if (!mounted) return;
+      setState(() => _deliveryLabel = 'Location unavailable');
+    }
+  }
 
   @override
   void dispose() {
@@ -67,7 +88,12 @@ class _HomeScreenState extends State<HomeScreen> {
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         slivers: [
           // 1. Sheetal Magenta Delivery Header (with pure white logo)
-          const SliverToBoxAdapter(child: _DeliveryHeader()),
+          SliverToBoxAdapter(
+            child: _DeliveryHeader(
+              label: _deliveryLabel,
+              onRetry: _loadDeliveryLocation,
+            ),
+          ),
 
           // 2. Search Bar with category selection option when a category is selected
           SliverToBoxAdapter(
@@ -83,23 +109,35 @@ class _HomeScreenState extends State<HomeScreen> {
 
           // When searching or filtering by a category, show only results grid
           if (!isSearching && !isCategoryFiltered) ...[
-            // 3. Hero Promo Banner
+            // 3. Hero Promo Banner Slider
             SliverToBoxAdapter(
-              child: _HeroBanner(onShopNow: _scrollToGrid),
-            ),
-
-            // 4. Shop by Category Circular Rings (Only category view on home screen)
-            SliverToBoxAdapter(
-              child: _ShopByCategory(
+              child: _HeroImageSlider(
+                onShopNow: _scrollToGrid,
                 onCategory: _openCategoryPage,
-                selectedCategory: catalog.category,
-                categories: catalog.categories,
-                categoryImages: catalog.categoryImages,
-                products: catalog.products,
               ),
             ),
 
-            // 5. Best Sellers Section
+            // 4. Shop by Category — circular rings
+            // SliverToBoxAdapter(
+            //   child: _ShopByCategory(
+            //     onCategory: _openCategoryPage,
+            //     selectedCategory: catalog.category,
+            //     categories: catalog.categories,
+            //     categoryImages: catalog.categoryImages,
+            //     products: catalog.products,
+            //   ),
+            // ),
+
+            // 5. Menu sections (Blinkit-style 4-column category grids)
+            SliverToBoxAdapter(
+              child: _CatalogueMenuSections(
+                products: catalog.products,
+                categoryImages: catalog.categoryImages,
+                onCategory: _openCategoryPage,
+              ),
+            ),
+
+            // 6. Best Sellers Section
             SliverToBoxAdapter(
               child: _BestSellersBar(
                 products: catalog.bestSellers,
@@ -107,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            // 6. New Arrivals Section
+            // 7. New Arrivals Section
             SliverToBoxAdapter(
               child: _NewArrivalsBar(
                 products: catalog.newArrivals,
@@ -115,9 +153,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
 
-            // 7. Special Offers Banners
+            // 8. Fresh Milk & Dairy (Fast Expire Daily Products)
             SliverToBoxAdapter(
-              child: _SpecialOffers(onExplore: _scrollToGrid),
+              child: _FreshMilkBar(
+                products: catalog.products,
+                cart: cart,
+                onSeeAll: () => _openCategoryPage('Milk'),
+              ),
             ),
           ],
 
@@ -161,11 +203,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     return ProductCard(
                       key: ValueKey('product-${product.id}'),
                       product: product,
-                      quantity: cart.quantityOf(product.id),
+                      quantity: cart.quantityOfProduct(product.id),
                       onIncrement: () =>
-                          context.read<CartCubit>().increment(product.id),
+                          context.read<CartCubit>().incrementProduct(product),
                       onDecrement: () =>
-                          context.read<CartCubit>().decrement(product.id),
+                          context.read<CartCubit>().decrementProduct(product.id),
                     );
                   },
                   childCount: catalog.visible.length,
@@ -182,7 +224,10 @@ class _HomeScreenState extends State<HomeScreen> {
 // 1. Delivery Header (Sheetal Magenta Header with WHITE Logo)
 // ---------------------------------------------------------------------------
 class _DeliveryHeader extends StatelessWidget {
-  const _DeliveryHeader();
+  const _DeliveryHeader({required this.label, required this.onRetry});
+
+  final String label;
+  final VoidCallback onRetry;
 
   @override
   Widget build(BuildContext context) {
@@ -212,12 +257,12 @@ class _DeliveryHeader extends StatelessWidget {
                 'assets/images/logo_white.webp',
                 height: 38,
                 fit: BoxFit.contain,
-                errorBuilder: (_, __, ___) => Image.asset(
+                errorBuilder: (_, _, _) => Image.asset(
                   'assets/images/logo.png',
                   color: Colors.white,
                   height: 38,
                   fit: BoxFit.contain,
-                  errorBuilder: (_, __, ___) => const Column(
+                  errorBuilder: (_, _, _) => const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -258,15 +303,18 @@ class _DeliveryHeader extends StatelessWidget {
                 color: Colors.white,
               ),
               const SizedBox(width: 4),
-              const Expanded(
-                child: Text(
-                  'Delivering to HSR Layout',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w800,
-                    color: Colors.white,
+              Expanded(
+                child: GestureDetector(
+                  onTap: onRetry,
+                  child: Text(
+                    label,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
@@ -316,7 +364,9 @@ class _ProfileButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           key: const Key('profile-button'),
-          onTap: () => ProfileBottomSheet.show(context),
+          onTap: () {
+    context.read<ShellCubit>().select(AppTab.profile);
+  },
           borderRadius: BorderRadius.circular(22),
           child: Container(
             width: 42,
@@ -434,7 +484,7 @@ class _SearchBar extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.fromLTRB(16, 0, 16, 6),
               itemCount: categories.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              separatorBuilder: (_, _) => const SizedBox(width: 8),
               itemBuilder: (context, index) {
                 final cat = categories[index];
                 final isSelected = cat == selectedCategory;
@@ -488,109 +538,323 @@ class _SearchBar extends StatelessWidget {
 }
 
 // ---------------------------------------------------------------------------
-// 3. Hero Promo Banner (from prototype line 44)
+// 3. Hero Promo Banner Slider (Auto-playing image slider below search bar)
 // ---------------------------------------------------------------------------
-class _HeroBanner extends StatelessWidget {
-  const _HeroBanner({required this.onShopNow});
+class _SlideItem {
+  const _SlideItem({
+    required this.tag,
+    required this.tagColor,
+    required this.title,
+    required this.subtitle,
+    required this.buttonText,
+    required this.imageAsset,
+    required this.gradient,
+    required this.borderColor,
+    this.category,
+  });
+
+  final String tag;
+  final Color tagColor;
+  final String title;
+  final String subtitle;
+  final String buttonText;
+  final String imageAsset;
+  final List<Color> gradient;
+  final Color borderColor;
+  final String? category;
+}
+
+const _heroSlides = [
+  _SlideItem(
+    tag: 'SHEETAL SPECIAL',
+    tagColor: AppColors.royalPurple,
+    title: 'Passion for\nPerfect Taste',
+    subtitle: 'Pure dairy indulgence & rich sundaes',
+    buttonText: 'Shop now',
+    imageAsset: 'assets/images/slider-novelties.png',
+    gradient: [Color(0xFFFFF1FA), Color(0xFFF1EAFB)],
+    borderColor: Color(0xFFF3CEE6),
+  ),
+  _SlideItem(
+    tag: 'ROYAL HERITAGE',
+    tagColor: Color(0xFFC2410C),
+    title: 'Authentic\nShahi Kulfi',
+    subtitle: 'Rich creamy malai & crunchy pista',
+    buttonText: 'Explore Kulfi',
+    imageAsset: 'assets/images/slider-kulfi.png',
+    gradient: [Color(0xFFFFF7ED), Color(0xFFFFEDD5)],
+    borderColor: Color(0xFFFED7AA),
+    category: 'Kulfi',
+  ),
+  _SlideItem(
+    tag: 'CRISPY WAFFLE',
+    tagColor: AppColors.primary,
+    title: 'Crunchy\nWaffle Cones',
+    subtitle: 'Topped with roasted nuts & fudge',
+    buttonText: 'Try Cones',
+    imageAsset: 'assets/images/slider-cone.png',
+    gradient: [Color(0xFFFDF2F8), Color(0xFFFCE7F3)],
+    borderColor: Color(0xFFFBCFE8),
+    category: 'Cones',
+  ),
+  _SlideItem(
+    tag: 'CELEBRATIONS',
+    tagColor: Color(0xFF7C3AED),
+    title: 'Ice Cream\nParty Cakes',
+    subtitle: 'Sweeten every birthday & party',
+    buttonText: 'Order Cake',
+    imageAsset: 'assets/images/slider-cake.png',
+    gradient: [Color(0xFFF5F3FF), Color(0xFFEDE9FE)],
+    borderColor: Color(0xFFDDD6FE),
+    category: 'Cake',
+  ),
+  _SlideItem(
+    tag: 'GUILT-FREE',
+    tagColor: Color(0xFF15803D),
+    title: '100% Guilt-Free\nSugar-Free',
+    subtitle: 'Pure authentic taste with zero added sugar',
+    buttonText: 'Discover',
+    imageAsset: 'assets/images/slider-sugar-free.png',
+    gradient: [Color(0xFFF0FDF4), Color(0xFFDCFCE7)],
+    borderColor: Color(0xFFBBF7D0),
+    category: 'Sugar Free',
+  ),
+  _SlideItem(
+    tag: 'FAMILY PACKS',
+    tagColor: Color(0xFF0369A1),
+    title: 'Delicious\nFamily Tubs',
+    subtitle: 'Stock up your home freezer with joy',
+    buttonText: 'Stock Up',
+    imageAsset: 'assets/images/slider-take-home-1.png',
+    gradient: [Color(0xFFF0F9FF), Color(0xFFE0F2FE)],
+    borderColor: Color(0xFFBAE6FD),
+  ),
+];
+
+class _HeroImageSlider extends StatefulWidget {
+  const _HeroImageSlider({
+    required this.onShopNow,
+    required this.onCategory,
+  });
 
   final VoidCallback onShopNow;
+  final ValueChanged<String> onCategory;
+
+  @override
+  State<_HeroImageSlider> createState() => _HeroImageSliderState();
+}
+
+class _HeroImageSliderState extends State<_HeroImageSlider> {
+  late final PageController _controller;
+  int _currentPage = 0;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PageController();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(milliseconds: 3800), (_) {
+      if (!mounted || !_controller.hasClients) return;
+      final next = (_currentPage + 1) % _heroSlides.length;
+      _controller.animateToPage(
+        next,
+        duration: const Duration(milliseconds: 550),
+        curve: Curves.easeInOutCubic,
+      );
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(16, 10, 16, 8),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFFFFF1FA), Color(0xFFF1EAFB)],
-        ),
-        borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: AppColors.linePink, width: 1.5),
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          height: 172,
+          child: PageView.builder(
+            controller: _controller,
+            itemCount: _heroSlides.length,
+            onPageChanged: (idx) => setState(() => _currentPage = idx),
+            itemBuilder: (context, index) {
+              final slide = _heroSlides[index];
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
                   decoration: BoxDecoration(
-                    color: AppColors.royalPurple,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Text(
-                    'SHEETAL ICE CREAMS',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 0.5,
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: slide.gradient,
                     ),
+                    borderRadius: BorderRadius.circular(22),
+                    border: Border.all(color: slide.borderColor, width: 1.5),
+                    boxShadow: [
+                      BoxShadow(
+                        color: slide.tagColor.withValues(alpha: 0.08),
+                        blurRadius: 14,
+                        offset: const Offset(0, 4),
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  'Passion for\nPerfect Taste',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                    color: AppColors.deepInk,
-                    height: 1.2,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: AppColors.brandGradient,
-                    borderRadius: BorderRadius.circular(14),
-                  ),
-                  child: Material(
-                    color: Colors.transparent,
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(14),
-                      onTap: onShopNow,
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-                        child: Text(
-                          'Shop now',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 13.5,
-                            fontWeight: FontWeight.w700,
+                  child: Row(
+                    children: [
+                      // Text content
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3.5),
+                              decoration: BoxDecoration(
+                                color: slide.tagColor,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Text(
+                                slide.tag,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 9.5,
+                                  fontWeight: FontWeight.w800,
+                                  letterSpacing: 0.6,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 6),
+                            Text(
+                              slide.title,
+                              maxLines: 2,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800,
+                                color: AppColors.deepInk,
+                                height: 1.15,
+                              ),
+                            ),
+                            const SizedBox(height: 3),
+                            Text(
+                              slide.subtitle,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 11,
+                                color: AppColors.softMuted,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            DecoratedBox(
+                              decoration: BoxDecoration(
+                                gradient: AppColors.brandGradient,
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.primary.withValues(alpha: 0.25),
+                                    blurRadius: 8,
+                                    offset: const Offset(0, 2),
+                                  ),
+                                ],
+                              ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(12),
+                                  onTap: () {
+                                    if (slide.category != null) {
+                                      widget.onCategory(slide.category!);
+                                    } else {
+                                      widget.onShopNow();
+                                    }
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          slide.buttonText,
+                                          style: const TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 4),
+                                        const Icon(
+                                          Icons.arrow_forward_rounded,
+                                          size: 13,
+                                          color: Colors.white,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 6),
+                      // Slide Image
+                      SizedBox(
+                        width: 118,
+                        height: 118,
+                        child: Image.asset(
+                          slide.imageAsset,
+                          fit: BoxFit.contain,
+                          errorBuilder: (_, _, _) => Image.asset(
+                            'assets/images/purity_milk.png',
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              );
+            },
           ),
-          const SizedBox(width: 8),
-          Image.asset(
-            'assets/images/slider-novelties.png',
-            width: 115,
-            height: 115,
-            fit: BoxFit.contain,
-            errorBuilder: (_, __, ___) => Image.asset(
-              'assets/images/purity_milk.png',
-              width: 115,
-              height: 115,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 10),
+        // Dots Indicator
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(_heroSlides.length, (idx) {
+            final isActive = idx == _currentPage;
+            return AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+              curve: Curves.easeOutCubic,
+              margin: const EdgeInsets.symmetric(horizontal: 3),
+              width: isActive ? 22 : 6,
+              height: 6,
+              decoration: BoxDecoration(
+                color: isActive ? AppColors.primary : AppColors.borderPink.withValues(alpha: 0.6),
+                borderRadius: BorderRadius.circular(3),
+              ),
+            );
+          }),
+        ),
+        const SizedBox(height: 4),
+      ],
     );
   }
 }
 
 // ---------------------------------------------------------------------------
-// 4. Shop by Category Circular Rings (from prototype line 45)
+// 4. Shop by Category Circular Rings
 // ---------------------------------------------------------------------------
 class _ShopByCategory extends StatelessWidget {
   const _ShopByCategory({
@@ -632,7 +896,7 @@ class _ShopByCategory extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: cats.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               final cat = cats[index];
               final img = categoryImages[cat];
@@ -676,8 +940,11 @@ class _ShopByCategory extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 12,
-                          fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
-                          color: isSelected ? AppColors.primary : AppColors.deepInk,
+                          fontWeight:
+                              isSelected ? FontWeight.w800 : FontWeight.w600,
+                          color: isSelected
+                              ? AppColors.primary
+                              : AppColors.deepInk,
                         ),
                       ),
                     ],
@@ -688,6 +955,246 @@ class _ShopByCategory extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 5. Catalogue menus — Blinkit-style 4-column category grids
+// ---------------------------------------------------------------------------
+class _CatalogueMenuSections extends StatelessWidget {
+  const _CatalogueMenuSections({
+    required this.products,
+    required this.categoryImages,
+    required this.onCategory,
+  });
+
+  final List<Product> products;
+  final Map<String, String> categoryImages;
+  final ValueChanged<String> onCategory;
+
+  @override
+  Widget build(BuildContext context) {
+    final available = {
+      for (final p in products) p.category,
+    };
+    final menus = CatalogueMenus.menusWithProducts(available);
+    if (menus.isEmpty) return const SizedBox.shrink();
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (final menu in menus) ...[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 20, 16, 14),
+              child: Text(
+                menu.menu,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF1F1F1F),
+                  letterSpacing: -0.2,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: menu.categories.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 14,
+                  crossAxisSpacing: 10,
+                  childAspectRatio: 0.68,
+                ),
+                itemBuilder: (context, index) {
+                  final category = menu.categories[index];
+                  final categoryProducts = products
+                      .where((p) => p.category == category)
+                      .toList();
+                  return _MenuCategoryTile(
+                    category: category,
+                    products: categoryProducts,
+                    imageUrl: categoryImages[category],
+                    onTap: () => onCategory(category),
+                  );
+                },
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _MenuCategoryTile extends StatelessWidget {
+  const _MenuCategoryTile({
+    required this.category,
+    required this.products,
+    required this.imageUrl,
+    required this.onTap,
+  });
+
+  final String category;
+  final List<Product> products;
+  final String? imageUrl;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final fallback = categoryImageFallback(products, category, imageUrl);
+
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Column(
+        children: [
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color(0xFFE8EEF2),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              clipBehavior: Clip.antiAlias,
+              padding: const EdgeInsets.fromLTRB(6, 8, 6, 4),
+              child: _CategoryProductCollage(
+                products: products,
+                imageUrl: imageUrl,
+                fallbackUrl: fallback,
+                label: category,
+              ),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            CatalogueMenus.tileLabel(category),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+              color: Color(0xFF333333),
+              height: 1.2,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CategoryProductCollage extends StatelessWidget {
+  const _CategoryProductCollage({
+    required this.products,
+    required this.imageUrl,
+    required this.fallbackUrl,
+    required this.label,
+  });
+
+  final List<Product> products;
+  final String? imageUrl;
+  final String? fallbackUrl;
+  final String label;
+
+  List<Product> get _preview {
+    final withImage = products
+        .where((p) => p.image != null && p.image!.trim().isNotEmpty)
+        .toList();
+    final source = withImage.isNotEmpty ? withImage : products;
+    return source.take(3).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final items = _preview;
+    if (items.isEmpty) {
+      return CategoryImage(
+        imageUrl: imageUrl,
+        fallbackUrl: fallbackUrl,
+        label: label,
+        fontSize: 18,
+      );
+    }
+    if (items.length == 1) {
+      return ProductImage(product: items.first, showProgress: false);
+    }
+
+    // Blinkit-style: products sit side-by-side inside the soft tile.
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final w = constraints.maxWidth;
+        final h = constraints.maxHeight;
+        if (items.length == 2) {
+          return Stack(
+            clipBehavior: Clip.hardEdge,
+            children: [
+              Positioned(
+                left: 0,
+                bottom: h * 0.02,
+                width: w * 0.56,
+                height: h * 0.92,
+                child: ProductImage(
+                  product: items[0],
+                  showProgress: false,
+                ),
+              ),
+              Positioned(
+                right: 0,
+                bottom: h * 0.02,
+                width: w * 0.56,
+                height: h * 0.92,
+                child: ProductImage(
+                  product: items[1],
+                  showProgress: false,
+                ),
+              ),
+            ],
+          );
+        }
+
+        return Stack(
+          clipBehavior: Clip.hardEdge,
+          children: [
+            Positioned(
+              left: 0,
+              bottom: h * 0.04,
+              width: w * 0.42,
+              height: h * 0.82,
+              child: ProductImage(
+                product: items[0],
+                showProgress: false,
+              ),
+            ),
+            Positioned(
+              left: w * 0.29,
+              bottom: h * 0.02,
+              width: w * 0.42,
+              height: h * 0.9,
+              child: ProductImage(
+                product: items[1],
+                showProgress: false,
+              ),
+            ),
+            Positioned(
+              right: 0,
+              bottom: h * 0.04,
+              width: w * 0.42,
+              height: h * 0.82,
+              child: ProductImage(
+                product: items[2],
+                showProgress: false,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -728,7 +1235,7 @@ class _BestSellersBar extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: products.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               final product = products[index];
               return SizedBox(
@@ -736,11 +1243,11 @@ class _BestSellersBar extends StatelessWidget {
                 child: ProductCard(
                   key: ValueKey('best-seller-${product.id}'),
                   product: product,
-                  quantity: cart.quantityOf(product.id),
+                  quantity: cart.quantityOfProduct(product.id),
                   onIncrement: () =>
-                      context.read<CartCubit>().increment(product.id),
+                      context.read<CartCubit>().incrementProduct(product),
                   onDecrement: () =>
-                      context.read<CartCubit>().decrement(product.id),
+                      context.read<CartCubit>().decrementProduct(product.id),
                 ),
               );
             },
@@ -787,7 +1294,7 @@ class _NewArrivalsBar extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 16),
             itemCount: products.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               final product = products[index];
               return SizedBox(
@@ -795,11 +1302,11 @@ class _NewArrivalsBar extends StatelessWidget {
                 child: ProductCard(
                   key: ValueKey('new-arrival-${product.id}'),
                   product: product,
-                  quantity: cart.quantityOf(product.id),
+                  quantity: cart.quantityOfProduct(product.id),
                   onIncrement: () =>
-                      context.read<CartCubit>().increment(product.id),
+                      context.read<CartCubit>().incrementProduct(product),
                   onDecrement: () =>
-                      context.read<CartCubit>().decrement(product.id),
+                      context.read<CartCubit>().decrementProduct(product.id),
                 ),
               );
             },
@@ -811,139 +1318,112 @@ class _NewArrivalsBar extends StatelessWidget {
 }
 
 // ---------------------------------------------------------------------------
-// 7. Special Offers Banners (from prototype line 48)
+// Fresh Milk & Dairy Section (Fast expiring daily essentials)
 // ---------------------------------------------------------------------------
-class _SpecialOffers extends StatelessWidget {
-  const _SpecialOffers({required this.onExplore});
+class _FreshMilkBar extends StatelessWidget {
+  const _FreshMilkBar({
+    required this.products,
+    required this.cart,
+    required this.onSeeAll,
+  });
 
-  final VoidCallback onExplore;
+  final List<Product> products;
+  final CartState cart;
+  final VoidCallback onSeeAll;
 
   @override
   Widget build(BuildContext context) {
+    // Filter milk & dairy products (fast expiring daily essentials)
+    final milkProducts = products.where((p) {
+      final cat = p.category.trim().toLowerCase();
+      return cat == 'milk' ||
+          cat == 'buttermilk' ||
+          cat == 'dahi' ||
+          cat == 'paneer & butter' ||
+          cat == 'flavoured milk' ||
+          cat == 'milk & milk products';
+    }).toList();
+
+    if (milkProducts.isEmpty) return const SizedBox.shrink();
+
+    // Sort to show pure Milk first, followed by Dahi, Buttermilk, Paneer, Flavoured Milk
+    milkProducts.sort((a, b) {
+      int rank(Product p) {
+        final cat = p.category.trim().toLowerCase();
+        if (cat == 'milk') return 0;
+        if (cat == 'dahi') return 1;
+        if (cat == 'buttermilk') return 2;
+        if (cat == 'paneer & butter') return 3;
+        if (cat == 'flavoured milk') return 4;
+        return 5;
+      }
+      return rank(a).compareTo(rank(b));
+    });
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(16, 14, 16, 8),
-          child: Text(
-            'Special offers',
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w800,
-              color: AppColors.royalPurple,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 110,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Promo 1: Free Delivery above ₹199
-              GestureDetector(
-                onTap: onExplore,
-                child: Container(
-                  width: 280,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFFD43375), Color(0xFFE86A9C)],
+              Expanded(
+                child: Row(
+                  children: [
+                    const Text(
+                      'Fresh Milk & Dairy',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w800,
+                        color: AppColors.royalPurple,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    children: [
-                      const Expanded(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Free delivery above ₹199',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w800,
-                              ),
+                    const SizedBox(width: 8),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFE8F5E9),
+                        borderRadius: BorderRadius.circular(6),
+                        border: Border.all(color: const Color(0xFFA5D6A7)),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.flash_on_rounded, size: 11, color: Color(0xFF2E7D32)),
+                          SizedBox(width: 2),
+                          Text(
+                            'DAILY FRESH',
+                            style: TextStyle(
+                              fontSize: 9,
+                              fontWeight: FontWeight.w800,
+                              color: Color(0xFF2E7D32),
+                              letterSpacing: 0.3,
                             ),
-                            SizedBox(height: 4),
-                            Text(
-                              'On your favorite treats',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
                           ),
-                        ),
+                        ],
                       ),
-                      Image.asset(
-                        'assets/images/slider-cake.png',
-                        width: 68,
-                        height: 68,
-                        fit: BoxFit.contain,
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: 12),
-
-              // Promo 2: New Cookies Sandwich
-              GestureDetector(
-                onTap: onExplore,
-                child: Container(
-                  width: 280,
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF583090), Color(0xFF7A4FC0)],
-                    ),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
+              InkWell(
+                onTap: onSeeAll,
+                borderRadius: BorderRadius.circular(8),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 4),
                   child: Row(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Expanded(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          alignment: Alignment.centerLeft,
-                          child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'New: Cookies Sandwich',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                            SizedBox(height: 4),
-                            Text(
-                              'Try it today',
-                              style: TextStyle(
-                                color: Colors.white70,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ],
-                          ),
+                      Text(
+                        'See all',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.primary,
                         ),
                       ),
-                      Image.asset(
-                        'assets/images/slider-novelties.png',
-                        width: 68,
-                        height: 68,
-                        fit: BoxFit.contain,
-                      ),
+                      Icon(Icons.chevron_right_rounded, size: 18, color: AppColors.primary),
                     ],
                   ),
                 ),
@@ -951,6 +1431,38 @@ class _SpecialOffers extends StatelessWidget {
             ],
           ),
         ),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(16, 0, 16, 10),
+          child: Text(
+            'Daily essentials delivered cold & fresh within 10 minutes',
+            style: TextStyle(fontSize: 12, color: AppColors.softMuted),
+          ),
+        ),
+        SizedBox(
+          height: 248,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            itemCount: milkProducts.length,
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
+            itemBuilder: (context, index) {
+              final product = milkProducts[index];
+              return SizedBox(
+                width: 158,
+                child: ProductCard(
+                  key: ValueKey('milk-product-${product.id}'),
+                  product: product,
+                  quantity: cart.quantityOfProduct(product.id),
+                  onIncrement: () =>
+                      context.read<CartCubit>().incrementProduct(product),
+                  onDecrement: () =>
+                      context.read<CartCubit>().decrementProduct(product.id),
+                ),
+              );
+            },
+          ),
+        ),
+        const SizedBox(height: 8),
       ],
     );
   }

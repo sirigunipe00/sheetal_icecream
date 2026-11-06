@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
@@ -11,43 +12,130 @@ import 'package:sheetal_icecream/features/profile/presentation/profile_screen.da
 import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
 import 'package:sheetal_icecream/features/shell/cubit/shell_state.dart';
 
-class AppShell extends StatelessWidget {
+class AppShell extends StatefulWidget {
   const AppShell({super.key});
 
   @override
+  State<AppShell> createState() => _AppShellState();
+}
+
+class _AppShellState extends State<AppShell> with SingleTickerProviderStateMixin {
+  static const _toggleThreshold = 10.0;
+
+  late final AnimationController _navController;
+  bool _navVisible = true;
+  double _scrollAcc = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _navController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 220),
+      value: 1,
+    );
+  }
+
+  @override
+  void dispose() {
+    _navController.dispose();
+    super.dispose();
+  }
+
+  void _setNavVisible(bool visible) {
+    if (_navVisible == visible) return;
+    setState(() => _navVisible = visible);
+    _scrollAcc = 0;
+    if (visible) {
+      _navController.forward();
+    } else {
+      _navController.reverse();
+    }
+  }
+
+  bool _onScroll(ScrollNotification notification) {
+    if (notification.metrics.axis != Axis.vertical) return false;
+
+    if (notification is ScrollEndNotification) {
+      _scrollAcc = 0;
+      return false;
+    }
+    if (notification is UserScrollNotification &&
+        notification.direction == ScrollDirection.idle) {
+      _scrollAcc = 0;
+      return false;
+    }
+
+    if (notification is! ScrollUpdateNotification) return false;
+    final delta = notification.scrollDelta;
+    if (delta == null || delta == 0) return false;
+
+    // Reset accumulator when direction flips.
+    if ((_scrollAcc > 0 && delta < 0) || (_scrollAcc < 0 && delta > 0)) {
+      _scrollAcc = 0;
+    }
+    _scrollAcc += delta;
+
+    final atTop = notification.metrics.pixels <= 0;
+    if (atTop || _scrollAcc <= -_toggleThreshold) {
+      // Scrolling down (content moves down) → show nav.
+      _setNavVisible(true);
+    } else if (_scrollAcc >= _toggleThreshold) {
+      // Scrolling up (content moves up) → hide nav.
+      _setNavVisible(false);
+    }
+    return false;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ShellCubit, ShellState>(
+    final bottomInset = MediaQuery.paddingOf(context).bottom;
+
+    return BlocConsumer<ShellCubit, ShellState>(
+      listenWhen: (prev, next) => prev.tab != next.tab,
+      listener: (context, shell) {
+        // Always show nav when switching tabs.
+        _setNavVisible(true);
+      },
       builder: (context, shell) {
+        final showCartBar = shell.tab == AppTab.home ||
+            shell.tab == AppTab.categories ||
+            shell.tab == AppTab.wishlist;
+
         return DecoratedBox(
           decoration: const BoxDecoration(gradient: AppColors.pageGradient),
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            body: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                IndexedStack(
-                  index: shell.tab.index,
-                  children: const [
-                    HomeScreen(),
-                    CategoriesScreen(),
-                    WishlistScreen(),
-                    CartScreen(),
-                    ProfileScreen(),
-                  ],
-                ),
-                Positioned(
-                  left: 12,
-                  right: 12,
-                  bottom: 10,
-                  child: _CartBar(
-                    visible: shell.tab == AppTab.home ||
-                        shell.tab == AppTab.categories ||
-                        shell.tab == AppTab.wishlist,
+            body: NotificationListener<ScrollNotification>(
+              onNotification: _onScroll,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  IndexedStack(
+                    index: shell.tab.index,
+                    children: const [
+                      HomeScreen(),
+                      CategoriesScreen(),
+                      WishlistScreen(),
+                      CartScreen(),
+                      ProfileScreen(),
+                    ],
                   ),
-                ),
-              ],
+                  // Cart strip stays visible on both scroll directions.
+                  Positioned(
+                    left: 12,
+                    right: 12,
+                    bottom: 10 + (_navVisible ? 0 : bottomInset),
+                    child: _CartBar(visible: showCartBar),
+                  ),
+                ],
+              ),
             ),
-            bottomNavigationBar: _BottomNav(current: shell.tab),
+            bottomNavigationBar: SizeTransition(
+              sizeFactor: _navController,
+              alignment: Alignment.topCenter,
+              child: _BottomNav(current: shell.tab),
+            ),
           ),
         );
       },
@@ -114,7 +202,11 @@ class _CartBar extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 4),
-                          Icon(Icons.chevron_right_rounded, color: Colors.white, size: 20),
+                          Icon(
+                            Icons.chevron_right_rounded,
+                            color: Colors.white,
+                            size: 20,
+                          ),
                         ],
                       ),
                     ],
@@ -158,20 +250,23 @@ class _BottomNav extends StatelessWidget {
                   label: 'Categories',
                   icon: Icons.grid_view_rounded,
                   selected: current == AppTab.categories,
-                  onTap: () => context.read<ShellCubit>().select(AppTab.categories),
+                  onTap: () =>
+                      context.read<ShellCubit>().select(AppTab.categories),
                 ),
                 _NavButton(
                   label: 'Wishlist',
                   icon: Icons.favorite_border_rounded,
                   selected: current == AppTab.wishlist,
-                  onTap: () => context.read<ShellCubit>().select(AppTab.wishlist),
+                  onTap: () =>
+                      context.read<ShellCubit>().select(AppTab.wishlist),
                 ),
                 _CartNavButton(selected: current == AppTab.cart),
                 _NavButton(
                   label: 'Profile',
                   icon: Icons.person_outline_rounded,
                   selected: current == AppTab.profile,
-                  onTap: () => context.read<ShellCubit>().select(AppTab.profile),
+                  onTap: () =>
+                      context.read<ShellCubit>().select(AppTab.profile),
                 ),
               ],
             ),
@@ -209,10 +304,9 @@ class _NavButton extends StatelessWidget {
     required this.label,
     required this.selected,
     required this.onTap,
-    this.enabled = true,
     this.icon,
     this.badgeCount = 0,
-  });
+  }) : enabled = true;
 
   final String label;
   final bool selected;
@@ -248,7 +342,8 @@ class _NavButton extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontSize: 10,
-                          fontWeight: selected ? FontWeight.w800 : FontWeight.w600,
+                          fontWeight:
+                              selected ? FontWeight.w800 : FontWeight.w600,
                           color: color,
                         ),
                       ),
@@ -260,7 +355,10 @@ class _NavButton extends StatelessWidget {
                       right: -10,
                       child: Container(
                         constraints: const BoxConstraints(minWidth: 16),
-                        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 4,
+                          vertical: 1,
+                        ),
                         decoration: BoxDecoration(
                           color: AppColors.royalPurple,
                           borderRadius: BorderRadius.circular(8),

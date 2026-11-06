@@ -1,0 +1,2887 @@
+{
+  "updates": [
+    {
+      "id": 0,
+      "name": "Tender Coconut (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 1,
+      "name": "Alphonso Mango (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 2,
+      "name": "Mixed Fruits (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 3,
+      "name": "Guava (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 4,
+      "name": "Jamun (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 5,
+      "name": "Custard Apple (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 6,
+      "name": "Almond Carnival (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 7,
+      "name": "Chocolate Chips (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 8,
+      "name": "American Nuts (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "35",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 9,
+      "name": "Vanilla (110 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 10,
+      "name": "Authentic Kulfi (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 11,
+      "name": "Triple Chocolate (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 12,
+      "name": "Creamy Bastani (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 13,
+      "name": "Sugar Free Kesar Pista (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 14,
+      "name": "Kaju Draksh (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 15,
+      "name": "Butterscotch (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 16,
+      "name": "American Dry Fruits (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 17,
+      "name": "Sugar Free Vanilla (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 18,
+      "name": "Kesar Pista (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 19,
+      "name": "Rajbhog (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 20,
+      "name": "Mawa Badam (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 21,
+      "name": "Cookies 'N' Cream (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 22,
+      "name": "Vanilla (50 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 23,
+      "name": "Strawberry (50 ml)",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "220",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 25,
+      "name": "Chocolate Cyclone Funday (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 26,
+      "name": "Fruit Rocking Funday (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 27,
+      "name": "Sadi Lassi (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 28,
+      "name": "Mango Lassi (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 29,
+      "name": "Dry Fruit Lassi (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 30,
+      "name": "Shahi Kulfi (70 ml)",
+      "set": {
+        "unit": "70 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "70 ml"
+    },
+    {
+      "id": 31,
+      "name": "Anjeer Kulfi (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 32,
+      "name": "Traditional Kulfi (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 33,
+      "name": "Sugar Free Kulfi (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 34,
+      "name": "Kadai Kulfi (50 ml)",
+      "set": {
+        "unit": "50 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "50 ml"
+    },
+    {
+      "id": 35,
+      "name": "Punjab Di Kulfi (50 ml)",
+      "set": {
+        "unit": "50 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "50 ml"
+    },
+    {
+      "id": 36,
+      "name": "Jamun Kulfi (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 37,
+      "name": "Royal Rabdi Kulfi (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 38,
+      "name": "Malai Kulfi (45 ml)",
+      "set": {
+        "unit": "45 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "45 ml"
+    },
+    {
+      "id": 39,
+      "name": "Shahi Pista Kulfi (45 ml)",
+      "set": {
+        "unit": "45 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "45 ml"
+    },
+    {
+      "id": 40,
+      "name": "Bombay Chowpaty Kulfi (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 42,
+      "name": "Gloria Almond (70 ml)",
+      "set": {
+        "unit": "70 ml"
+      },
+      "multi": false,
+      "excel_price": "70",
+      "excel_size": "70 ml"
+    },
+    {
+      "id": 43,
+      "name": "Hazelnut Filter Coffee (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "70",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 44,
+      "name": "Baklava Pistachio (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 45,
+      "name": "Hazelnut Chocolate Swirl (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 46,
+      "name": "Tender Coconut Salted Caramel (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 47,
+      "name": "Frostick (70 ml)",
+      "set": {
+        "unit": "70 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "70 ml"
+    },
+    {
+      "id": 48,
+      "name": "Rajbhog Candy (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 49,
+      "name": "Almond Chocobar (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 50,
+      "name": "Alphonso Mango (50 ml)",
+      "set": {
+        "unit": "50 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "50 ml"
+    },
+    {
+      "id": 51,
+      "name": "Mini Mega Bite (40 ml)",
+      "set": {
+        "unit": "40 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "40 ml"
+    },
+    {
+      "id": 52,
+      "name": "Choco Sparkle (55 ml)",
+      "set": {
+        "unit": "55 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "55 ml"
+    },
+    {
+      "id": 53,
+      "name": "Premium Mawa Malai (60 ml)",
+      "set": {
+        "unit": "60 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 57,
+      "name": "Classic Chocobar (60 ml)",
+      "set": {
+        "unit": "60 ml",
+        "description": "Prices: \u20b915 / \u20b920"
+      },
+      "multi": true,
+      "excel_price": "\u20b915 / \u20b920",
+      "excel_size": "60 ml"
+    },
+    {
+      "id": 66,
+      "name": "Black Forest (135 ml)",
+      "set": {
+        "unit": "135 ml"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "135 ml"
+    },
+    {
+      "id": 67,
+      "name": "Bolltop (135 ml)",
+      "set": {
+        "unit": "135 ml"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "135 ml"
+    },
+    {
+      "id": 68,
+      "name": "American Nuts (135 ml)",
+      "set": {
+        "unit": "135 ml"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "135 ml"
+    },
+    {
+      "id": 69,
+      "name": "Dark Choco Fantasy (135 ml)",
+      "set": {
+        "unit": "135 ml"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "135 ml"
+    },
+    {
+      "id": 70,
+      "name": "Disc Cone (110 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 71,
+      "name": "Biscotti (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 72,
+      "name": "Chocolate Delight (110 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 73,
+      "name": "Kaju Draksh (110 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 74,
+      "name": "2 in One (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 75,
+      "name": "Cappuccino (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 76,
+      "name": "Kesar (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 77,
+      "name": "Nutty Butter Scotch (110 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 78,
+      "name": "Kesar Pista (110 ml)",
+      "set": {
+        "unit": "110 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "110 ml"
+    },
+    {
+      "id": 79,
+      "name": "Salted Caramel (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 80,
+      "name": "Choco Daddy Cone (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 81,
+      "name": "Gully Gola (Box)",
+      "set": {
+        "unit": "Box"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": null
+    },
+    {
+      "id": 82,
+      "name": "Tripple Sundae (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 83,
+      "name": "Single Sundae (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 84,
+      "name": "Double Sundae (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "70",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 85,
+      "name": "Matka Kulfi (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 86,
+      "name": "Ras Malai Matka (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 87,
+      "name": "Pista Malai Matka (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "70",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 88,
+      "name": "Slice Cassata (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 89,
+      "name": "Classic Cassata (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 90,
+      "name": "Traditional Cassata (120 ml)",
+      "set": {
+        "unit": "120 ml"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "120 ml"
+    },
+    {
+      "id": 91,
+      "name": "Nutty Roll Cut (80 ml)",
+      "set": {
+        "unit": "80 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "80 ml"
+    },
+    {
+      "id": 92,
+      "name": "Cookies Sandwich (125 ml)",
+      "set": {
+        "unit": "125 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "125 ml"
+    },
+    {
+      "id": 93,
+      "name": "Sandwich Ice Cream (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 94,
+      "name": "Golden Fantasy Cake (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "600",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 95,
+      "name": "Black Forest Cake (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "550",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 96,
+      "name": "Chocolate Cake (400 g)",
+      "set": {
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 97,
+      "name": "Red Velvet Cake (500 g)",
+      "set": {
+        "unit": "500 g"
+      },
+      "multi": false,
+      "excel_price": "300",
+      "excel_size": "500 g"
+    },
+    {
+      "id": 98,
+      "name": "Cookie Chocolate Cake (500 g)",
+      "set": {
+        "unit": "500 g"
+      },
+      "multi": false,
+      "excel_price": "300",
+      "excel_size": "500 g"
+    },
+    {
+      "id": 99,
+      "name": "Golden Fantasy Pastry (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 100,
+      "name": "Black Forest Pastry (100 ml)",
+      "set": {
+        "unit": "100 ml"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100 ml"
+    },
+    {
+      "id": 101,
+      "name": "Tender Coconut (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "400",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 102,
+      "name": "Classical Kulfi (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "400",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 103,
+      "name": "Rajbhog (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "360",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 104,
+      "name": "Kesar Kaju Katli (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "360",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 105,
+      "name": "Almond Carnival (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "360",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 106,
+      "name": "Alphonso Mango (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "300",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 107,
+      "name": "Malai Kulfi (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "300",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 108,
+      "name": "Sitafal (1 Ltr)",
+      "set": {
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "300",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 109,
+      "name": "Kesar Pista (750 ml)",
+      "set": {
+        "unit": "750 ml"
+      },
+      "multi": false,
+      "excel_price": "230",
+      "excel_size": "750 ml"
+    },
+    {
+      "id": 110,
+      "name": "Badam Rabdi (750 ml)",
+      "set": {
+        "unit": "750 ml"
+      },
+      "multi": false,
+      "excel_price": "220",
+      "excel_size": "750 ml"
+    },
+    {
+      "id": 111,
+      "name": "Butterscotch (750 ml)",
+      "set": {
+        "unit": "750 ml"
+      },
+      "multi": false,
+      "excel_price": "200",
+      "excel_size": "750 ml"
+    },
+    {
+      "id": 112,
+      "name": "Rajbhog (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "380",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 113,
+      "name": "Kesar Pista (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "350",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 114,
+      "name": "Mawa Badam (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "330",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 115,
+      "name": "Almond Carnival (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "320",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 116,
+      "name": "American Bits (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "320",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 117,
+      "name": "Black Current (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 118,
+      "name": "Kaju Draksh (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 119,
+      "name": "Chocolate Chips (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 120,
+      "name": "Cookies 'N' Cream (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 121,
+      "name": "Butter Scotch (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 122,
+      "name": "Alphonso Mango (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "280",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 123,
+      "name": "Strawberry (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "220",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 124,
+      "name": "Vanilla (700 ml + 700 ml (Buy 1 Get 1 Free))",
+      "set": {
+        "unit": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+      },
+      "multi": false,
+      "excel_price": "220",
+      "excel_size": "700 ml + 700 ml (Buy 1 Get 1 Free)"
+    },
+    {
+      "id": 125,
+      "name": "Gold Milk (500 ml - 6 Ltr)",
+      "set": {
+        "price": 36.0,
+        "unit": "500 ml - 6 Ltr"
+      },
+      "multi": false,
+      "excel_price": "36",
+      "excel_size": "500 ml - 6 Ltr"
+    },
+    {
+      "id": 126,
+      "name": "Taza Milk (160 ml - 200 ml - 330 ml - 400 ml)",
+      "set": {
+        "price": 20.0,
+        "unit": "330 ml - 400 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "330 ml - 400 ml"
+    },
+    {
+      "id": 127,
+      "name": "Cow Milk (500 ml)",
+      "set": {
+        "price": 28.0,
+        "unit": "500 ml"
+      },
+      "multi": false,
+      "excel_price": "28",
+      "excel_size": "500 ml"
+    },
+    {
+      "id": 128,
+      "name": "Silver Milk (180 ml - 6 Ltr)",
+      "set": {
+        "price": 300.0,
+        "unit": "6 Ltr"
+      },
+      "multi": false,
+      "excel_price": "300",
+      "excel_size": "6 Ltr"
+    },
+    {
+      "id": 129,
+      "name": "Tea Special Milk (1 Ltr)",
+      "set": {
+        "price": 65.0,
+        "unit": "1 Ltr"
+      },
+      "multi": false,
+      "excel_price": "65",
+      "excel_size": "1 Ltr"
+    },
+    {
+      "id": 130,
+      "name": "Anytime Tea Milk (1 Ltr - 6 Ltr)",
+      "set": {
+        "price": 57.0,
+        "unit": "1 Ltr - 6 Ltr"
+      },
+      "multi": false,
+      "excel_price": "57",
+      "excel_size": "1 Ltr - 6 Ltr"
+    },
+    {
+      "id": 132,
+      "name": "Khati Chhash (Sour Buttermilk) (200 ml - 400 ml - 600 ml)",
+      "set": {
+        "price": 20.0,
+        "unit": "600 ml"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "600 ml"
+    },
+    {
+      "id": 133,
+      "name": "Chhash (Buttermilk) (300 ml - 400 ml - 600 ml - 6 Ltr)",
+      "set": {
+        "price": 20.0,
+        "unit": "600 ml - 6 Ltr"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "600 ml - 6 Ltr"
+    },
+    {
+      "id": 135,
+      "name": "Silver Dahi (Pouch) (150 gm - 800 gm)",
+      "set": {
+        "price": 55.0,
+        "unit": "800 gm"
+      },
+      "multi": false,
+      "excel_price": "55",
+      "excel_size": "800 gm"
+    },
+    {
+      "id": 136,
+      "name": "Shital Dahi (80 gm - 180 gm - 5 Kg)",
+      "set": {
+        "price": 20.0,
+        "unit": "180 gm - 5 Kg"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "180 gm - 5 Kg"
+    },
+    {
+      "id": 137,
+      "name": "Silver Dahi (5 Kg)",
+      "set": {
+        "price": 330.0,
+        "unit": "5 Kg"
+      },
+      "multi": false,
+      "excel_price": "330",
+      "excel_size": "5 Kg"
+    },
+    {
+      "id": 138,
+      "name": "Probiotic Dahi (1 Kg)",
+      "set": {
+        "price": 115.0,
+        "unit": "1 Kg"
+      },
+      "multi": false,
+      "excel_price": "115",
+      "excel_size": "1 Kg"
+    },
+    {
+      "id": 139,
+      "name": "Ghee (500 ml - 1 Ltr - 15 Kg)",
+      "set": {
+        "price": 360.0,
+        "unit": "500 ml - 1 Ltr - 15 Kg"
+      },
+      "multi": false,
+      "excel_price": "360",
+      "excel_size": "500 ml - 1 Ltr - 15 Kg"
+    },
+    {
+      "id": 140,
+      "name": "Cow Ghee (Gaay nu Ghee) (200 ml - 500 ml - 1 Ltr - 15 Kg)",
+      "set": {
+        "price": 160.0,
+        "unit": "200 ml - 500 ml - 1 Ltr - 15 Kg"
+      },
+      "multi": false,
+      "excel_price": "160",
+      "excel_size": "200 ml - 500 ml - 1 Ltr - 15 Kg"
+    },
+    {
+      "id": 141,
+      "name": "Cow Ghee (Tin) (1 Ltr)",
+      "set": {
+        "price": 160.0,
+        "unit": "200 ml - 500 ml - 1 Ltr - 15 Kg"
+      },
+      "multi": false,
+      "excel_price": "160",
+      "excel_size": "200 ml - 500 ml - 1 Ltr - 15 Kg"
+    },
+    {
+      "id": 142,
+      "name": "Malai Paneer (100 g)",
+      "set": {
+        "unit": "100 g"
+      },
+      "multi": false,
+      "excel_price": null,
+      "excel_size": "100 g"
+    },
+    {
+      "id": 143,
+      "name": "Malai Paneer (200 g)",
+      "set": {
+        "unit": "200 g"
+      },
+      "multi": false,
+      "excel_price": null,
+      "excel_size": "200 g"
+    },
+    {
+      "id": 144,
+      "name": "Malai Paneer (500 g)",
+      "set": {
+        "unit": "500 g"
+      },
+      "multi": false,
+      "excel_price": null,
+      "excel_size": "500 g"
+    },
+    {
+      "id": 145,
+      "name": "Malai Paneer (1 Kg)",
+      "set": {
+        "unit": "1 Kg"
+      },
+      "multi": false,
+      "excel_price": null,
+      "excel_size": "1 Kg"
+    },
+    {
+      "id": 146,
+      "name": "Butter (100 gm)",
+      "set": {
+        "unit": "100 gm"
+      },
+      "multi": false,
+      "excel_price": null,
+      "excel_size": "100 gm"
+    },
+    {
+      "id": 147,
+      "name": "Badam Pista Cookies",
+      "set": {
+        "price": 120.0,
+        "unit": "170gram"
+      },
+      "multi": false,
+      "excel_price": "120",
+      "excel_size": "170gram"
+    },
+    {
+      "id": 148,
+      "name": "Chocolate Chips Cookies",
+      "set": {
+        "price": 100.0,
+        "unit": "170gram"
+      },
+      "multi": false,
+      "excel_price": "100",
+      "excel_size": "170gram"
+    },
+    {
+      "id": 149,
+      "name": "Brownie Walnut Cookies",
+      "set": {
+        "price": 130.0,
+        "unit": "170gram"
+      },
+      "multi": false,
+      "excel_price": "130",
+      "excel_size": "170gram"
+    },
+    {
+      "id": 150,
+      "name": "Honey Oats Cookies",
+      "set": {
+        "price": 100.0,
+        "unit": "170gram"
+      },
+      "multi": false,
+      "excel_price": "100",
+      "excel_size": "170gram"
+    },
+    {
+      "id": 151,
+      "name": "Kulfi Flavoured Milk (200 ml)",
+      "set": {
+        "price": 30.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 152,
+      "name": "Elaichi Flavoured Milk (200 ml)",
+      "set": {
+        "price": 30.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 153,
+      "name": "Kesar Flavoured Milk (200 ml)",
+      "set": {
+        "price": 30.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 154,
+      "name": "Rose Flavoured Milk (200 ml)",
+      "set": {
+        "price": 30.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 155,
+      "name": "Cold Coffee (200 ml)",
+      "set": {
+        "price": 40.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 156,
+      "name": "Cold Coco (200 ml)",
+      "set": {
+        "price": 40.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 157,
+      "name": "Rose Lassi (200 ml)",
+      "set": {
+        "price": 30.0,
+        "unit": "200 ml"
+      },
+      "multi": false,
+      "excel_price": "30",
+      "excel_size": "200 ml"
+    },
+    {
+      "id": 158,
+      "name": "Masala Chhash",
+      "set": {
+        "price": 20.0
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": null
+    },
+    {
+      "id": 159,
+      "name": "Gulab Jamun (1 Kg)",
+      "set": {
+        "price": 200.0,
+        "unit": "1 Kg"
+      },
+      "multi": false,
+      "excel_price": "200",
+      "excel_size": "1 Kg"
+    },
+    {
+      "id": 160,
+      "name": "Rasgulla (1 Kg)",
+      "set": {
+        "price": 200.0,
+        "unit": "1 Kg"
+      },
+      "multi": false,
+      "excel_price": "200",
+      "excel_size": "1 Kg"
+    },
+    {
+      "id": 161,
+      "name": "Elaichi Shrikhand (200 gm - 500 gm - 1 Kg)",
+      "set": {
+        "price": 50.0,
+        "unit": "200 gm - 500 gm - 1 Kg - 6 Kg - 20 Kg"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "200 gm - 500 gm - 1 Kg - 6 Kg - 20 Kg"
+    },
+    {
+      "id": 162,
+      "name": "Rajbhog Shrikhand (200 gm - 500 gm - 1 Kg)",
+      "set": {
+        "price": 75.0,
+        "unit": "200 gm - 500 gm - 1 Kg 6 Kg - 20 Kg"
+      },
+      "multi": false,
+      "excel_price": "75",
+      "excel_size": "200 gm - 500 gm - 1 Kg 6 Kg - 20 Kg"
+    },
+    {
+      "id": 163,
+      "name": "Mixed Fruit Shrikhand (200 gm - 500 gm - 1 Kg)",
+      "set": {
+        "price": 60.0,
+        "unit": "200 gm - 500 gm - 1 Kg 6 Kg - 20 Kg"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "200 gm - 500 gm - 1 Kg 6 Kg - 20 Kg"
+    },
+    {
+      "id": 164,
+      "name": "Mango Shrikhand (200 gm - 500 gm - 1 Kg)",
+      "set": {
+        "price": 60.0,
+        "unit": "200 gm - 500 gm - 1 Kg 6 Kg - 20 Kg"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "200 gm - 500 gm - 1 Kg 6 Kg - 20 Kg"
+    },
+    {
+      "id": 165,
+      "name": "Shrikhand (Bulk Tub) (6 Kg - 20 Kg)",
+      "set": {
+        "unit": "Bulk Tub) (6 Kg - 20 Kg"
+      },
+      "multi": false,
+      "excel_price": null,
+      "excel_size": null
+    },
+    {
+      "id": 171,
+      "name": "Butter Khari",
+      "set": {
+        "price": 40.0,
+        "unit": "150"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "150"
+    },
+    {
+      "id": 172,
+      "name": "Jeera Khari",
+      "set": {
+        "price": 40.0,
+        "unit": "150"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "150"
+    },
+    {
+      "id": 173,
+      "name": "Masala Khari",
+      "set": {
+        "price": 40.0,
+        "unit": "150"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "150"
+    },
+    {
+      "id": 174,
+      "name": "Palak Khari",
+      "set": {
+        "price": 50.0,
+        "unit": "150"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "150"
+    },
+    {
+      "id": 175,
+      "name": "Methi Khari",
+      "set": {
+        "price": 40.0,
+        "unit": "150"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "150"
+    },
+    {
+      "id": 176,
+      "name": "Milk Rusk",
+      "set": {
+        "price": 45.0,
+        "unit": "200Gram"
+      },
+      "multi": false,
+      "excel_price": "45",
+      "excel_size": "200Gram"
+    },
+    {
+      "id": 177,
+      "name": "Kaju Rusk",
+      "set": {
+        "price": 50.0,
+        "unit": "200Gram"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "200Gram"
+    },
+    {
+      "id": 178,
+      "name": "Jeera Rusk",
+      "set": {
+        "price": 40.0,
+        "unit": "200Gram"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "200Gram"
+    },
+    {
+      "id": 179,
+      "name": "Fruta Rusk",
+      "set": {
+        "price": 40.0,
+        "unit": "200Gram"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "200Gram"
+    },
+    {
+      "id": 180,
+      "name": "Chocolate Cream Roll",
+      "set": {
+        "price": 20.0,
+        "unit": "70Gm"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "70Gm"
+    },
+    {
+      "id": 181,
+      "name": "Vanilla Cream Roll",
+      "set": {
+        "price": 20.0,
+        "unit": "70Gm"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "70Gm"
+    },
+    {
+      "id": 182,
+      "name": "Strawberry Cream Roll",
+      "set": {
+        "price": 20.0,
+        "unit": "70Gm"
+      },
+      "multi": false,
+      "excel_price": "20",
+      "excel_size": "70Gm"
+    },
+    {
+      "id": 183,
+      "name": "Pav",
+      "set": {
+        "price": 40.0,
+        "unit": "400gm"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "400gm"
+    },
+    {
+      "id": 184,
+      "name": "Premium Bread (Big)",
+      "set": {
+        "price": 60.0,
+        "unit": "700gm"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "700gm"
+    },
+    {
+      "id": 185,
+      "name": "Premium Bread (Small)",
+      "set": {
+        "price": 60.0,
+        "unit": "700gm"
+      },
+      "multi": false,
+      "excel_price": "60",
+      "excel_size": "700gm"
+    },
+    {
+      "id": 186,
+      "name": "Tikha Mitha Mix",
+      "set": {
+        "unit": "150gm",
+        "description": "150gm: \u20b930 \u00b7 500gm: \u20b970"
+      },
+      "multi": true,
+      "excel_price": "\u20b930 / \u20b970",
+      "excel_size": "150gm-500gm"
+    },
+    {
+      "id": 187,
+      "name": "Khatta Meetha",
+      "set": {
+        "unit": "150gm",
+        "description": "150gm: \u20b925 \u00b7 500gm: \u20b970"
+      },
+      "multi": true,
+      "excel_price": "\u20b925 / \u20b970",
+      "excel_size": "150gm-500gm"
+    },
+    {
+      "id": 188,
+      "name": "Farali Chevdo (Sweet)",
+      "set": {
+        "unit": "500gm",
+        "description": "Prices: \u20b925 / \u20b970"
+      },
+      "multi": true,
+      "excel_price": "\u20b925 / \u20b970",
+      "excel_size": "500gm"
+    },
+    {
+      "id": 189,
+      "name": "Bhavnagari Gathiya",
+      "set": {
+        "unit": "150gm",
+        "description": "150gm: \u20b925 \u00b7 500gm: \u20b975"
+      },
+      "multi": true,
+      "excel_price": "\u20b925 / \u20b975",
+      "excel_size": "150gm-500gm"
+    },
+    {
+      "id": 190,
+      "name": "Sev Mamra",
+      "set": {
+        "unit": "200gm"
+      },
+      "multi": false,
+      "excel_price": "25",
+      "excel_size": "200gm"
+    },
+    {
+      "id": 191,
+      "name": "Chana Jor Garam",
+      "set": {
+        "unit": "150gm"
+      },
+      "multi": false,
+      "excel_price": "25",
+      "excel_size": "150gm"
+    },
+    {
+      "id": 192,
+      "name": "Ratlami Sev",
+      "set": {
+        "unit": "150gm"
+      },
+      "multi": false,
+      "excel_price": "25",
+      "excel_size": "150gm"
+    },
+    {
+      "id": 193,
+      "name": "Shing Bhujiya",
+      "set": {
+        "unit": "120gm"
+      },
+      "multi": false,
+      "excel_price": "25",
+      "excel_size": "120gm"
+    },
+    {
+      "id": 194,
+      "name": "Farali Chevdo (Spicy)",
+      "set": {
+        "unit": "500gm",
+        "description": "Prices: \u20b925 / \u20b970"
+      },
+      "multi": true,
+      "excel_price": "\u20b925 / \u20b970",
+      "excel_size": "500gm"
+    },
+    {
+      "id": 195,
+      "name": "Chana Dal",
+      "set": {
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "85",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 205,
+      "name": "Bombay Bhel",
+      "set": {
+        "unit": "100gm"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100gm"
+    },
+    {
+      "id": 208,
+      "name": "Papad Chavana",
+      "set": {
+        "unit": "160gm"
+      },
+      "multi": false,
+      "excel_price": "25",
+      "excel_size": "160gm"
+    },
+    {
+      "id": 209,
+      "name": "Sev Bundi",
+      "set": {
+        "unit": "150gm"
+      },
+      "multi": false,
+      "excel_price": "25",
+      "excel_size": "150gm"
+    },
+    {
+      "id": 210,
+      "name": "Subji Sev",
+      "set": {
+        "unit": "500gm"
+      },
+      "multi": false,
+      "excel_price": "75",
+      "excel_size": "500gm"
+    },
+    {
+      "id": 211,
+      "name": "Salted Potato Wafers",
+      "set": {
+        "unit": "150gm"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "150gm"
+    },
+    {
+      "id": 212,
+      "name": "Masala Potato Wafers",
+      "set": {
+        "unit": "150gm"
+      },
+      "multi": false,
+      "excel_price": "40",
+      "excel_size": "150gm"
+    },
+    {
+      "id": 218,
+      "name": "French Fries (Crispy & Salty)",
+      "set": {
+        "price": 45.0,
+        "unit": "200 g - 2.5 Kg"
+      },
+      "multi": false,
+      "excel_price": "45",
+      "excel_size": "200 g - 2.5 Kg"
+    },
+    {
+      "id": 219,
+      "name": "Noodles",
+      "set": {
+        "unit": "Regular pack",
+        "description": "Prices: \u20b95 / \u20b910"
+      },
+      "multi": true,
+      "excel_price": "\u20b95 / \u20b910",
+      "excel_size": null
+    },
+    {
+      "id": 242,
+      "name": "Masala Popcorn (Cup)",
+      "set": {
+        "unit": "Cup"
+      },
+      "multi": false,
+      "excel_price": "15",
+      "excel_size": null
+    },
+    {
+      "id": 243,
+      "name": "Manchurian Popcorn (Cup)",
+      "set": {
+        "unit": "Cup"
+      },
+      "multi": false,
+      "excel_price": "15",
+      "excel_size": null
+    },
+    {
+      "id": 244,
+      "name": "Cheese Popcorn (Cup)",
+      "set": {
+        "unit": "Cup"
+      },
+      "multi": false,
+      "excel_price": "15",
+      "excel_size": null
+    },
+    {
+      "id": 245,
+      "name": "Popcorn (Pouch)",
+      "set": {
+        "unit": "Pouch"
+      },
+      "multi": false,
+      "excel_price": "5",
+      "excel_size": null
+    },
+    {
+      "id": 246,
+      "name": "Popcorn (Pouch, bada)",
+      "set": {
+        "unit": "Pouch, bada"
+      },
+      "multi": false,
+      "excel_price": "5",
+      "excel_size": null
+    },
+    {
+      "id": 247,
+      "name": "Choco Stix",
+      "set": {
+        "unit": "Box"
+      },
+      "multi": false,
+      "excel_price": "150",
+      "excel_size": "Box"
+    },
+    {
+      "id": 248,
+      "name": "Strawberry Stix",
+      "set": {
+        "unit": "Box"
+      },
+      "multi": false,
+      "excel_price": "150",
+      "excel_size": "Box"
+    },
+    {
+      "id": 249,
+      "name": "Aloo Bhujiya (400 g)",
+      "set": {
+        "price": 80.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 250,
+      "name": "Bhavnagari Gathiya (400 g)",
+      "set": {
+        "price": 75.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "75",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 251,
+      "name": "Chana Dal (400 g)",
+      "set": {
+        "price": 85.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "85",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 252,
+      "name": "Chana Jor Garam (400 g)",
+      "set": {
+        "price": 80.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 253,
+      "name": "Farali Chiwda (Sweet) (400 g)",
+      "set": {
+        "price": 105.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "105",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 254,
+      "name": "Khatta Meetha (400 g)",
+      "set": {
+        "price": 80.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 255,
+      "name": "Ratlami Sev (400 g)",
+      "set": {
+        "price": 85.0,
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "85",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 256,
+      "name": "Dry Samosa (250 g)",
+      "set": {
+        "price": 70.0,
+        "unit": "250 g"
+      },
+      "multi": false,
+      "excel_price": "70",
+      "excel_size": "250 g"
+    },
+    {
+      "id": 257,
+      "name": "Chakri (250 g)",
+      "set": {
+        "price": 80.0,
+        "unit": "250 g"
+      },
+      "multi": false,
+      "excel_price": "80",
+      "excel_size": "250 g"
+    },
+    {
+      "id": 258,
+      "name": "Big Bhakharwadi (250 g)",
+      "set": {
+        "price": 70.0,
+        "unit": "250 g"
+      },
+      "multi": false,
+      "excel_price": "70",
+      "excel_size": "250 g"
+    },
+    {
+      "id": 259,
+      "name": "Dry Kachori (250 g)",
+      "set": {
+        "price": 85.0,
+        "unit": "250 g"
+      },
+      "multi": false,
+      "excel_price": "85",
+      "excel_size": "250 g"
+    },
+    {
+      "id": 260,
+      "name": "Fafda Gathiya",
+      "set": {
+        "price": 50.0
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": null
+    },
+    {
+      "id": 261,
+      "name": "Pani Puri Kit",
+      "set": {
+        "price": 150.0,
+        "unit": "Box"
+      },
+      "multi": false,
+      "excel_price": "150",
+      "excel_size": "Box"
+    },
+    {
+      "id": 262,
+      "name": "Bombay Bhel (Kit)",
+      "set": {
+        "price": 50.0,
+        "unit": "100gm"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "100gm"
+    },
+    {
+      "id": 263,
+      "name": "Laccha Paratha (400 g)",
+      "set": {
+        "unit": "80 g"
+      },
+      "multi": false,
+      "excel_price": "90",
+      "excel_size": "80 g"
+    },
+    {
+      "id": 264,
+      "name": "Mix Veg Paratha (400 g)",
+      "set": {
+        "unit": "100 g"
+      },
+      "multi": false,
+      "excel_price": "110",
+      "excel_size": "100 g"
+    },
+    {
+      "id": 265,
+      "name": "Aloo Paratha ",
+      "set": {
+        "unit": "80 g"
+      },
+      "multi": false,
+      "excel_price": "90",
+      "excel_size": "80 g"
+    },
+    {
+      "id": 266,
+      "name": "Malabar Paratha ",
+      "set": {
+        "unit": "80 g"
+      },
+      "multi": false,
+      "excel_price": "105",
+      "excel_size": "80 g"
+    },
+    {
+      "id": 267,
+      "name": "Onion Paratha (400 g)",
+      "set": {
+        "unit": "80 g"
+      },
+      "multi": false,
+      "excel_price": "120",
+      "excel_size": "80 g"
+    },
+    {
+      "id": 268,
+      "name": "Methi Paratha (400 g)",
+      "set": {
+        "unit": "400 g"
+      },
+      "multi": false,
+      "excel_price": "50",
+      "excel_size": "400 g"
+    },
+    {
+      "id": 271,
+      "name": "Chapati",
+      "set": {
+        "unit": "40 g"
+      },
+      "multi": false,
+      "excel_price": "90",
+      "excel_size": "40 g"
+    },
+    {
+      "id": 274,
+      "name": "French Fries (200 g - 2.5 Kg)",
+      "set": {
+        "price": 45.0,
+        "unit": "200 g - 2.5 Kg"
+      },
+      "multi": false,
+      "excel_price": "45",
+      "excel_size": "200 g - 2.5 Kg"
+    },
+    {
+      "id": 275,
+      "name": "Handmade Punjabi Samosa",
+      "set": {
+        "unit": "50 g - 80 g"
+      },
+      "multi": false,
+      "excel_price": "100",
+      "excel_size": "50 g - 80 g"
+    },
+    {
+      "id": 276,
+      "name": "Handmade Mix Veg Samosa",
+      "set": {
+        "price": 100.0,
+        "unit": "50 g - 80 g"
+      },
+      "multi": false,
+      "excel_price": "100",
+      "excel_size": "50 g - 80 g"
+    },
+    {
+      "id": 292,
+      "name": "Kesar Dryfruit Basundi (1 Kg - 5 Kg)",
+      "set": {
+        "unit": "1 Kg - 5 Kg"
+      },
+      "multi": false,
+      "excel_price": "400",
+      "excel_size": "1 Kg - 5 Kg"
+    },
+    {
+      "id": 293,
+      "name": "Mango Milk Shake (Aam Ras) (500 gm - 1 Kg - 5 Kg)",
+      "set": {
+        "unit": "500 gm - 1 Kg - 5 Kg"
+      },
+      "multi": false,
+      "excel_price": "145",
+      "excel_size": "500 gm - 1 Kg - 5 Kg"
+    }
+  ],
+  "unresolved": [
+    {
+      "id": 24,
+      "name": "Ripple Funday (65 ml)",
+      "category": "Ripple Special",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 41,
+      "name": "Masti Chowpati (60 ml)",
+      "category": "Kulfi",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 54,
+      "name": "Junior Chocobar (35 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 55,
+      "name": "Mango Dolly (50 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 56,
+      "name": "Kachi Keri (50 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 58,
+      "name": "Mawa Malai (45 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 59,
+      "name": "Chiku Candy (50 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 60,
+      "name": "Lemon Chew (50 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 61,
+      "name": "Kala Khatta (50 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 62,
+      "name": "Crunchy Chocobar (35 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 63,
+      "name": "Orange Bar (40 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 64,
+      "name": "Chatpati Imli (50 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 65,
+      "name": "Pinky Bar (35 ml)",
+      "category": "Candy",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 131,
+      "name": "Slim N Trim Milk (170 ml)",
+      "category": "Milk",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 134,
+      "name": "Kathiyawadi Chhash (500 ml)",
+      "category": "Buttermilk",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 166,
+      "name": "Fruit & Nut",
+      "category": "Chocolate",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": null,
+      "need_price": true,
+      "need_unit": true
+    },
+    {
+      "id": 167,
+      "name": "Roasted Almond",
+      "category": "Chocolate",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": null,
+      "need_price": true,
+      "need_unit": true
+    },
+    {
+      "id": 168,
+      "name": "Milk Chocolate",
+      "category": "Chocolate",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": null,
+      "need_price": true,
+      "need_unit": true
+    },
+    {
+      "id": 169,
+      "name": "Dark Compound",
+      "category": "Chocolate",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": null,
+      "need_price": true,
+      "need_unit": true
+    },
+    {
+      "id": 170,
+      "name": "Milk Compound",
+      "category": "Chocolate",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": null,
+      "need_price": true,
+      "need_unit": true
+    },
+    {
+      "id": 196,
+      "name": "Moong Dal",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 197,
+      "name": "Aloo Sev",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 198,
+      "name": "Garlic Sev Mamra",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 199,
+      "name": "Shing Chana",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 200,
+      "name": "Papdi Gathiya",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 201,
+      "name": "Tikha Gathiya",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 202,
+      "name": "Nylon Gathiya",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 203,
+      "name": "Dal Muth",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 204,
+      "name": "Masala Shing",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 206,
+      "name": "Bikaneri Sev",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 207,
+      "name": "Tam Tam",
+      "category": "Namkeen",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 213,
+      "name": "Crazy Crunch",
+      "category": "Wafers",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 214,
+      "name": "Tomato Wafers",
+      "category": "Wafers",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 215,
+      "name": "Chaat Chaska Wafers",
+      "category": "Wafers",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 216,
+      "name": "Banana Wafers",
+      "category": "Banana Wafers",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 217,
+      "name": "Masala Banana Wafers",
+      "category": "Banana Wafers",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 220,
+      "name": "ABCD",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 221,
+      "name": "Pasta",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 222,
+      "name": "Moon Chips",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 223,
+      "name": "Khichu Papad",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 224,
+      "name": "Aero Plane",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 225,
+      "name": "F.F. Papad",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 226,
+      "name": "Tomato Moon Chips",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 227,
+      "name": "Ring",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 228,
+      "name": "Chinese Noodles",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 229,
+      "name": "Sago Ball",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 230,
+      "name": "Tomato Crunch",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 231,
+      "name": "Tomato Wheels",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 232,
+      "name": "Mix Fryums",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 233,
+      "name": "Masala Crunch",
+      "category": "Fryums",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 234,
+      "name": "Soya Stick",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 235,
+      "name": "Chai Puri",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 236,
+      "name": "Magic Puri",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 237,
+      "name": "Desi Samosa",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 238,
+      "name": "Choco Center Fills",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 239,
+      "name": "Bhakharvadi",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 240,
+      "name": "Sakkarpara",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "5",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 241,
+      "name": "Chorafali",
+      "category": "Tea Time Snacks",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "10",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 269,
+      "name": "Palak Paneer Paratha (400 g)",
+      "category": "Paratha",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 270,
+      "name": "Cheese Chilli Paratha (400 g)",
+      "category": "Paratha",
+      "reason": "no_excel_match",
+      "need_price": false
+    },
+    {
+      "id": 277,
+      "name": "Margherita Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "180",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 278,
+      "name": "Veg. Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "180",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 279,
+      "name": "Chilli Garlic Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "200",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 280,
+      "name": "Italian Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "200",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 281,
+      "name": "Jain Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "200",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 282,
+      "name": "All In One Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "210",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 283,
+      "name": "Tandoori Paneer Pizza",
+      "category": "Pizza",
+      "reason": "no_values_in_excel",
+      "excel_size": null,
+      "excel_price": "250",
+      "need_price": false,
+      "need_unit": true
+    },
+    {
+      "id": 299,
+      "name": "Drum Sticks",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 300,
+      "name": "Coconut",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 301,
+      "name": "Amla",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 302,
+      "name": "Red Onion",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 303,
+      "name": "Green Mango",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 304,
+      "name": "Red Chilli",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 305,
+      "name": "Okra Whole (Cut)",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 306,
+      "name": "Suran",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 307,
+      "name": "Lotus Root",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    },
+    {
+      "id": 308,
+      "name": "Garlic Cloves",
+      "category": "Vegetables",
+      "reason": "no_excel_match",
+      "need_price": true
+    }
+  ]
+}

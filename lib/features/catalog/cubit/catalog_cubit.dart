@@ -29,8 +29,12 @@ class CatalogCubit extends Cubit<CatalogState> {
 
   void _listenAuth() {
     if (!SupabaseGate.ready) return;
-    _authSubscription = Supabase.instance.client.auth.onAuthStateChange.listen((data) {
-      if (data.event == AuthChangeEvent.initialSession) return;
+    _authSubscription = Supabase.instance.client.auth.onAuthStateChange.listen((data) async {
+      debugPrint('[Wishlist Auth] Auth event: ${data.event.name}');
+      final liveWishlist = await SupabaseService.instance.fetchWishlist();
+      if (!isClosed) {
+        emit(state.copyWith(wishlist: liveWishlist));
+      }
       _subscribeWishlist();
     });
   }

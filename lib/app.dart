@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sheetal_icecream/core/theme/app_theme.dart';
@@ -6,7 +7,7 @@ import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
 import 'package:sheetal_icecream/features/cart/cubit/orders_cubit.dart';
 import 'package:sheetal_icecream/features/catalog/cubit/catalog_cubit.dart';
 import 'package:sheetal_icecream/features/shell/cubit/shell_cubit.dart';
-import 'package:sheetal_icecream/features/shell/presentation/app_shell.dart';
+import 'package:sheetal_icecream/features/shell/presentation/session_root.dart';
 import 'package:sheetal_icecream/features/splash/presentation/splash_screen.dart';
 
 class SheetalApp extends StatefulWidget {
@@ -20,15 +21,47 @@ class SheetalApp extends StatefulWidget {
 
 class _SheetalAppState extends State<SheetalApp> {
   final CatalogRepository _catalog = SupabaseCatalogRepository();
+  late final CatalogCubit _catalogCubit;
+  late final CartCubit _cartCubit;
+  late final OrdersCubit _ordersCubit;
+  late final ShellCubit _shellCubit;
+  StreamSubscription? _catalogSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    _catalogCubit = CatalogCubit(_catalog);
+    _cartCubit = CartCubit(_catalog);
+    _ordersCubit = OrdersCubit();
+    _shellCubit = ShellCubit();
+
+    // Whenever catalog finishes loading or refreshes products,
+    // refresh the cart so CartLine items match loaded products immediately!
+    _catalogSubscription = _catalogCubit.stream.listen((state) {
+      if (state.products.isNotEmpty) {
+        _cartCubit.republish();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _catalogSubscription?.cancel();
+    _catalogCubit.close();
+    _cartCubit.close();
+    _ordersCubit.close();
+    _shellCubit.close();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => CatalogCubit(_catalog)),
-        BlocProvider(create: (_) => CartCubit(_catalog)),
-        BlocProvider(create: (_) => OrdersCubit()),
-        BlocProvider(create: (_) => ShellCubit()),
+        BlocProvider.value(value: _catalogCubit),
+        BlocProvider.value(value: _cartCubit),
+        BlocProvider.value(value: _ordersCubit),
+        BlocProvider.value(value: _shellCubit),
       ],
       child: MaterialApp(
         title: 'Sheetal',
@@ -37,7 +70,7 @@ class _SheetalAppState extends State<SheetalApp> {
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
         builder: (context, child) => _MobilePrototypeWrapper(child: child!),
-        home: widget.showSplash ? const SplashScreen() : const AppShell(),
+        home: widget.showSplash ? const SplashScreen() : const SessionRoot(),
       ),
     );
   }

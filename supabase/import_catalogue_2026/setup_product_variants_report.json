@@ -1,0 +1,578 @@
+{
+  "groups": [
+    {
+      "base": "Gold Milk",
+      "category": "Milk",
+      "primary_id": 125,
+      "primary_name": "Gold Milk (500 ml)",
+      "variants": [
+        {
+          "source_id": 125,
+          "label": "500 ml",
+          "price": 36,
+          "is_primary": true
+        },
+        {
+          "source_id": 311,
+          "label": "6 Ltr",
+          "price": 420,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        311
+      ]
+    },
+    {
+      "base": "Taza Milk",
+      "category": "Milk",
+      "primary_id": 126,
+      "primary_name": "Taza Milk (330 ml)",
+      "variants": [
+        {
+          "source_id": 126,
+          "label": "330 ml",
+          "price": 20,
+          "is_primary": true
+        },
+        {
+          "source_id": 312,
+          "label": "400 ml",
+          "price": 25,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        312
+      ]
+    },
+    {
+      "base": "Anytime Tea Milk",
+      "category": "Milk",
+      "primary_id": 130,
+      "primary_name": "Anytime Tea Milk (1 Ltr)",
+      "variants": [
+        {
+          "source_id": 130,
+          "label": "1 Ltr",
+          "price": 57,
+          "is_primary": true
+        },
+        {
+          "source_id": 313,
+          "label": "6 Ltr",
+          "price": 340,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        313
+      ]
+    },
+    {
+      "base": "Chhash (Buttermilk)",
+      "category": "Buttermilk",
+      "primary_id": 133,
+      "primary_name": "Chhash (Buttermilk) (600 ml)",
+      "variants": [
+        {
+          "source_id": 133,
+          "label": "600 ml",
+          "price": 20,
+          "is_primary": true
+        },
+        {
+          "source_id": 314,
+          "label": "6 Ltr",
+          "price": 175,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        314
+      ]
+    },
+    {
+      "base": "Shital Dahi",
+      "category": "Dahi",
+      "primary_id": 136,
+      "primary_name": "Shital Dahi (180 g)",
+      "variants": [
+        {
+          "source_id": 136,
+          "label": "180 g",
+          "price": 20,
+          "is_primary": true
+        },
+        {
+          "source_id": 315,
+          "label": "5 kg",
+          "price": 450,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        315
+      ]
+    },
+    {
+      "base": "Ghee",
+      "category": "Ghee",
+      "primary_id": 139,
+      "primary_name": "Ghee (500 ml)",
+      "variants": [
+        {
+          "source_id": 139,
+          "label": "500 ml",
+          "price": 360,
+          "is_primary": true
+        },
+        {
+          "source_id": 316,
+          "label": "1 Ltr",
+          "price": 700,
+          "is_primary": false
+        },
+        {
+          "source_id": 317,
+          "label": "15 kg",
+          "price": 11500,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        316,
+        317
+      ]
+    },
+    {
+      "base": "Cow Ghee (Gaay nu Ghee)",
+      "category": "Ghee",
+      "primary_id": 140,
+      "primary_name": "Cow Ghee (Gaay nu Ghee) (200 ml)",
+      "variants": [
+        {
+          "source_id": 140,
+          "label": "200 ml",
+          "price": 160,
+          "is_primary": true
+        },
+        {
+          "source_id": 318,
+          "label": "500 ml",
+          "price": 370,
+          "is_primary": false
+        },
+        {
+          "source_id": 319,
+          "label": "1 Ltr",
+          "price": 720,
+          "is_primary": false
+        },
+        {
+          "source_id": 320,
+          "label": "15 kg",
+          "price": 11900,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        318,
+        319,
+        320
+      ]
+    },
+    {
+      "base": "Elaichi Shrikhand",
+      "category": "Shrikhand",
+      "primary_id": 161,
+      "primary_name": "Elaichi Shrikhand (200 g)",
+      "variants": [
+        {
+          "source_id": 161,
+          "label": "200 g",
+          "price": 50,
+          "is_primary": true
+        },
+        {
+          "source_id": 321,
+          "label": "500 g",
+          "price": 110,
+          "is_primary": false
+        },
+        {
+          "source_id": 322,
+          "label": "1 kg",
+          "price": 210,
+          "is_primary": false
+        },
+        {
+          "source_id": 323,
+          "label": "6 kg",
+          "price": 1250,
+          "is_primary": false
+        },
+        {
+          "source_id": 324,
+          "label": "20 kg",
+          "price": 4100,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        321,
+        322,
+        323,
+        324
+      ]
+    },
+    {
+      "base": "Rajbhog Shrikhand",
+      "category": "Shrikhand",
+      "primary_id": 162,
+      "primary_name": "Rajbhog Shrikhand (200 g)",
+      "variants": [
+        {
+          "source_id": 162,
+          "label": "200 g",
+          "price": 75,
+          "is_primary": true
+        },
+        {
+          "source_id": 325,
+          "label": "500 g",
+          "price": 150,
+          "is_primary": false
+        },
+        {
+          "source_id": 326,
+          "label": "1 kg",
+          "price": 290,
+          "is_primary": false
+        },
+        {
+          "source_id": 327,
+          "label": "6 kg",
+          "price": 1740,
+          "is_primary": false
+        },
+        {
+          "source_id": 328,
+          "label": "20 kg",
+          "price": 5700,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        325,
+        326,
+        327,
+        328
+      ]
+    },
+    {
+      "base": "Mixed Fruit Shrikhand",
+      "category": "Shrikhand",
+      "primary_id": 163,
+      "primary_name": "Mixed Fruit Shrikhand (200 g)",
+      "variants": [
+        {
+          "source_id": 163,
+          "label": "200 g",
+          "price": 60,
+          "is_primary": true
+        },
+        {
+          "source_id": 329,
+          "label": "500 g",
+          "price": 120,
+          "is_primary": false
+        },
+        {
+          "source_id": 330,
+          "label": "1 kg",
+          "price": 230,
+          "is_primary": false
+        },
+        {
+          "source_id": 331,
+          "label": "6 kg",
+          "price": 1380,
+          "is_primary": false
+        },
+        {
+          "source_id": 332,
+          "label": "20 kg",
+          "price": 4500,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        329,
+        330,
+        331,
+        332
+      ]
+    },
+    {
+      "base": "Mango Shrikhand",
+      "category": "Shrikhand",
+      "primary_id": 164,
+      "primary_name": "Mango Shrikhand (200 g)",
+      "variants": [
+        {
+          "source_id": 164,
+          "label": "200 g",
+          "price": 60,
+          "is_primary": true
+        },
+        {
+          "source_id": 333,
+          "label": "500 g",
+          "price": 120,
+          "is_primary": false
+        },
+        {
+          "source_id": 334,
+          "label": "1 kg",
+          "price": 230,
+          "is_primary": false
+        },
+        {
+          "source_id": 335,
+          "label": "6 kg",
+          "price": 1380,
+          "is_primary": false
+        },
+        {
+          "source_id": 336,
+          "label": "20 kg",
+          "price": 4500,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        333,
+        334,
+        335,
+        336
+      ]
+    },
+    {
+      "base": "Tikha Mitha Mix",
+      "category": "Namkeen",
+      "primary_id": 186,
+      "primary_name": "Tikha Mitha Mix (150 g)",
+      "variants": [
+        {
+          "source_id": 186,
+          "label": "150 g",
+          "price": 30,
+          "is_primary": true
+        },
+        {
+          "source_id": 337,
+          "label": "500 g",
+          "price": 70,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        337
+      ]
+    },
+    {
+      "base": "Khatta Meetha",
+      "category": "Namkeen",
+      "primary_id": 187,
+      "primary_name": "Khatta Meetha (150 g)",
+      "variants": [
+        {
+          "source_id": 187,
+          "label": "150 g",
+          "price": 25,
+          "is_primary": true
+        },
+        {
+          "source_id": 338,
+          "label": "500 g",
+          "price": 70,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        338
+      ]
+    },
+    {
+      "base": "Bhavnagari Gathiya",
+      "category": "Namkeen",
+      "primary_id": 189,
+      "primary_name": "Bhavnagari Gathiya (150 g)",
+      "variants": [
+        {
+          "source_id": 189,
+          "label": "150 g",
+          "price": 25,
+          "is_primary": true
+        },
+        {
+          "source_id": 339,
+          "label": "500 g",
+          "price": 75,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        339
+      ]
+    },
+    {
+      "base": "French Fries",
+      "category": "French Fries",
+      "primary_id": 274,
+      "primary_name": "French Fries (200 g)",
+      "variants": [
+        {
+          "source_id": 274,
+          "label": "200 g",
+          "price": 45,
+          "is_primary": true
+        },
+        {
+          "source_id": 340,
+          "label": "2.5 Kg",
+          "price": 400,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        340
+      ]
+    },
+    {
+      "base": "Handmade Punjabi Samosa",
+      "category": "Samosa",
+      "primary_id": 275,
+      "primary_name": "Handmade Punjabi Samosa (50 g)",
+      "variants": [
+        {
+          "source_id": 275,
+          "label": "50 g",
+          "price": 100,
+          "is_primary": true
+        },
+        {
+          "source_id": 341,
+          "label": "80 g",
+          "price": 160,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        341
+      ]
+    },
+    {
+      "base": "Handmade Mix Veg Samosa",
+      "category": "Samosa",
+      "primary_id": 276,
+      "primary_name": "Handmade Mix Veg Samosa (50 g)",
+      "variants": [
+        {
+          "source_id": 276,
+          "label": "50 g",
+          "price": 100,
+          "is_primary": true
+        },
+        {
+          "source_id": 342,
+          "label": "80 g",
+          "price": 180,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        342
+      ]
+    },
+    {
+      "base": "Kesar Dryfruit Basundi",
+      "category": "Frozen Sweets",
+      "primary_id": 292,
+      "primary_name": "Kesar Dryfruit Basundi (1 kg)",
+      "variants": [
+        {
+          "source_id": 292,
+          "label": "1 kg",
+          "price": 400,
+          "is_primary": true
+        },
+        {
+          "source_id": 343,
+          "label": "5 kg",
+          "price": 1890,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        343
+      ]
+    },
+    {
+      "base": "Mango Milk Shake (Aam Ras)",
+      "category": "Frozen Sweets",
+      "primary_id": 293,
+      "primary_name": "Mango Milk Shake (Aam Ras) (500 g)",
+      "variants": [
+        {
+          "source_id": 293,
+          "label": "500 g",
+          "price": 145,
+          "is_primary": true
+        },
+        {
+          "source_id": 344,
+          "label": "1 kg",
+          "price": 280,
+          "is_primary": false
+        },
+        {
+          "source_id": 345,
+          "label": "5 kg",
+          "price": 1350,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        344,
+        345
+      ]
+    },
+    {
+      "base": "Green Peas",
+      "category": "Vegetables",
+      "primary_id": 309,
+      "primary_name": "Green Peas (200 g)",
+      "variants": [
+        {
+          "source_id": 309,
+          "label": "200 g",
+          "price": 40,
+          "is_primary": true
+        },
+        {
+          "source_id": 346,
+          "label": "1 kg",
+          "price": 120,
+          "is_primary": false
+        }
+      ],
+      "hide_ids": [
+        346
+      ]
+    }
+  ],
+  "group_count": 20,
+  "hidden_rows": 36
+}

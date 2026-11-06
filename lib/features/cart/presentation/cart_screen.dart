@@ -4,6 +4,7 @@ import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/core/widgets/dashed_line.dart';
 import 'package:sheetal_icecream/core/widgets/product_thumb.dart';
 import 'package:sheetal_icecream/core/widgets/quantity_stepper.dart';
+import 'package:sheetal_icecream/features/auth/presentation/auth_bottom_sheet.dart';
 import 'package:sheetal_icecream/features/cart/cubit/cart_cubit.dart';
 import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
 import 'package:sheetal_icecream/features/cart/presentation/checkout_screen.dart';
@@ -114,8 +115,13 @@ class _CartBody extends StatelessWidget {
               key: const Key('checkout-button'),
               borderRadius: BorderRadius.circular(12),
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const CheckoutScreen()),
+                AuthBottomSheet.requireAuth(
+                  context,
+                  onAuthenticated: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const CheckoutScreen()),
+                    );
+                  },
                 );
               },
               child: SizedBox(
@@ -191,7 +197,7 @@ class _CartLineTile extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  line.product.unit,
+                  line.unitLabel,
                   style: TextStyle(fontSize: 13, color: colors.muted),
                 ),
               ],
@@ -200,10 +206,14 @@ class _CartLineTile extends StatelessWidget {
           QuantityStepper(
             quantity: line.quantity,
             compact: true,
-            onIncrement: () =>
-                context.read<CartCubit>().increment(line.product.id),
-            onDecrement: () =>
-                context.read<CartCubit>().decrement(line.product.id),
+            onIncrement: () => context.read<CartCubit>().increment(
+                  line.product.id,
+                  variantId: line.variantId,
+                ),
+            onDecrement: () => context.read<CartCubit>().decrement(
+                  line.product.id,
+                  variantId: line.variantId,
+                ),
           ),
           const SizedBox(width: 8),
           SizedBox(

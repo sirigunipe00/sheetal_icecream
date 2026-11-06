@@ -121,11 +121,11 @@ class _CategoryProductsViewState extends State<CategoryProductsView> {
                       return ProductCard(
                         key: ValueKey('category-product-${product.id}'),
                         product: product,
-                        quantity: cart.quantityOf(product.id),
+                        quantity: cart.quantityOfProduct(product.id),
                         onIncrement: () =>
-                            context.read<CartCubit>().increment(product.id),
+                            context.read<CartCubit>().incrementProduct(product),
                         onDecrement: () =>
-                            context.read<CartCubit>().decrement(product.id),
+                            context.read<CartCubit>().decrementProduct(product.id),
                       );
                     },
                   ),
