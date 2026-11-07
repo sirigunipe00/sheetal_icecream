@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
 import 'package:sheetal_icecream/features/auth/presentation/auth_bottom_sheet.dart';
 import 'package:sheetal_icecream/features/address/presentation/saved_addresses_sheet.dart';
-import 'package:sheetal_icecream/features/cart/cubit/orders_cubit.dart';
+import 'package:sheetal_icecream/features/profile/presentation/user_orders_screen.dart';
 import 'package:sheetal_icecream/services/supabase_service.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -288,71 +287,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
   void _showOrders(BuildContext context) {
-    final orders = context.read<OrdersCubit>().state;
-    if (orders.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('No orders yet.'),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
-      return;
-    }
-
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.transparent,
-      isScrollControlled: true,
-      builder: (_) => Container(
-        constraints: BoxConstraints(
-          maxHeight: MediaQuery.of(context).size.height * 0.75,
-        ),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
-        ),
-        padding: const EdgeInsets.fromLTRB(20, 18, 20, 24),
-        child: ListView(
-          shrinkWrap: true,
-          children: [
-            const Text(
-              'Order history',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w800,
-                color: AppColors.royalPurple,
-              ),
-            ),
-            const SizedBox(height: 12),
-            for (final order in orders)
-              Container(
-                margin: const EdgeInsets.only(bottom: 10),
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  border: Border.all(color: AppColors.borderPink),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(order.number, style: const TextStyle(fontWeight: FontWeight.w800)),
-                        Text(order.date, style: const TextStyle(color: AppColors.softMuted, fontSize: 12)),
-                      ],
-                    ),
-                    const SizedBox(height: 6),
-                    for (final line in order.lines) Text(line),
-                    const SizedBox(height: 6),
-                    Text('Total ₹${order.total}', style: const TextStyle(fontWeight: FontWeight.w800)),
-                    Text(order.address, style: const TextStyle(fontSize: 12, color: AppColors.softMuted)),
-                  ],
-                ),
-              ),
-          ],
-        ),
-      ),
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const UserOrdersScreen()),
     );
   }
 

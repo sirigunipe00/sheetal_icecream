@@ -25,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final _scroll = ScrollController();
   final _search = TextEditingController();
   String _deliveryLabel = 'Finding your location…';
+  String _selectedMenu = 'All';
+  final Set<String> _expandedMenus = {};
 
   @override
   void initState() {
@@ -81,6 +83,17 @@ class _HomeScreenState extends State<HomeScreen> {
     final isSearching = catalog.query.trim().isNotEmpty;
     final isCategoryFiltered = catalog.category != 'All';
 
+    final menuCategories = _selectedMenu == 'All'
+        ? null
+        : CatalogueMenus.categoriesByMenu[_selectedMenu];
+
+    final displayProducts = catalog.visible.where((p) {
+      if (menuCategories != null) {
+        return menuCategories.contains(p.category);
+      }
+      return true;
+    }).toList();
+
     return SafeArea(
       bottom: false,
       child: CustomScrollView(
@@ -107,60 +120,77 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          // When searching or filtering by a category, show only results grid
-          if (!isSearching && !isCategoryFiltered) ...[
-            // 3. Hero Promo Banner Slider
+          // 2.5 Blinkit-style Top Category Menu Tabs (All, Ice Cream Menu, Milk, Snacks, Frozen)
+          if (!isSearching && !isCategoryFiltered)
             SliverToBoxAdapter(
-              child: _HeroImageSlider(
-                onShopNow: _scrollToGrid,
-                onCategory: _openCategoryPage,
+              child: _TopCategoryMenuBar(
+                selectedMenu: _selectedMenu,
+                onMenuSelected: (menu) {
+                  setState(() {
+                    _selectedMenu = menu;
+                  });
+                },
               ),
             ),
 
-            // 4. Shop by Category — circular rings
-            // SliverToBoxAdapter(
-            //   child: _ShopByCategory(
-            //     onCategory: _openCategoryPage,
-            //     selectedCategory: catalog.category,
-            //     categories: catalog.categories,
-            //     categoryImages: catalog.categoryImages,
-            //     products: catalog.products,
-            //   ),
-            // ),
+          // When searching or filtering by a category, show only results grid
+          if (!isSearching && !isCategoryFiltered) ...[
+            // 3. Hero Promo Banner Slider
+            if (_selectedMenu == 'All' || _selectedMenu == 'Ice Cream Menu')
+              SliverToBoxAdapter(
+                child: _HeroImageSlider(
+                  onShopNow: _scrollToGrid,
+                  onCategory: _openCategoryPage,
+                ),
+              ),
 
-            // 5. Menu sections (Blinkit-style 4-column category grids)
+            // 5. Menu sections (Blinkit-style 4-column category grids with 4 items & See More)
             SliverToBoxAdapter(
               child: _CatalogueMenuSections(
                 products: catalog.products,
                 categoryImages: catalog.categoryImages,
                 onCategory: _openCategoryPage,
+                selectedMenu: _selectedMenu,
+                expandedMenus: _expandedMenus,
+                onToggleExpand: (menu) {
+                  setState(() {
+                    if (_expandedMenus.contains(menu)) {
+                      _expandedMenus.remove(menu);
+                    } else {
+                      _expandedMenus.add(menu);
+                    }
+                  });
+                },
               ),
             ),
 
-            // 6. Best Sellers Section
-            SliverToBoxAdapter(
-              child: _BestSellersBar(
-                products: catalog.bestSellers,
-                cart: cart,
+            if (_selectedMenu == 'All' || _selectedMenu == 'Ice Cream Menu') ...[
+              // 6. Best Sellers Section
+              SliverToBoxAdapter(
+                child: _BestSellersBar(
+                  products: catalog.bestSellers,
+                  cart: cart,
+                ),
               ),
-            ),
 
-            // 7. New Arrivals Section
-            SliverToBoxAdapter(
-              child: _NewArrivalsBar(
-                products: catalog.newArrivals,
-                cart: cart,
+              // 7. New Arrivals Section
+              SliverToBoxAdapter(
+                child: _NewArrivalsBar(
+                  products: catalog.newArrivals,
+                  cart: cart,
+                ),
               ),
-            ),
+            ],
 
-            // 8. Fresh Milk & Dairy (Fast Expire Daily Products)
-            SliverToBoxAdapter(
-              child: _FreshMilkBar(
-                products: catalog.products,
-                cart: cart,
-                onSeeAll: () => _openCategoryPage('Milk'),
+            if (_selectedMenu == 'All' || _selectedMenu == 'Milk Menu')
+              // 8. Fresh Milk & Dairy (Fast Expire Daily Products)
+              SliverToBoxAdapter(
+                child: _FreshMilkBar(
+                  products: catalog.products,
+                  cart: cart,
+                  onSeeAll: () => _openCategoryPage('Milk'),
+                ),
               ),
-            ),
           ],
 
           // 8. Section Header (All ice creams or Selected Category)
@@ -168,10 +198,12 @@ class _HomeScreenState extends State<HomeScreen> {
             child: _SectionTitle(
               title: isSearching
                   ? 'Search results'
-                  : catalog.category == 'All'
-                      ? 'All ice creams'
-                      : catalog.category,
-              countLabel: '${catalog.visible.length} items',
+                  : catalog.category != 'All'
+                      ? catalog.category
+                      : _selectedMenu != 'All'
+                          ? _selectedMenu
+                          : 'All ice creams',
+              countLabel: '${displayProducts.length} items',
             ),
           ),
 
@@ -185,7 +217,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onRetry: () => context.read<CatalogCubit>().loadFromSupabase(),
               ),
             )
-          else if (catalog.visible.isEmpty)
+          else if (displayProducts.isEmpty)
             const SliverToBoxAdapter(child: _EmptySearch())
           else
             SliverPadding(
@@ -199,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (context, index) {
-                    final product = catalog.visible[index];
+                    final product = displayProducts[index];
                     return ProductCard(
                       key: ValueKey('product-${product.id}'),
                       product: product,
@@ -210,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           context.read<CartCubit>().decrementProduct(product.id),
                     );
                   },
-                  childCount: catalog.visible.length,
+                  childCount: displayProducts.length,
                 ),
               ),
             ),
@@ -853,132 +885,156 @@ class _HeroImageSliderState extends State<_HeroImageSlider> {
   }
 }
 
+
 // ---------------------------------------------------------------------------
-// 4. Shop by Category Circular Rings
+// 4.5 Blinkit-style Top Category Menu Tabs (All, Ice Cream Menu, Milk, Snacks, Frozen)
 // ---------------------------------------------------------------------------
-class _ShopByCategory extends StatelessWidget {
-  const _ShopByCategory({
-    required this.onCategory,
-    required this.selectedCategory,
-    required this.categories,
-    required this.categoryImages,
-    required this.products,
+class _TopCategoryMenuBar extends StatelessWidget {
+  const _TopCategoryMenuBar({
+    required this.selectedMenu,
+    required this.onMenuSelected,
   });
 
-  final ValueChanged<String> onCategory;
-  final String selectedCategory;
-  final List<String> categories;
-  final Map<String, String> categoryImages;
-  final List<Product> products;
+  final String selectedMenu;
+  final ValueChanged<String> onMenuSelected;
+
+  static const List<({String key, String label, IconData icon})> _items = [
+    (key: 'All', label: 'All', icon: Icons.grid_view_rounded),
+    (key: 'Ice Cream Menu', label: 'Ice Cream Menu', icon: Icons.icecream_outlined),
+    (key: 'Milk Menu', label: 'Milk', icon: Icons.local_drink_outlined),
+    (key: 'Namkeen Menu', label: 'Snacks', icon: Icons.cookie_outlined),
+    (key: 'Frozen Products', label: 'Frozen Food', icon: Icons.ac_unit_rounded),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final cats = categories.where((cat) => cat != 'All').toList();
-    if (cats.isEmpty) return const SizedBox.shrink();
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Padding(
-          padding: EdgeInsets.fromLTRB(16, 14, 16, 8),
-          child: Text(
-            'Shop by category',
-            style: TextStyle(
-              fontSize: 17,
-              fontWeight: FontWeight.w800,
-              color: AppColors.royalPurple,
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 116,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            itemCount: cats.length,
-            separatorBuilder: (_, _) => const SizedBox(width: 12),
-            itemBuilder: (context, index) {
-              final cat = cats[index];
-              final img = categoryImages[cat];
-              final fallback = categoryImageFallback(products, cat, img);
-              final isSelected = cat == selectedCategory;
-
-              return GestureDetector(
-                onTap: () => onCategory(cat),
-                child: SizedBox(
-                  width: 84,
-                  child: Column(
-                    children: [
-                      Container(
-                        width: 76,
-                        height: 76,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: isSelected
-                              ? AppColors.brandGradient
-                              : AppColors.ringGradient,
-                        ),
-                        padding: const EdgeInsets.all(3),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white,
-                          ),
-                          padding: const EdgeInsets.all(8),
-                          child: CategoryImage(
-                            imageUrl: img,
-                            fallbackUrl: fallback,
-                            label: cat,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        cat,
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight:
-                              isSelected ? FontWeight.w800 : FontWeight.w600,
-                          color: isSelected
-                              ? AppColors.primary
-                              : AppColors.deepInk,
-                        ),
-                      ),
-                    ],
-                  ),
+    return Container(
+      color: Colors.transparent,
+      padding: const EdgeInsets.fromLTRB(14, 6, 14, 10),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+        child: Row(
+          children: [
+            for (final item in _items) ...[
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: _TopMenuChip(
+                  label: item.label,
+                  icon: item.icon,
+                  isSelected: selectedMenu == item.key,
+                  onTap: () => onMenuSelected(item.key),
                 ),
-              );
-            },
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _TopMenuChip extends StatelessWidget {
+  const _TopMenuChip({
+    required this.label,
+    required this.icon,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final String label;
+  final IconData icon;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(22),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 180),
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+          decoration: BoxDecoration(
+            gradient: isSelected ? AppColors.brandGradient : null,
+            color: isSelected ? null : Colors.white,
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(
+              color: isSelected ? Colors.transparent : AppColors.borderPink,
+              width: 1.2,
+            ),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: AppColors.primary.withValues(alpha: 0.3),
+                      blurRadius: 7,
+                      offset: const Offset(0, 2),
+                    ),
+                  ]
+                : [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.02),
+                      blurRadius: 4,
+                      offset: const Offset(0, 1),
+                    ),
+                  ],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 15,
+                color: isSelected ? Colors.white : AppColors.royalPurple,
+              ),
+              const SizedBox(width: 6),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 12.5,
+                  fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
+                  color: isSelected ? Colors.white : AppColors.royalPurple,
+                ),
+              ),
+            ],
           ),
         ),
-      ],
+      ),
     );
   }
 }
 
 // ---------------------------------------------------------------------------
-// 5. Catalogue menus — Blinkit-style 4-column category grids
+// 5. Catalogue menus — Blinkit-style 4-column category grids (4 items + See More)
 // ---------------------------------------------------------------------------
 class _CatalogueMenuSections extends StatelessWidget {
   const _CatalogueMenuSections({
     required this.products,
     required this.categoryImages,
     required this.onCategory,
+    required this.selectedMenu,
+    required this.expandedMenus,
+    required this.onToggleExpand,
   });
 
   final List<Product> products;
   final Map<String, String> categoryImages;
   final ValueChanged<String> onCategory;
+  final String selectedMenu;
+  final Set<String> expandedMenus;
+  final ValueChanged<String> onToggleExpand;
 
   @override
   Widget build(BuildContext context) {
     final available = {
       for (final p in products) p.category,
     };
-    final menus = CatalogueMenus.menusWithProducts(available);
+    var menus = CatalogueMenus.menusWithProducts(available);
+    if (selectedMenu != 'All') {
+      menus = menus.where((m) => m.menu == selectedMenu).toList();
+    }
     if (menus.isEmpty) return const SizedBox.shrink();
 
     return Padding(
@@ -987,43 +1043,91 @@ class _CatalogueMenuSections extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           for (final menu in menus) ...[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 20, 16, 14),
-              child: Text(
-                menu.menu,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                  color: Color(0xFF1F1F1F),
-                  letterSpacing: -0.2,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: menu.categories.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 4,
-                  mainAxisSpacing: 14,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 0.68,
-                ),
-                itemBuilder: (context, index) {
-                  final category = menu.categories[index];
-                  final categoryProducts = products
-                      .where((p) => p.category == category)
-                      .toList();
-                  return _MenuCategoryTile(
-                    category: category,
-                    products: categoryProducts,
-                    imageUrl: categoryImages[category],
-                    onTap: () => onCategory(category),
-                  );
-                },
-              ),
+            Builder(
+              builder: (context) {
+                final isExpanded = expandedMenus.contains(menu.menu) || selectedMenu != 'All';
+                final categoriesToShow = isExpanded
+                    ? menu.categories
+                    : menu.categories.take(4).toList();
+                final remaining = menu.categories.length - 4;
+
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 20, 16, 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            menu.menu,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: Color(0xFF1F1F1F),
+                              letterSpacing: -0.2,
+                            ),
+                          ),
+                          if (remaining > 0 && selectedMenu == 'All')
+                            InkWell(
+                              onTap: () => onToggleExpand(menu.menu),
+                              borderRadius: BorderRadius.circular(12),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      isExpanded ? 'See less' : 'See all',
+                                      style: const TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.primary,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 2),
+                                    Icon(
+                                      isExpanded
+                                          ? Icons.keyboard_arrow_up_rounded
+                                          : Icons.chevron_right_rounded,
+                                      size: 16,
+                                      color: AppColors.primary,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: categoriesToShow.length,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 4,
+                          mainAxisSpacing: 14,
+                          crossAxisSpacing: 10,
+                          childAspectRatio: 0.68,
+                        ),
+                        itemBuilder: (context, index) {
+                          final category = categoriesToShow[index];
+                          final categoryProducts = products
+                              .where((p) => p.category == category)
+                              .toList();
+                          return _MenuCategoryTile(
+                            category: category,
+                            products: categoryProducts,
+                            imageUrl: categoryImages[category],
+                            onTap: () => onCategory(category),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ],
         ],

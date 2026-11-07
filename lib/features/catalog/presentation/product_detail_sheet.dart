@@ -172,48 +172,6 @@ class _ProductDetailSheetState extends State<ProductDetailSheet> {
                     ),
                   ),
 
-                  if (product.hasVariants) ...[
-                    const SizedBox(height: 20),
-                    const Text(
-                      'Pack size',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w800,
-                        color: AppColors.deepInk,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: [
-                        for (final variant in product.variants)
-                          ChoiceChip(
-                            label: Text('${variant.label} · ₹${variant.price}'),
-                            selected: _selectedVariant.id == variant.id,
-                            onSelected: (_) {
-                              setState(() => _selectedVariant = variant);
-                            },
-                            selectedColor: AppColors.primary.withValues(alpha: 0.18),
-                            labelStyle: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 12,
-                              color: _selectedVariant.id == variant.id
-                                  ? AppColors.primary
-                                  : AppColors.deepInk,
-                            ),
-                            side: BorderSide(
-                              color: _selectedVariant.id == variant.id
-                                  ? AppColors.primary
-                                  : AppColors.borderPink,
-                            ),
-                            backgroundColor: Colors.white,
-                            showCheckmark: false,
-                          ),
-                      ],
-                    ),
-                  ],
-
                   const SizedBox(height: 20),
                   const Text(
                     'Quantity',

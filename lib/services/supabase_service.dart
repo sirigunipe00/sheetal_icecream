@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:sheetal_icecream/data/models/order.dart';
 import 'package:sheetal_icecream/data/models/user_address.dart';
+import 'package:sheetal_icecream/features/cart/cubit/cart_state.dart';
 
 /// True only after [Supabase.initialize] has finished.
 class SupabaseGate {
@@ -348,6 +350,140 @@ class SupabaseService {
       });
     } catch (e) {
       debugPrint('[Address Error] Could not delete address: $e');
+      rethrow;
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // Orders Operations (COD & Online)
+  // ---------------------------------------------------------------------
+
+  /// Creates a new order in Supabase and saves its items into the items column
+  Future<CustomerOrder> createOrder({
+    required String orderNumber,
+    required String customerName,
+    required String customerPhone,
+    required String addressText,
+    String addressLabel = 'Home',
+    required int subtotal,
+    required int deliveryFee,
+    required int handlingFee,
+    required int total,
+    String paymentMethod = 'cod',
+    required List<CartLine> lines,
+  }) async {
+    if (!SupabaseGate.ready) {
+      throw Exception('Supabase is not initialized');
+    }
+
+    final userId = currentUserId;
+    return await _retry(() async {
+      // Build items json array
+      final itemsPayload = [
+        for (final line in lines)
+          {
+            'product_id': line.product.id,
+            'variant_id': line.variantId,
+            'product_name': line.product.name,
+            'unit_label': line.unitLabel,
+            'unit_price': line.unitPrice,
+            'quantity': line.quantity,
+            'line_total': line.lineTotal,
+            if (line.product.image != null) 'image_url': line.product.image,
+          }
+      ];
+
+      // Exact columns matching public.orders table in Supabase
+      final orderPayload = {
+        'order_number': orderNumber,
+        'user_id': userId,
+        'customer_name': customerName,
+        'customer_phone': customerPhone,
+        'delivery_address': addressText,
+        'status': 'placed',
+        'payment_method': paymentMethod,
+        'payment_status': paymentMethod == 'cod' ? 'pending' : 'paid',
+        'subtotal': subtotal,
+        'delivery_fee': deliveryFee,
+        'handling_fee': handlingFee,
+        'total': total,
+        'items': itemsPayload,
+      };
+
+      final orderRes = await _client
+          .from('orders')
+          .insert(orderPayload)
+          .select()
+          .single();
+
+      // Clear remote cart after order placement
+      clearCart();
+
+      debugPrint('[Order Success] Order $orderNumber placed in database with ${lines.length} items');
+      return CustomerOrder.fromMap(Map<String, dynamic>.from(orderRes));
+    });
+  }
+
+  /// Fetches orders for the currently authenticated user
+  Future<List<CustomerOrder>> fetchUserOrders() async {
+    if (!SupabaseGate.ready || !isSignedIn) return [];
+    try {
+      return await _retry(() async {
+        final data = await _client
+            .from('orders')
+            .select()
+            .eq('user_id', currentUserId)
+            .order('created_at', ascending: false);
+
+        final list = (data as List)
+            .map((row) => CustomerOrder.fromMap(Map<String, dynamic>.from(row as Map)))
+            .toList();
+        return list;
+      });
+    } catch (e) {
+      debugPrint('[Orders Error] Could not fetch user orders: $e');
+      return [];
+    }
+  }
+
+  /// Fetches all orders for Admin view
+  Future<List<CustomerOrder>> fetchAdminOrders() async {
+    if (!SupabaseGate.ready) return [];
+    try {
+      return await _retry(() async {
+        final data = await _client
+            .from('orders')
+            .select()
+            .order('created_at', ascending: false)
+            .limit(200);
+
+        final list = (data as List)
+            .map((row) => CustomerOrder.fromMap(Map<String, dynamic>.from(row as Map)))
+            .toList();
+        return list;
+      });
+    } catch (e) {
+      debugPrint('[Orders Error] Could not fetch admin orders: $e');
+      return [];
+    }
+  }
+
+  /// Updates status of an order (for Admin)
+  Future<void> updateOrderStatus(String orderId, String newStatus) async {
+    if (!SupabaseGate.ready) return;
+    try {
+      await _retry(() async {
+        await _client
+            .from('orders')
+            .update({
+              'status': newStatus,
+              'updated_at': DateTime.now().toUtc().toIso8601String(),
+            })
+            .eq('id', orderId);
+        debugPrint('[Orders] Updated order $orderId to status $newStatus');
+      });
+    } catch (e) {
+      debugPrint('[Orders Error] Could not update order status: $e');
       rethrow;
     }
   }

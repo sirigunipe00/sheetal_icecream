@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:sheetal_icecream/core/widgets/product_asset_registry.dart';
 import 'package:sheetal_icecream/data/catalog/catalogue_menus.dart';
 import 'package:sheetal_icecream/data/models/product.dart';
 import 'package:sheetal_icecream/services/supabase_service.dart';
@@ -296,6 +297,8 @@ class SupabaseCatalogRepository extends CatalogRepository {
       for (final item in data as List) {
         if (item is! Map) continue;
         if (item['is_active'] == false) continue;
+        final label = (item['label'] as String?)?.toLowerCase() ?? '';
+        if (label.contains('pack of 4')) continue;
         final productId = _money(item['product_id']);
         map.putIfAbsent(productId, () => []).add(
               ProductVariant(
@@ -379,6 +382,11 @@ class SupabaseCatalogRepository extends CatalogRepository {
     final keyed = byKey[legacyKey];
     if (keyed != null) return keyed;
 
+    final resolved = resolveBundledAsset('$category-$name') ??
+        resolveBundledAsset('$category-${name.replaceFirst(RegExp(r'\s*\([^)]*\)\s*$'), '')}') ??
+        resolveBundledAsset(name);
+    if (resolved != null) return resolved;
+
     final normalized = category.trim().toLowerCase();
     final productName = name.trim();
     if (normalized == 'flavoured milk' || normalized == 'flavoured-milk') {
@@ -432,6 +440,10 @@ class SupabaseCatalogRepository extends CatalogRepository {
     final plain = name.trim().replaceFirst(RegExp(r'\s*\([^)]*\)\s*$'), '').trim();
     final cat = category.trim();
     if (plain.isEmpty || cat.isEmpty || cat == 'All') return null;
+    final resolved = resolveBundledAsset('$cat-$plain') ??
+        resolveBundledAsset('$cat-$name') ??
+        resolveBundledAsset(plain);
+    if (resolved != null) return resolved;
     final slug = '$cat-$plain'
         .toLowerCase()
         .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
@@ -481,6 +493,8 @@ class SupabaseCatalogRepository extends CatalogRepository {
       for (final item in rawVariants) {
         if (item is! Map) continue;
         if (item['is_active'] == false) continue;
+        final label = (item['label'] as String?)?.toLowerCase() ?? '';
+        if (label.contains('pack of 4')) continue;
         variants.add(
           _RankedVariant(
             variant: ProductVariant(

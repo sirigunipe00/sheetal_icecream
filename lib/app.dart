@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sheetal_icecream/core/theme/app_theme.dart';
 import 'package:sheetal_icecream/data/catalog/catalog_repository.dart';
@@ -69,7 +70,16 @@ class _SheetalAppState extends State<SheetalApp> {
         theme: AppTheme.light(),
         darkTheme: AppTheme.dark(),
         themeMode: ThemeMode.light,
-        builder: (context, child) => _MobilePrototypeWrapper(child: child!),
+        builder: (context, child) => AnnotatedRegion<SystemUiOverlayStyle>(
+          value: const SystemUiOverlayStyle(
+            statusBarColor: Colors.transparent,
+            statusBarIconBrightness: Brightness.dark,
+            statusBarBrightness: Brightness.light,
+            systemNavigationBarColor: Colors.transparent,
+            systemNavigationBarIconBrightness: Brightness.dark,
+          ),
+          child: _MobilePrototypeWrapper(child: child!),
+        ),
         home: widget.showSplash ? const SplashScreen() : const SessionRoot(),
       ),
     );

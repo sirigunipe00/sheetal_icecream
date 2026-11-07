@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sheetal_icecream/core/theme/app_colors.dart';
+import 'package:sheetal_icecream/core/widgets/product_asset_registry.dart';
 import 'package:sheetal_icecream/data/models/product.dart';
 
 const _publicBucket =
     'https://kmiuxdaaznmzdbhmrmmh.supabase.co/storage/v1/object/public/product-images';
 
-/// Storage URLs look like `.../product-images/products/products/natural-cup-guava.png`.
+/// Resolves URL or path to an exact-case bundled asset if one matches.
 String? bundledProductAsset(String? url) {
   if (url == null || url.isEmpty) return null;
-  if (url.startsWith('assets/')) return url;
-  final uri = Uri.tryParse(url);
-  final raw = uri != null && uri.pathSegments.isNotEmpty
-      ? uri.pathSegments.last
-      : url.split('/').last;
-  final name = Uri.decodeComponent(raw).trim();
-  if (name.isEmpty || !name.contains('.')) return null;
-  return 'assets/images/$name';
+  return resolveBundledAsset(url);
 }
 
 String _plainName(Product product) {
@@ -34,9 +28,9 @@ String? catalogueProductAsset(Product product) {
   final category = product.category.trim();
   final name = _plainName(product);
   if (category.isEmpty || name.isEmpty) return null;
-  final slug = _slug('$category-$name');
-  if (slug.isEmpty) return null;
-  return 'assets/images/$slug.png';
+  return resolveBundledAsset('$category-$name') ??
+      resolveBundledAsset('$category-${product.name}') ??
+      resolveBundledAsset(name);
 }
 
 /// Filenames that may exist in Storage for this product.
@@ -50,6 +44,9 @@ List<String> productImageFilenames(Product product) {
     final cleaned = value.startsWith('/') ? value.substring(1) : value;
     files.add(cleaned);
   }
+
+  final resolved = catalogueProductAsset(product);
+  if (resolved != null) add(resolved.split('/').last);
 
   final fromUrl = bundledProductAsset(product.image);
   if (fromUrl != null) add(fromUrl.split('/').last);
@@ -134,12 +131,13 @@ class _ProductImageState extends State<ProductImage> {
   @override
   Widget build(BuildContext context) {
     final assets = <String?>[
+      catalogueProductAsset(widget.product),
+      bundledProductAsset(widget.product.image),
       if (widget.product.image != null &&
           widget.product.image!.startsWith('assets/'))
-        widget.product.image,
-      bundledProductAsset(widget.product.image),
-      catalogueProductAsset(widget.product),
-      ...productImageFilenames(widget.product).map((f) => 'assets/images/$f'),
+        resolveBundledAsset(widget.product.image) ?? widget.product.image,
+      ...productImageFilenames(widget.product)
+          .map((f) => resolveBundledAsset(f) ?? 'assets/images/$f'),
     ].whereType<String>().toSet().toList();
 
     // Catalogue / bundled assets are preferred when the repository already
@@ -185,24 +183,15 @@ class _ProductImageState extends State<ProductImage> {
 
   Widget _assetsOrLetter(List<String> assets) {
     if (assets.isEmpty) return _letter();
+    return _buildAssetWithFallback(assets, 0);
+  }
+
+  Widget _buildAssetWithFallback(List<String> assets, int index) {
+    if (index >= assets.length) return _letter();
     return Image.asset(
-      assets.first,
+      assets[index],
       fit: BoxFit.contain,
-      errorBuilder: (_, _, _) {
-        if (assets.length == 1) return _letter();
-        return Image.asset(
-          assets[1],
-          fit: BoxFit.contain,
-          errorBuilder: (_, _, _) =>
-              assets.length > 2
-                  ? Image.asset(
-                      assets[2],
-                      fit: BoxFit.contain,
-                      errorBuilder: (_, _, _) => _letter(),
-                    )
-                  : _letter(),
-        );
-      },
+      errorBuilder: (_, _, _) => _buildAssetWithFallback(assets, index + 1),
     );
   }
 

@@ -27,6 +27,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   UserAddress? _selectedAddress;
   List<UserAddress> _savedAddresses = [];
   bool _loadingAddresses = true;
+  bool _submittingOrder = false;
   String _payment = 'cod';
   String? _nameError;
   String? _phoneError;
@@ -142,23 +143,49 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     final cart = context.read<CartCubit>().state;
     if (cart.isEmpty) return;
 
-    final formattedAddress = _selectedAddress!.formattedAddress;
+    setState(() => _submittingOrder = true);
 
-    final order = StoreOrder(
-      number: 'SHT${100000 + Random().nextInt(900000)}',
-      date: _today(),
-      lines: [
-        for (final line in cart.lines)
-          '${line.quantity} × ${line.product.name} (${line.product.unit})',
-      ],
-      total: cart.total,
-      address: '$name, $phone\n$formattedAddress',
-      payment: _payment == 'cod' ? 'Cash on Delivery' : 'Online (demo)',
-    );
-    context.read<OrdersCubit>().add(order);
+    final formattedAddress = _selectedAddress!.formattedAddress;
+    final orderNumber = 'SHT${100000 + Random().nextInt(900000)}';
+    StoreOrder finalOrder;
+
+    try {
+      final customerOrder = await SupabaseService.instance.createOrder(
+        orderNumber: orderNumber,
+        customerName: name,
+        customerPhone: phone,
+        addressText: formattedAddress,
+        addressLabel: _selectedAddress!.label,
+        subtotal: cart.subtotal,
+        deliveryFee: cart.deliveryFee,
+        handlingFee: cart.handlingFee,
+        total: cart.total,
+        paymentMethod: _payment,
+        lines: cart.lines,
+      );
+      finalOrder = customerOrder.toStoreOrder();
+    } catch (e) {
+      debugPrint('[Order Save Error] Could not save to database: $e');
+      finalOrder = StoreOrder(
+        number: orderNumber,
+        date: _today(),
+        lines: [
+          for (final line in cart.lines)
+            '${line.quantity} × ${line.product.name} (${line.unitLabel})',
+        ],
+        total: cart.total,
+        address: '$name, $phone\n$formattedAddress',
+        payment: _payment == 'cod' ? 'Cash on Delivery' : 'Online (demo)',
+      );
+    }
+
+    if (!mounted) return;
+    context.read<OrdersCubit>().add(finalOrder);
     context.read<CartCubit>().clear();
+    setState(() => _submittingOrder = false);
+
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(builder: (_) => OrderPlacedScreen(order: order)),
+      MaterialPageRoute(builder: (_) => OrderPlacedScreen(order: finalOrder)),
     );
   }
 
@@ -277,18 +304,27 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               child: InkWell(
                 key: const Key('place-order'),
                 borderRadius: BorderRadius.circular(12),
-                onTap: cart.isEmpty ? null : _placeOrder,
+                onTap: (cart.isEmpty || _submittingOrder) ? null : _placeOrder,
                 child: SizedBox(
                   height: 52,
                   child: Center(
-                    child: Text(
-                      'Place Order · ₹${cart.total}',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
+                    child: _submittingOrder
+                        ? const SizedBox(
+                            width: 22,
+                            height: 22,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2.5,
+                              color: Colors.white,
+                            ),
+                          )
+                        : Text(
+                            'Place Order · ₹${cart.total}',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                   ),
                 ),
               ),
